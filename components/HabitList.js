@@ -1,5 +1,11 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, FlatList } from "react-native"
+import {
+	StyleSheet,
+	View,
+	Image,
+	FlatList,
+	TouchableOpacity,
+} from "react-native"
 import { Card, Title, Paragraph } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
@@ -12,18 +18,22 @@ const Home = ({ habitList }) => {
 				keyExtractor={(item) => item.key}
 				numColumns={2}
 				renderItem={({ item }) => (
-					<Card style={styles.card}>
-						<Image
-							source={icons.images.fitness}
-							style={styles.iconImage}
-						/>
-						<Card.Content>
-							<Title style={styles.cardTilte}>{item.name}</Title>
-							<Paragraph style={styles.cardText}>
-								{item.category}
-							</Paragraph>
-						</Card.Content>
-					</Card>
+					<TouchableOpacity style={styles.card}>
+						<Card style={styles.cardItem}>
+							<Image
+								source={icons.images.fitness}
+								style={styles.iconImage}
+							/>
+							<Card.Content>
+								<Title style={styles.cardTilte}>
+									{item.name}
+								</Title>
+								<Paragraph style={styles.cardText}>
+									{item.category}
+								</Paragraph>
+							</Card.Content>
+						</Card>
+					</TouchableOpacity>
 				)}
 			/>
 		</View>
@@ -34,6 +44,8 @@ const styles = StyleSheet.create({
 	card: {
 		width: "47%",
 		margin: 5,
+	},
+	cardItem: {
 		elevation: 3,
 	},
 	cardContainer: {
