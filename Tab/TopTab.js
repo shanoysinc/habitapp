@@ -7,15 +7,35 @@ import { color } from "../global/global"
 const Tab = createMaterialTopTabNavigator()
 const TopTab = () => {
 	return (
-		<Tab.Navigator>
-			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Progress Bar" component={Progress} />
+		<Tab.Navigator
+			tabBarOptions={{
+				labelStyle: {
+					fontSize: 17,
+					marginTop: 55,
+					fontWeight: "bold",
+				},
+				tabStyle: { height: 100 },
+				style: { backgroundColor: "#beebe9" },
+			}}
+		>
+			<Tab.Screen
+				name="Home"
+				component={Home}
+				style={styles.tabContainer}
+			/>
+			<Tab.Screen
+				name="Progress Bar"
+				component={Progress}
+				style={styles.tabContainer}
+			/>
 		</Tab.Navigator>
 	)
 }
 
 const styles = StyleSheet.create({
-	tabContainer: {},
+	tabContainer: {
+		marginTop: 10,
+	},
 })
 
 export default TopTab
