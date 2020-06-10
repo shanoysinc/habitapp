@@ -14,6 +14,7 @@ const Home = ({ habitList }) => {
 	return (
 		<View style={styles.cardContainer}>
 			<FlatList
+				showsVerticalScrollIndicator={false}
 				data={habitList}
 				keyExtractor={(item) => item.key}
 				numColumns={2}
@@ -21,7 +22,7 @@ const Home = ({ habitList }) => {
 					<TouchableOpacity style={styles.card}>
 						<Card style={styles.cardItem}>
 							<Image
-								source={icons.images.fitness}
+								source={icons.images[item.category]}
 								style={styles.iconImage}
 							/>
 							<Card.Content>
@@ -42,7 +43,7 @@ const Home = ({ habitList }) => {
 
 const styles = StyleSheet.create({
 	card: {
-		width: "47%",
+		width: "45%",
 		margin: 5,
 	},
 	cardItem: {
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 	},
 	cardTilte: {
 		fontSize: 16,
-		paddingTop: 20,
+		paddingTop: 10,
 		fontWeight: "bold",
 		lineHeight: 0,
 	},

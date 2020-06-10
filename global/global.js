@@ -6,6 +6,7 @@ export const icons = {
 		money: require("../assets/icons/money.png"),
 		relationship: require("../assets/icons/relationship.png"),
 		fitness: require("../assets/icons/fitness.png"),
+		hobbies: require("../assets/icons/hobbies.png"),
 	},
 }
 
