@@ -5,6 +5,8 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Home from "../screens/Home"
 import Progress from "../screens/Progress"
 import AddHabits from "../screens/AddHabits"
+import Settings from "../screens/Settings"
+import TopTab from "./TopTab"
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -19,7 +21,7 @@ const BottomTab = () => {
 		>
 			<Tab.Screen
 				name="Home"
-				component={Home}
+				component={TopTab}
 				options={{
 					tabBarLabel: "Home",
 					tabBarIcon: ({ color }) => (
@@ -46,13 +48,13 @@ const BottomTab = () => {
 				}}
 			/>
 			<Tab.Screen
-				name="Progress"
-				component={Progress}
+				name="Settings"
+				component={Settings}
 				options={{
-					tabBarLabel: "Progress",
+					tabBarLabel: "Settings",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
-							name="chart-line"
+							name="settings"
 							color={color}
 							size={28}
 						/>
