@@ -33,7 +33,7 @@ const habitList = [
 	},
 ]
 
-export const habitListReducer = (state = habitList, action) => {
+const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
 		case "ADD_TO_HABIT_LIST":
 			return state
@@ -43,3 +43,5 @@ export const habitListReducer = (state = habitList, action) => {
 			return state
 	}
 }
+
+export default habitListReducer

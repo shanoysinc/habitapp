@@ -1,4 +1,4 @@
-export const creatingHabit = (state = null, action) => {
+const creatingHabit = (state = null, action) => {
 	switch (action.type) {
 		case "CREATING_HABIT":
 			return state
@@ -8,3 +8,5 @@ export const creatingHabit = (state = null, action) => {
 			return state
 	}
 }
+
+export default creatingHabit

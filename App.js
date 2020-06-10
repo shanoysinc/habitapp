@@ -4,7 +4,7 @@ import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import BottomTab from "./Tab/BottomTab"
 import { NavigationContainer } from "@react-navigation/native"
-import Provider from "react-redux"
+import { Provider } from "react-redux"
 import { createStore } from "redux"
 import { rootReducer } from "./reducers/rootReducer"
 

@@ -8,7 +8,7 @@ export const habitCategory = [
 	{ name: "fitness", key: "7" },
 ]
 
-export const selectedCategory = (state = null, action) => {
+const selectedCategory = (state = null, action) => {
 	switch (action.type) {
 		case "ADD_CATEGORY":
 			return state
@@ -18,3 +18,5 @@ export const selectedCategory = (state = null, action) => {
 			return state
 	}
 }
+
+export default selectedCategory
