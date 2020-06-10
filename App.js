@@ -4,14 +4,21 @@ import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import BottomTab from "./Tab/BottomTab"
 import { NavigationContainer } from "@react-navigation/native"
+import Provider from "react-redux"
+import { createStore } from "redux"
+import { rootReducer } from "./reducers/rootReducer"
 
 enableScreens() // optimize memory usage and performance
 
+const store = createStore(rootReducer)
+
 export default function App() {
 	return (
-		<NavigationContainer>
-			<BottomTab />
-		</NavigationContainer>
+		<Provider store={store}>
+			<NavigationContainer>
+				<BottomTab />
+			</NavigationContainer>
+		</Provider>
 	)
 }
 
