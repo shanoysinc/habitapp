@@ -3,8 +3,9 @@ import { StyleSheet, Text, View } from "react-native"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import Home from "../screens/Home"
 import Progress from "../screens/Progress"
-import { color } from "../global/global"
+import Header from "../components/Header"
 const Tab = createMaterialTopTabNavigator()
+
 const TopTab = () => {
 	return (
 		<Tab.Navigator
@@ -16,26 +17,27 @@ const TopTab = () => {
 				},
 				tabStyle: { height: 100 },
 				style: { backgroundColor: "#beebe9" },
+				indicatorStyle: { backgroundColor: "#35d0ba" },
+			}}
+			headerMode="screen"
+			screenOptions={{
+				headerTitle: ({ scene, previous, navigation }) => (
+					<Header
+						scene={scene}
+						previous={previous}
+						navigation={navigation}
+					/>
+				),
 			}}
 		>
-			<Tab.Screen
-				name="Home"
-				component={Home}
-				style={styles.tabContainer}
-			/>
-			<Tab.Screen
-				name="Progress Bar"
-				component={Progress}
-				style={styles.tabContainer}
-			/>
+			<Tab.Screen name="Home" component={Home} />
+			<Tab.Screen name="Progress Bar" component={Progress} />
 		</Tab.Navigator>
 	)
 }
 
 const styles = StyleSheet.create({
-	tabContainer: {
-		marginTop: 10,
-	},
+	tabContainer: {},
 })
 
 export default TopTab
