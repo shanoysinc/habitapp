@@ -1,59 +1,31 @@
 import React from "react"
-import { StyleSheet, Text, View, Image } from "react-native"
-import { Card, Title, Paragraph, Surface } from "react-native-paper"
+import { StyleSheet, Text, View, Image, FlatList } from "react-native"
+import { Card, Title, Paragraph } from "react-native-paper"
 import { icons } from "../global/global"
-
-const Home = () => {
+import { connect } from "react-redux"
+const Home = ({ habitList }) => {
+	console.log("mama", habitList)
 	return (
 		<View style={styles.cardContainer}>
-			<Card style={styles.card}>
-				<Image source={icons.images.fitness} style={styles.iconImage} />
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
-			<Card style={styles.card}>
-				<Image
-					source={icons.images.relationship}
-					style={styles.iconImage}
-				/>
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
-
-			<Card style={styles.card}>
-				<Image source={icons.images.others} style={styles.iconImage} />
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
-
-			<Card style={styles.card}>
-				<Image source={icons.images.health} style={styles.iconImage} />
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
-
-			<Card style={styles.card}>
-				<Image source={icons.images.money} style={styles.iconImage} />
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
-			<Card style={styles.card}>
-				<Image source={icons.images.chores} style={styles.iconImage} />
-				<Card.Content>
-					<Title style={styles.cardTilte}>Learn to code</Title>
-					<Paragraph style={styles.cardText}>Productivity</Paragraph>
-				</Card.Content>
-			</Card>
+			<FlatList
+				data={habitList}
+				keyExtractor={(item) => item.key}
+				numColumns={2}
+				renderItem={({ item }) => (
+					<Card style={styles.card}>
+						<Image
+							source={icons.images.fitness}
+							style={styles.iconImage}
+						/>
+						<Card.Content>
+							<Title style={styles.cardTilte}>{item.name}</Title>
+							<Paragraph style={styles.cardText}>
+								{item.category}
+							</Paragraph>
+						</Card.Content>
+					</Card>
+				)}
+			/>
 		</View>
 	)
 }
@@ -65,8 +37,6 @@ const styles = StyleSheet.create({
 		elevation: 3,
 	},
 	cardContainer: {
-		flexDirection: "row",
-		flexWrap: "wrap",
 		padding: 20,
 	},
 	iconImage: {
@@ -87,4 +57,10 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default Home
+const mapStateToProps = (state) => {
+	console.log(state.habitListReducer)
+	return {
+		habitList: state.habitListReducer,
+	}
+}
+export default connect(mapStateToProps)(Home)
