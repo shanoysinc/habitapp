@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import Home from "../screens/Home"
 import Progress from "../screens/Progress"
-import Header from "../components/Header"
+
 const Tab = createMaterialTopTabNavigator()
 
 const TopTab = () => {
@@ -11,23 +11,14 @@ const TopTab = () => {
 		<Tab.Navigator
 			tabBarOptions={{
 				labelStyle: {
-					fontSize: 17,
-					marginTop: 55,
+					fontSize: 15,
+					marginTop: 62,
 					fontWeight: "bold",
+					color: "#fff",
 				},
 				tabStyle: { height: 100 },
-				style: { backgroundColor: "#beebe9" },
-				indicatorStyle: { backgroundColor: "#35d0ba" },
-			}}
-			headerMode="screen"
-			screenOptions={{
-				headerTitle: ({ scene, previous, navigation }) => (
-					<Header
-						scene={scene}
-						previous={previous}
-						navigation={navigation}
-					/>
-				),
+				style: { backgroundColor: "#9733EE" },
+				indicatorStyle: { backgroundColor: "#fff", height: 4 },
 			}}
 		>
 			<Tab.Screen name="Home" component={Home} />

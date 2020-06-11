@@ -13,6 +13,7 @@ const Home = ({ habitList }) => {
 	console.log("mama", habitList)
 	return (
 		<View style={styles.cardContainer}>
+			<Title>Habits</Title>
 			<FlatList
 				showsVerticalScrollIndicator={false}
 				data={habitList}
@@ -21,17 +22,20 @@ const Home = ({ habitList }) => {
 				renderItem={({ item }) => (
 					<TouchableOpacity style={styles.card}>
 						<Card style={styles.cardItem}>
-							<Image
-								source={icons.images[item.category]}
-								style={styles.iconImage}
-							/>
 							<Card.Content>
-								<Title style={styles.cardTilte}>
-									{item.name}
-								</Title>
-								<Paragraph style={styles.cardText}>
-									{item.category}
-								</Paragraph>
+								<View style={styles.cardContent}>
+									<Title style={styles.cardTilte}>
+										{item.name}
+									</Title>
+
+									<Paragraph style={styles.cardText}>
+										{item.category}
+									</Paragraph>
+								</View>
+								<Image
+									source={icons.images[item.category]}
+									style={styles.iconImage}
+								/>
 							</Card.Content>
 						</Card>
 					</TouchableOpacity>
@@ -44,23 +48,23 @@ const Home = ({ habitList }) => {
 const styles = StyleSheet.create({
 	card: {
 		width: "45%",
-		margin: 5,
+		margin: 10,
 	},
 	cardItem: {
-		elevation: 3,
+		elevation: 4,
 	},
 	cardContainer: {
 		padding: 20,
+		height: "100%",
 	},
 	iconImage: {
-		height: 30,
-		width: 30,
-		marginLeft: 12,
+		height: 27,
+		width: 25,
+		left: 90,
 		marginTop: 10,
 	},
 	cardTilte: {
-		fontSize: 16,
-		paddingTop: 10,
+		fontSize: 17,
 		fontWeight: "bold",
 		lineHeight: 0,
 	},
@@ -68,10 +72,13 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 		lineHeight: 0,
 	},
+	cardContent: {
+		marginTop: -12,
+	},
 })
 
 const mapStateToProps = (state) => {
-	console.log(state.habitListReducer)
+	//console.log(state.habitListReducer)
 	return {
 		habitList: state.habitListReducer,
 	}

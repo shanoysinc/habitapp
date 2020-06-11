@@ -1,12 +1,11 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import Home from "../screens/Home"
-import Progress from "../screens/Progress"
+
 import AddHabits from "../screens/AddHabits"
 import Settings from "../screens/Settings"
 import TopTab from "./TopTab"
+
 
 const Tab = createMaterialBottomTabNavigator()
 
