@@ -10,7 +10,7 @@ import { Card, Title, Paragraph } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 const Home = ({ habitList }) => {
-	console.log("mama", habitList)
+	//console.log("mama", habitList)
 	return (
 		<View style={styles.cardContainer}>
 			<Title>Habits</Title>

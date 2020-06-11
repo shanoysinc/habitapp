@@ -1,10 +1,12 @@
 import { combineReducers } from "redux"
 import habitListReducer from "./habitListReducer"
-import selectedCategory from "./habitCategoryReducer"
+import selectedCategoryReducer from "./SelectedCategoryReducer"
 import creatingHabit from "./creatingHabitReducer"
+import habitCategoryReducer from "./habitCategoryReducer"
 
 export const rootReducer = combineReducers({
 	habitListReducer,
-	selectedCategory,
+	selectedCategoryReducer,
 	creatingHabit,
+	habitCategoryReducer,
 })
