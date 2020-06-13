@@ -67,8 +67,9 @@ const habitList = [
 const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
 		case "ADD_TO_HABIT_LIST":
-			action.payload["key"] = "253"
-			return [action.payload, ...state]
+			// let newHabit = action.payload
+			// newHabit["key"] = "253"
+			return [{ name: action.payload, key: "2123" }, ...state]
 		case "DELETE_FROM_HABIT_LIST":
 			return state
 		default:
