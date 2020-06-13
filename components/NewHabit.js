@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import {
 	StyleSheet,
 	View,
@@ -8,30 +8,64 @@ import {
 	Text,
 	TextInput,
 } from "react-native"
-import { Card, Title, Paragraph, Button } from "react-native-paper"
+import { Card, Title, Paragraph, Button, Chip } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
+import { v1 as uuidv1 } from "uuid"
 
-const CreatingHabit = ({ create }) => {
+const CreatingHabit = ({ create, categoryList }) => {
+	const inputRef = useRef()
 	const [input, setInput] = useState("")
+	const [selectedCategory, setSelectedCategory] = useState("")
+	const [uuid, setuuid] = useState("2")
 
 	const inputHandler = (value) => {
 		setInput(value)
 		///console.log(value)
 	}
 
+	const categoryHandler = (cat) => {
+		return () => setSelectedCategory(cat)
+	}
+
 	const buttonHandler = () => {
-		create(createHabit(input))
+		setuuid(uuid + 1)
+		create(
+			createHabit({
+				name: input,
+				category: selectedCategory,
+				key: uuid,
+			})
+		)
+		inputRef.current.clear()
 	}
 	return (
 		<View style={styles.container}>
 			<View style={styles.inputContainer}>
 				<Title style={styles.title}>Create your new Habit</Title>
 				<TextInput
+					ref={inputRef}
 					onChangeText={inputHandler}
 					placeholder="Habit name"
 					style={styles.input}
+				/>
+			</View>
+			<View style={styles.catgoryContainer}>
+				<Title style={styles.title}>Category</Title>
+				<FlatList
+					showsHorizontalScrollIndicator={false}
+					horizontal={true}
+					data={categoryList}
+					renderItem={({ item }) => (
+						<Chip
+							mode="outlined"
+							style={styles.categoryItem}
+							onPress={categoryHandler(item.name)}
+						>
+							{item.name}
+						</Chip>
+					)}
 				/>
 			</View>
 			<TouchableOpacity>
@@ -69,7 +103,21 @@ const styles = StyleSheet.create({
 	btn: {
 		marginTop: 30,
 	},
+	catgoryContainer: {
+		marginTop: 40,
+		maxHeight: "20%",
+	},
+	categoryItem: {
+		marginLeft: 8,
+		marginRight: 8,
+	},
 })
+
+const mapStateToProps = (state) => {
+	return {
+		categoryList: state.habitCategoryReducer,
+	}
+}
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -77,4 +125,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(CreatingHabit)
+export default connect(mapStateToProps, mapDispatchToProps)(CreatingHabit)
