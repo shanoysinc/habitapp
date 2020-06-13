@@ -20,7 +20,6 @@ const BottomTab = () => {
 				name="Home"
 				component={TopTab}
 				options={{
-					tabBarLabel: "Home",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
 							name="home-outline"
@@ -34,7 +33,7 @@ const BottomTab = () => {
 				name="AddHabits"
 				component={CreateHabitStack}
 				options={{
-					tabBarLabel: "Create Habits",
+					// tabBarLabel: "Create Habits",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
 							name="plus"
@@ -48,7 +47,7 @@ const BottomTab = () => {
 				name="Settings"
 				component={Settings}
 				options={{
-					tabBarLabel: "Settings",
+					// tabBarLabel: "Settings",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
 							name="settings"

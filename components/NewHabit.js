@@ -2,13 +2,13 @@ import React, { useState, useRef } from "react"
 import {
 	StyleSheet,
 	View,
-	Image,
 	FlatList,
 	TouchableOpacity,
-	Text,
 	TextInput,
+	Keyboard,
+	TouchableWithoutFeedback,
 } from "react-native"
-import { Card, Title, Paragraph, Button, Chip } from "react-native-paper"
+import { Title, Button, Chip } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
@@ -42,49 +42,55 @@ const CreatingHabit = ({ create, categoryList }) => {
 	}
 	return (
 		<View style={[styles.container, colorBg]}>
-			<View style={styles.inputContainer}>
-				<Title style={styles.title}>Create your new Habit</Title>
-				<TextInput
-					ref={inputRef}
-					onChangeText={inputHandler}
-					placeholder="Habit name"
-					style={styles.input}
-				/>
-			</View>
-			<View style={styles.catgoryContainer}>
-				<Title style={styles.title}>Category</Title>
-				<FlatList
-					showsHorizontalScrollIndicator={false}
-					horizontal={true}
-					data={categoryList}
-					renderItem={({ item }) => (
-						<Chip
-							mode="outlined"
-							style={styles.categoryItem}
-							onPress={categoryHandler(item.name)}
-							textStyle={{ fontSize: 20 }}
+			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+				<>
+					<View style={styles.inputContainer}>
+						<Title style={styles.title}>
+							Create your new Habit
+						</Title>
+						<TextInput
+							ref={inputRef}
+							onChangeText={inputHandler}
+							placeholder="Habit name"
+							style={styles.input}
+						/>
+					</View>
+					<View style={styles.catgoryContainer}>
+						<Title style={styles.title}>Category</Title>
+						<FlatList
+							showsHorizontalScrollIndicator={false}
+							horizontal={true}
+							data={categoryList}
+							renderItem={({ item }) => (
+								<Chip
+									mode="outlined"
+									style={styles.categoryItem}
+									onPress={categoryHandler(item.name)}
+									textStyle={{ fontSize: 20 }}
+								>
+									{item.name}
+								</Chip>
+							)}
+						/>
+					</View>
+					<TouchableOpacity>
+						<Button
+							mode="contained"
+							style={styles.btn}
+							onPress={buttonHandler}
 						>
-							{item.name}
-						</Chip>
-					)}
-				/>
-			</View>
-			<TouchableOpacity>
-				<Button
-					mode="contained"
-					style={styles.btn}
-					onPress={buttonHandler}
-				>
-					create habit
-				</Button>
-			</TouchableOpacity>
+							create habit
+						</Button>
+					</TouchableOpacity>
+				</>
+			</TouchableWithoutFeedback>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
 	inputContainer: {
-		marginTop: 60,
+		marginTop: 30,
 		width: "85%",
 	},
 	title: {

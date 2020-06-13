@@ -6,7 +6,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#f44336",
+		btnColor: "#01BAEF",
 	},
 	{
 		name: "exercise",
@@ -15,7 +15,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#673AB7",
+		btnColor: "#FF6542",
 	},
 	{
 		name: "Reading",
@@ -24,7 +24,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#2196F3",
+		btnColor: "#FFE66D",
 	},
 	{
 		name: "Meditation",
@@ -33,7 +33,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#00BCD4",
+		btnColor: "#4ECDC4",
 	},
 	{
 		name: "Run",
@@ -42,7 +42,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#4CAF50",
+		btnColor: "#20FC8F",
 	},
 	{
 		name: "Learn React-Native",
@@ -51,7 +51,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#37474F",
+		btnColor: "#C60F7B",
 	},
 	{
 		name: "Cookings",
@@ -60,7 +60,7 @@ const habitList = [
 		daysCompleted: {},
 		streaks: 0,
 		typeOfHabit: "habit",
-		color: "#FFC107",
+		btnColor: "#CA054D",
 	},
 ]
 

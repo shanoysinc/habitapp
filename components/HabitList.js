@@ -6,7 +6,7 @@ import {
 	FlatList,
 	TouchableOpacity,
 } from "react-native"
-import { Card, Title, Paragraph } from "react-native-paper"
+import { Card, Title, Paragraph, Button } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 
@@ -37,6 +37,16 @@ const Home = ({ habitList }) => {
 									style={styles.iconImage}
 								/>
 							</Card.Content>
+							<Button
+								mode="contained"
+								labelStyle={{ fontSize: 12 }}
+								style={{
+									backgroundColor: item.btnColor,
+									borderRadius: 0,
+								}}
+							>
+								Great
+							</Button>
 						</Card>
 					</TouchableOpacity>
 				)}
@@ -48,7 +58,9 @@ const Home = ({ habitList }) => {
 const styles = StyleSheet.create({
 	card: {
 		width: "45%",
+		height: 100,
 		margin: 10,
+		marginBottom: 50,
 	},
 	cardItem: {
 		elevation: 4,
@@ -56,12 +68,13 @@ const styles = StyleSheet.create({
 	cardContainer: {
 		padding: 20,
 		height: "100%",
+		paddingBottom: 0,
 	},
 	iconImage: {
 		height: 27,
 		width: 25,
 		left: 90,
-		marginTop: 10,
+		bottom: 10,
 	},
 	cardTilte: {
 		fontSize: 17,

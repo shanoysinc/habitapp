@@ -11,6 +11,6 @@ export const icons = {
 }
 
 export const colorBg = {
-	backgroundColor: "#f4f6ff",
+	backgroundColor: "#fff",
 	flex: 1,
 }
