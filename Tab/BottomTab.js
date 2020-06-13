@@ -1,11 +1,9 @@
 import React from "react"
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-
-import AddHabits from "../screens/AddHabits"
+import CreateHabitStack from "./CreateHabitStack"
 import Settings from "../screens/Settings"
 import TopTab from "./TopTab"
-
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -34,9 +32,9 @@ const BottomTab = () => {
 			/>
 			<Tab.Screen
 				name="AddHabits"
-				component={AddHabits}
+				component={CreateHabitStack}
 				options={{
-					tabBarLabel: "Add Habits",
+					tabBarLabel: "Create Habits",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
 							name="plus"

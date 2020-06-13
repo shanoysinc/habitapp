@@ -54,7 +54,7 @@ const habitList = [
 		color: "#37474F",
 	},
 	{
-		name: "Cooking",
+		name: "Cookings",
 		key: "42",
 		category: "health",
 		daysCompleted: {},
@@ -67,7 +67,8 @@ const habitList = [
 const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
 		case "ADD_TO_HABIT_LIST":
-			return state
+			action.payload["key"] = "253"
+			return [action.payload, ...state]
 		case "DELETE_FROM_HABIT_LIST":
 			return state
 		default:

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import Home from "../screens/Home"
 import Progress from "../screens/Progress"
+import Calender from "../components/Calender"
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -17,12 +18,13 @@ const TopTab = () => {
 					color: "#fff",
 				},
 				tabStyle: { height: 100 },
-				style: { backgroundColor: "#9733EE" },
+				style: { backgroundColor: "#6200ee" },
 				indicatorStyle: { backgroundColor: "#fff", height: 4 },
 			}}
 		>
 			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Progress Bar" component={Progress} />
+			<Tab.Screen name="Calender" component={Calender} />
+			<Tab.Screen name="Statistics" component={Progress} />
 		</Tab.Navigator>
 	)
 }

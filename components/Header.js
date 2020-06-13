@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 	},
 	container: {
-		marginBottom: 20,
+		marginBottom: 30,
 	},
 })
 
