@@ -12,7 +12,7 @@ import { Card, Title, Paragraph, Button, Chip } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
-import { v1 as uuidv1 } from "uuid"
+import { colorBg } from "../global/global"
 
 const CreatingHabit = ({ create, categoryList }) => {
 	const inputRef = useRef()
@@ -41,7 +41,7 @@ const CreatingHabit = ({ create, categoryList }) => {
 		inputRef.current.clear()
 	}
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, colorBg]}>
 			<View style={styles.inputContainer}>
 				<Title style={styles.title}>Create your new Habit</Title>
 				<TextInput
@@ -62,6 +62,7 @@ const CreatingHabit = ({ create, categoryList }) => {
 							mode="outlined"
 							style={styles.categoryItem}
 							onPress={categoryHandler(item.name)}
+							textStyle={{ fontSize: 20 }}
 						>
 							{item.name}
 						</Chip>
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 10,
 	},
 	input: {
-		borderColor: "red",
+		borderColor: "#dddddd",
 		borderWidth: 2,
 		height: 70,
 		paddingLeft: 10,
@@ -104,8 +105,8 @@ const styles = StyleSheet.create({
 		marginTop: 30,
 	},
 	catgoryContainer: {
-		marginTop: 40,
-		maxHeight: "20%",
+		marginTop: 30,
+		maxHeight: "15%",
 	},
 	categoryItem: {
 		marginLeft: 8,

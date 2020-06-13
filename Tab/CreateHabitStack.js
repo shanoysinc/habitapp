@@ -10,8 +10,27 @@ const CreateHabitStack = () => {
 	return (
 		// <NavigationContainer independent={true}>
 		<Stack.Navigator>
-			<Stack.Screen name="HabitName" component={NewHabit} />
-			<Stack.Screen name="HabitCategory" component={HabitCategoryList} />
+			<Stack.Screen
+				options={{
+					headerStyle: {
+						backgroundColor: "#6200ee",
+						height: 100,
+					},
+					headerTintColor: "white",
+				}}
+				name="Create Your Habits"
+				component={NewHabit}
+			/>
+			{/* <Stack.Screen
+				options={{
+					headerStyle: {
+						backgroundColor: "#6200ee",
+					},
+					headerTintColor: "white",
+				}}
+				name="HabitCategory"
+				component={HabitCategoryList}
+			/> */}
 		</Stack.Navigator>
 		//	</NavigationContainer>
 	)

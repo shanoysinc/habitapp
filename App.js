@@ -1,4 +1,5 @@
 import "react-native-gesture-handler"
+import { StatusBar } from "react-native"
 import { enableScreens } from "react-native-screens"
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
@@ -9,7 +10,7 @@ import { createStore } from "redux"
 import { rootReducer } from "./reducers/rootReducer"
 
 enableScreens() // optimize memory usage and performance
-
+StatusBar.setBarStyle("light-content", true)
 const store = createStore(rootReducer)
 
 export default function App() {
