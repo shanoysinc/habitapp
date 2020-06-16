@@ -57,18 +57,15 @@ const CreatingHabit = ({
 	}
 
 	return (
-		<View style={[styles.container, colorBg]}>
+		<View style={colorBg}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<>
+				<View style={styles.container}>
 					<View style={styles.inputContainer}>
-						<Title style={styles.title}>
-							Create your new Habit
-						</Title>
 						<TextInput
 							ref={inputRef}
 							onChangeText={inputHandler}
-							placeholder="Habit name"
-							style={styles.input}
+							placeholder="Habit name...."
+							style={styles.habitNameInput}
 						/>
 					</View>
 					<View style={styles.catgoryContainer}>
@@ -112,13 +109,14 @@ const CreatingHabit = ({
 						<FlatList
 							horizontal={true}
 							data={colorList}
+							showsHorizontalScrollIndicator={false}
 							keyExtractor={(item) => item.key}
 							extraData={refresh}
 							renderItem={({ item }) =>
 								item.selected ? (
 									<Chip
 										style={[
-											styles.categoryItem,
+											styles.colorItem,
 											{
 												backgroundColor: item.color,
 												borderWidth: 4,
@@ -129,7 +127,7 @@ const CreatingHabit = ({
 								) : (
 									<Chip
 										style={[
-											styles.categoryItem,
+											styles.colorItem,
 											{ backgroundColor: item.color },
 										]}
 										onPress={() =>
@@ -149,7 +147,7 @@ const CreatingHabit = ({
 							create habit
 						</Button>
 					</TouchableOpacity>
-				</>
+				</View>
 			</TouchableWithoutFeedback>
 		</View>
 	)
@@ -158,36 +156,50 @@ const CreatingHabit = ({
 const styles = StyleSheet.create({
 	inputContainer: {
 		marginTop: 30,
-		width: "85%",
+		width: "100%",
 	},
 	title: {
-		textAlign: "center",
 		paddingBottom: 10,
 	},
-	input: {
+	habitNameInput: {
 		borderColor: "#dddddd",
 		borderWidth: 2,
-		height: 70,
-		paddingLeft: 10,
+		height: 62,
+		paddingLeft: 15,
 		fontSize: 22,
+		borderRadius: 10,
 	},
 	container: {
-		alignItems: "center",
-	},
-	btn: {
-		marginTop: 30,
+		margin: 20,
+		flex: 1,
 	},
 	catgoryContainer: {
 		marginTop: 30,
-		maxHeight: "15%",
+		maxHeight: "50%",
 	},
+
+	btn: {
+		marginTop: 30,
+	},
+
 	categoryItem: {
 		marginLeft: 10,
 		marginRight: 10,
+		width: 40,
+		height: 40,
+		borderRadius: 20,
 	},
+
 	colorContainer: {
-		marginTop: 30,
-		maxHeight: "15%",
+		marginTop: 60,
+		maxHeight: "25%",
+	},
+	colorItem: {
+		marginLeft: 10,
+		marginRight: 10,
+		width: 40,
+		height: 40,
+		borderRadius: 20,
 	},
 })
 
