@@ -29,7 +29,7 @@ const Home = ({ habitList }) => {
 						style={[
 							styles.habitCard,
 							,
-							{ backgroundColor: "#E91E63" },
+							{ backgroundColor: "#FF4081" },
 						]}
 					>
 						<Card.Content>
@@ -42,13 +42,17 @@ const Home = ({ habitList }) => {
 								Hobbies
 							</Paragraph>
 							<Title style={styles.cardPercentage}>67%</Title>
+							<Image
+								source={icons.images.education}
+								style={styles.iconImage}
+							/>
 						</Card.Content>
 					</Card>
 					<Card
 						style={[
 							styles.habitCard,
 							,
-							{ backgroundColor: "#FF9800" },
+							{ backgroundColor: "#00E5FF" },
 						]}
 					>
 						<Card.Content>
@@ -61,13 +65,17 @@ const Home = ({ habitList }) => {
 								Hobbies
 							</Paragraph>
 							<Title style={styles.cardPercentage}>100%</Title>
+							<Image
+								source={icons.images.health}
+								style={styles.iconImage}
+							/>
 						</Card.Content>
 					</Card>
 					<Card
 						style={[
 							styles.habitCard,
 							,
-							{ backgroundColor: "#9C27B0" },
+							{ backgroundColor: "#BA68C8" },
 						]}
 					>
 						<Card.Content>
@@ -80,13 +88,17 @@ const Home = ({ habitList }) => {
 								Hobbies
 							</Paragraph>
 							<Title style={styles.cardPercentage}>17%</Title>
+							<Image
+								source={icons.images.hobbies}
+								style={styles.iconImage}
+							/>
 						</Card.Content>
 					</Card>
 					<Card
 						style={[
 							styles.habitCard,
 							,
-							{ backgroundColor: "#00BCD4" },
+							{ backgroundColor: "#FFC400" },
 						]}
 					>
 						<Card.Content>
@@ -99,6 +111,10 @@ const Home = ({ habitList }) => {
 								Hobbies
 							</Paragraph>
 							<Title style={styles.cardPercentage}>2%</Title>
+							<Image
+								source={icons.images.meditation}
+								style={styles.iconImage}
+							/>
 						</Card.Content>
 					</Card>
 				</View>
@@ -147,13 +163,14 @@ const Home = ({ habitList }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#EEEEEE",
+		backgroundColor: "#fff",
 		flex: 1,
 	},
 
 	title: {
 		fontSize: 22,
 		fontWeight: "bold",
+		// textAlign: "center",
 	},
 	body: {
 		margin: 20,
@@ -163,6 +180,8 @@ const styles = StyleSheet.create({
 		marginLeft: 5,
 		marginRight: 5,
 		height: "52%",
+		backgroundColor: "#FAFAFA",
+		elevation: 3,
 	},
 
 	habitsSeciton: {
@@ -175,6 +194,7 @@ const styles = StyleSheet.create({
 		margin: 5,
 		height: 165,
 		width: 157,
+		elevation: 3,
 	},
 	textCenter: {
 		textAlign: "center",
@@ -189,6 +209,13 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 		fontSize: 32,
 		marginTop: 20,
+	},
+	iconImage: {
+		height: 23,
+		width: 23,
+		top: 120,
+		right: 15,
+		position: "absolute",
 	},
 	// card: {
 	// 	width: "45%",

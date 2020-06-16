@@ -13,8 +13,9 @@ const BottomTab = () => {
 			initialRouteName="Home"
 			activeColor="purple"
 			inactiveColor="#3e2465"
-			barStyle={{ backgroundColor: "#fff" }}
+			barStyle={{ backgroundColor: "#fff", elevation: 0 }}
 			shifting={true}
+			tabBarAccessibilityLabel={true}
 		>
 			<Tab.Screen
 				name="Home"

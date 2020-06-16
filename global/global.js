@@ -7,6 +7,8 @@ export const icons = {
 		relationship: require("../assets/icons/relationship.png"),
 		fitness: require("../assets/icons/fitness.png"),
 		hobbies: require("../assets/icons/hobbies.png"),
+		education: require("../assets/icons/education.png"),
+		meditation: require("../assets/icons/meditation.png"),
 	},
 }
 
