@@ -12,9 +12,46 @@ import { connect } from "react-redux"
 
 const Home = ({ habitList }) => {
 	return (
-		<View style={styles.cardContainer}>
-			<Title>Habits</Title>
-			<FlatList
+		<View style={styles.container}>
+			<View style={styles.body}>
+				<View style={styles.todaysSeciton}>
+					<Title style={styles.title}>Today</Title>
+					<Card style={styles.todaysCard}>
+						<Card.Content>
+							<Title>Learn to code</Title>
+							<Paragraph>Hobbies</Paragraph>
+						</Card.Content>
+					</Card>
+				</View>
+
+				<View style={styles.habitsSeciton}>
+					<Card style={styles.habitCard}>
+						<Card.Content>
+							<Title>Learn to code</Title>
+							<Paragraph>Hobbies</Paragraph>
+						</Card.Content>
+					</Card>
+					<Card style={styles.habitCard}>
+						<Card.Content>
+							<Title>Learn to code</Title>
+							<Paragraph>Hobbies</Paragraph>
+						</Card.Content>
+					</Card>
+					<Card style={styles.habitCard}>
+						<Card.Content>
+							<Title>Learn to code</Title>
+							<Paragraph>Hobbies</Paragraph>
+						</Card.Content>
+					</Card>
+					<Card style={styles.habitCard}>
+						<Card.Content>
+							<Title>Learn to code</Title>
+							<Paragraph>Hobbies</Paragraph>
+						</Card.Content>
+					</Card>
+				</View>
+
+				{/* <FlatList
 				showsVerticalScrollIndicator={false}
 				data={habitList}
 				keyExtractor={(item) => item.key}
@@ -50,44 +87,72 @@ const Home = ({ habitList }) => {
 						</Card>
 					</TouchableOpacity>
 				)}
-			/>
+			/> */}
+			</View>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
-	card: {
-		width: "45%",
-		height: 100,
-		margin: 10,
-		marginBottom: 20,
+	container: {
+		backgroundColor: "#EEEEEE",
+		flex: 1,
 	},
-	cardItem: {
-		elevation: 4,
-	},
-	cardContainer: {
-		padding: 20,
-		height: "100%",
-		paddingBottom: 0,
-	},
-	iconImage: {
-		height: 27,
-		width: 25,
-		left: 90,
-		bottom: 10,
-	},
-	cardTilte: {
-		fontSize: 17,
+
+	title: {
+		fontSize: 22,
 		fontWeight: "bold",
-		lineHeight: 0,
 	},
-	cardText: {
-		fontSize: 12,
-		lineHeight: 0,
+	body: {
+		margin: 20,
 	},
-	cardContent: {
-		marginTop: -12,
+	todaysCard: {
+		marginTop: 10,
+		height: "52%",
 	},
+
+	habitsSeciton: {
+		position: "absolute",
+		marginTop: 160,
+		flexDirection: "row",
+		flexWrap: "wrap",
+	},
+	habitCard: {
+		margin: 5,
+		height: 165,
+	},
+	// card: {
+	// 	width: "45%",
+	// 	height: 100,
+	// 	margin: 10,
+	// 	marginBottom: 20,
+	// },
+	// cardItem: {
+	// 	elevation: 4,
+	// },
+	// cardContainer: {
+	// 	padding: 20,
+	// 	height: "100%",
+	// 	paddingBottom: 0,
+	// },
+	// iconImage: {
+	// 	height: 27,
+	// 	width: 25,
+	// 	left: 90,
+	// 	bottom: 10,
+	// },
+	// cardTilte: {
+	// 	fontSize: 17,
+	// 	fontWeight: "bold",
+	// 	lineHeight: 0,
+	// },
+	// cardText: {
+	// 	fontSize: 12,
+	// 	lineHeight: 0,
+	// },
+	// cardContent: {
+	// 	marginTop: -12,
+	// },
 })
 
 const mapStateToProps = (state) => {

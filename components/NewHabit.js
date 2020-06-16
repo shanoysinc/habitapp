@@ -36,7 +36,7 @@ const CreatingHabit = ({
 
 	const categoryHandler = (catName, key) => {
 		setSelectedCategory(catName)
-		categoryColor(selectedCategoryAction(key))
+		categoryColor(key)
 	}
 
 	const buttonHandler = () => {
@@ -52,7 +52,7 @@ const CreatingHabit = ({
 	}
 
 	const selectedColorHandler = (key) => {
-		color(selectedColor(key))
+		color(key)
 		setRefresh(!refresh)
 	}
 
@@ -201,8 +201,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		create: (action) => dispatch(action),
-		color: (action) => dispatch(action),
-		categoryColor: (action) => dispatch(action),
+		color: (action) => dispatch(selectedColor(action)),
+		categoryColor: (action) => dispatch(selectedCategoryAction(action)),
 	}
 }
 

@@ -13,12 +13,12 @@ const TopTab = () => {
 			tabBarOptions={{
 				labelStyle: {
 					fontSize: 15,
-					marginTop: 62,
+					marginTop: 30,
 					fontWeight: "bold",
 					color: "#fff",
 					textTransform: "capitalize",
 				},
-				tabStyle: { height: 100 },
+				tabStyle: { height: 70 },
 				style: { backgroundColor: "#6200ee" },
 				indicatorStyle: { backgroundColor: "#fff", height: 4 },
 			}}
