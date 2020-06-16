@@ -22,6 +22,7 @@ const CreatingHabit = ({
 	colorList,
 	color,
 	categoryColor,
+	navigation,
 }) => {
 	const inputRef = useRef()
 	const [input, setInput] = useState("")
@@ -49,9 +50,11 @@ const CreatingHabit = ({
 					category: selectedCategory,
 					color: selectedColor,
 					key: uuid,
+					disciplinePercentage: 0,
 				})
 			)
 			inputRef.current.clear()
+			navigation.navigate("Home")
 		}
 	}
 

@@ -49,7 +49,9 @@ const Home = ({ habitList }) => {
 								<Paragraph style={styles.textCenter}>
 									{item.category}
 								</Paragraph>
-								<Title style={styles.cardPercentage}>16%</Title>
+								<Title style={styles.cardPercentage}>
+									{item.disciplinePercentage}%
+								</Title>
 								<Image
 									source={icons.images.category}
 									style={styles.iconImage}
