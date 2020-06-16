@@ -60,6 +60,7 @@ const CreatingHabit = ({
 		<View style={colorBg}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 				<View style={styles.container}>
+					<Title style={styles.title}>Create your habit</Title>
 					<View style={styles.inputContainer}>
 						<TextInput
 							ref={inputRef}
@@ -84,12 +85,17 @@ const CreatingHabit = ({
 											styles.categoryItem,
 											{
 												borderWidth: 1.9,
-												borderColor: "#BDBDBD",
+												backgroundColor: "#9b5af7",
 											},
 										]}
 										textStyle={{ fontSize: 20 }}
 									>
-										<Paragraph style={styles.categoryText}>
+										<Paragraph
+											style={[
+												styles.categoryText,
+												{ color: "white" },
+											]}
+										>
 											{item.name}
 										</Paragraph>
 									</Chip>
@@ -126,7 +132,7 @@ const CreatingHabit = ({
 											{
 												backgroundColor: item.color,
 												borderWidth: 1.9,
-												borderColor: "black",
+												borderColor: "#9b5af7",
 											},
 										]}
 									></Chip>
@@ -161,7 +167,6 @@ const CreatingHabit = ({
 
 const styles = StyleSheet.create({
 	inputContainer: {
-		marginTop: 40,
 		width: "100%",
 	},
 	title: {
@@ -177,7 +182,9 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	container: {
-		margin: 20,
+		marginLeft: 20,
+		marginRight: 20,
+		marginTop: 60,
 		flex: 1,
 	},
 	catgoryContainer: {
