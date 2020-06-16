@@ -26,6 +26,7 @@ const CreatingHabit = ({
 	const inputRef = useRef()
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
+	const [selectedColor, setSelectedColor] = useState("")
 	const [uuid, setuuid] = useState("2")
 	const [refresh, setRefresh] = useState(false)
 
@@ -45,14 +46,16 @@ const CreatingHabit = ({
 			createHabit({
 				name: input,
 				category: selectedCategory,
+				color: selectedColor,
 				key: uuid,
 			})
 		)
 		inputRef.current.clear()
 	}
 
-	const selectedColorHandler = (key) => {
+	const selectedColorHandler = (colorName, key) => {
 		color(key)
+		setSelectedColor(colorName)
 		setRefresh(!refresh)
 	}
 
@@ -143,7 +146,10 @@ const CreatingHabit = ({
 											{ backgroundColor: item.color },
 										]}
 										onPress={() =>
-											selectedColorHandler(item.key)
+											selectedColorHandler(
+												item.color,
+												item.key
+											)
 										}
 									></Chip>
 								)

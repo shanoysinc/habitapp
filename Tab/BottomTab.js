@@ -14,7 +14,10 @@ const BottomTab = () => {
 			activeColor="black"
 			labeled={false}
 			shifting={true}
-			barStyle={{ backgroundColor: "#fff", elevation: 0 }}
+			barStyle={{
+				backgroundColor: "#fff",
+				elevation: 0,
+			}}
 			shifting={true}
 			tabBarAccessibilityLabel={true}
 		>

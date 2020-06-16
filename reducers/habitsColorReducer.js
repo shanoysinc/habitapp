@@ -6,6 +6,9 @@ export const habitColor = [
 	{ color: "#FFE66D", key: "5", selected: false },
 	{ color: "#FF6542", key: "6", selected: false },
 	{ color: "#01BAEF", key: "7", selected: false },
+	{ color: "#FF4081", key: "8", selected: false },
+	{ color: "#BA68C8", key: "9", selected: false },
+	{ color: "#FFC400", key: "10", selected: false },
 ]
 
 const habitsColorReducer = (state = habitColor, action) => {
