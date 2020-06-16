@@ -30,13 +30,10 @@ const Home = ({ habitList }) => {
 					numColumns={2}
 					data={habitList}
 					showsVerticalScrollIndicator={false}
-					windowSize={1}
-					style={{ height: 1 }}
 					renderItem={({ item }) => (
 						<Card
 							style={[
 								styles.habitCard,
-								,
 								{ backgroundColor: item.color },
 							]}
 						>
@@ -80,6 +77,7 @@ const styles = StyleSheet.create({
 	body: {
 		margin: 20,
 		flex: 1,
+		marginBottom: 1, //show the bottom of the last item on habitlist
 	},
 
 	todaysCard: {
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
 
 	habitCard: {
 		margin: 5,
-		height: 125,
+		height: 130,
 		width: 157,
 		elevation: 3,
 	},
