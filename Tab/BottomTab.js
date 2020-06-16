@@ -11,8 +11,9 @@ const BottomTab = () => {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"
-			activeColor="purple"
-			inactiveColor="#3e2465"
+			activeColor="black"
+			labeled={false}
+			shifting={true}
 			barStyle={{ backgroundColor: "#fff", elevation: 0 }}
 			shifting={true}
 			tabBarAccessibilityLabel={true}
@@ -37,9 +38,10 @@ const BottomTab = () => {
 					// tabBarLabel: "Create Habits",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
-							name="plus"
+							name="plus-circle"
 							color={color}
-							size={28}
+							size={37}
+							style={{ marginTop: -10, marginLeft: -10 }}
 						/>
 					),
 				}}
