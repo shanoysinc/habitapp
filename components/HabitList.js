@@ -16,10 +16,17 @@ const Home = ({ habitList }) => {
 			<View style={styles.body}>
 				<View style={styles.todaysSeciton}>
 					<Title style={styles.title}>Today</Title>
-					<Card style={styles.todaysCard}>
+					<Card
+						style={[
+							styles.todaysCard,
+							{ backgroundColor: "#FFE66D" },
+						]}
+					>
 						<Card.Content>
-							<Title>Learn to code</Title>
-							<Paragraph>Hobbies</Paragraph>
+							<Title style={styles.todaysTitle}>Exercise</Title>
+							<Paragraph style={styles.todaysParagraph}>
+								Fitness
+							</Paragraph>
 						</Card.Content>
 					</Card>
 				</View>
@@ -183,6 +190,12 @@ const styles = StyleSheet.create({
 		backgroundColor: "#FAFAFA",
 		elevation: 3,
 	},
+	todaysTitle: {
+		fontSize: 28,
+	},
+	todaysParagraph: {
+		fontSize: 15,
+	},
 
 	habitsSeciton: {
 		position: "absolute",
@@ -217,38 +230,6 @@ const styles = StyleSheet.create({
 		right: 10,
 		position: "absolute",
 	},
-	// card: {
-	// 	width: "45%",
-	// 	height: 100,
-	// 	margin: 10,
-	// 	marginBottom: 20,
-	// },
-	// cardItem: {
-	// 	elevation: 4,
-	// },
-	// cardContainer: {
-	// 	padding: 20,
-	// 	height: "100%",
-	// 	paddingBottom: 0,
-	// },
-	// iconImage: {
-	// 	height: 27,
-	// 	width: 25,
-	// 	left: 90,
-	// 	bottom: 10,
-	// },
-	// cardTilte: {
-	// 	fontSize: 17,
-	// 	fontWeight: "bold",
-	// 	lineHeight: 0,
-	// },
-	// cardText: {
-	// 	fontSize: 12,
-	// 	lineHeight: 0,
-	// },
-	// cardContent: {
-	// 	marginTop: -12,
-	// },
 })
 
 const mapStateToProps = (state) => {
