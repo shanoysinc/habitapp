@@ -25,9 +25,17 @@ const Home = ({ habitList }) => {
 				</View>
 
 				<View style={styles.habitsSeciton}>
-					<Card style={styles.habitCard}>
+					<Card
+						style={[
+							styles.habitCard,
+							,
+							{ backgroundColor: "#E91E63" },
+						]}
+					>
 						<Card.Content>
-							<Title style={styles.textCenter}>
+							<Title
+								style={[styles.textCenter, styles.cardTitle]}
+							>
 								Learn to code
 							</Title>
 							<Paragraph style={styles.textCenter}>
@@ -36,9 +44,17 @@ const Home = ({ habitList }) => {
 							<Title style={styles.cardPercentage}>67%</Title>
 						</Card.Content>
 					</Card>
-					<Card style={styles.habitCard}>
+					<Card
+						style={[
+							styles.habitCard,
+							,
+							{ backgroundColor: "#FF9800" },
+						]}
+					>
 						<Card.Content>
-							<Title style={styles.textCenter}>
+							<Title
+								style={[styles.textCenter, styles.cardTitle]}
+							>
 								Learn to code
 							</Title>
 							<Paragraph style={styles.textCenter}>
@@ -47,9 +63,17 @@ const Home = ({ habitList }) => {
 							<Title style={styles.cardPercentage}>100%</Title>
 						</Card.Content>
 					</Card>
-					<Card style={styles.habitCard}>
+					<Card
+						style={[
+							styles.habitCard,
+							,
+							{ backgroundColor: "#9C27B0" },
+						]}
+					>
 						<Card.Content>
-							<Title style={styles.textCenter}>
+							<Title
+								style={[styles.textCenter, styles.cardTitle]}
+							>
 								Learn to code
 							</Title>
 							<Paragraph style={styles.textCenter}>
@@ -58,9 +82,17 @@ const Home = ({ habitList }) => {
 							<Title style={styles.cardPercentage}>17%</Title>
 						</Card.Content>
 					</Card>
-					<Card style={styles.habitCard}>
+					<Card
+						style={[
+							styles.habitCard,
+							,
+							{ backgroundColor: "#00BCD4" },
+						]}
+					>
 						<Card.Content>
-							<Title style={styles.textCenter}>
+							<Title
+								style={[styles.textCenter, styles.cardTitle]}
+							>
 								Learn to code
 							</Title>
 							<Paragraph style={styles.textCenter}>
@@ -149,9 +181,13 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		lineHeight: 0,
 	},
+	cardTitle: {
+		fontWeight: "bold",
+		fontSize: 16,
+	},
 	cardPercentage: {
 		textAlign: "center",
-		fontSize: 30,
+		fontSize: 32,
 		marginTop: 20,
 	},
 	// card: {
