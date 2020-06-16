@@ -13,20 +13,30 @@ import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
 import { colorBg } from "../global/global"
+import { selectedColor } from "../actions/selectedColorAction"
+import { selectedCategoryAction } from "../actions/selectedCategoryAction"
 
-const CreatingHabit = ({ create, categoryList }) => {
+const CreatingHabit = ({
+	create,
+	categoryList,
+	colorList,
+	color,
+	categoryColor,
+}) => {
 	const inputRef = useRef()
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [uuid, setuuid] = useState("2")
+	const [refresh, setRefresh] = useState(false)
 
 	const inputHandler = (value) => {
 		setInput(value)
 		///console.log(value)
 	}
 
-	const categoryHandler = (cat) => {
-		return () => setSelectedCategory(cat)
+	const categoryHandler = (catName, key) => {
+		setSelectedCategory(catName)
+		categoryColor(selectedCategoryAction(key))
 	}
 
 	const buttonHandler = () => {
@@ -40,6 +50,12 @@ const CreatingHabit = ({ create, categoryList }) => {
 		)
 		inputRef.current.clear()
 	}
+
+	const selectedColorHandler = (key) => {
+		color(selectedColor(key))
+		setRefresh(!refresh)
+	}
+
 	return (
 		<View style={[styles.container, colorBg]}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -61,16 +77,67 @@ const CreatingHabit = ({ create, categoryList }) => {
 							showsHorizontalScrollIndicator={false}
 							horizontal={true}
 							data={categoryList}
-							renderItem={({ item }) => (
-								<Chip
-									mode="outlined"
-									style={styles.categoryItem}
-									onPress={categoryHandler(item.name)}
-									textStyle={{ fontSize: 20 }}
-								>
-									{item.name}
-								</Chip>
-							)}
+							renderItem={({ item }) =>
+								item.selected ? (
+									<Chip
+										mode="outlined"
+										style={[
+											styles.categoryItem,
+											{
+												borderWidth: 2,
+												borderColor: "black",
+											},
+										]}
+										textStyle={{ fontSize: 20 }}
+									>
+										{item.name}
+									</Chip>
+								) : (
+									<Chip
+										mode="outlined"
+										style={styles.categoryItem}
+										onPress={() =>
+											categoryHandler(item.name, item.key)
+										}
+										textStyle={{ fontSize: 20 }}
+									>
+										{item.name}
+									</Chip>
+								)
+							}
+						/>
+					</View>
+					<View style={styles.colorContainer}>
+						<Title style={styles.title}>Colors</Title>
+						<FlatList
+							horizontal={true}
+							data={colorList}
+							keyExtractor={(item) => item.key}
+							extraData={refresh}
+							renderItem={({ item }) =>
+								item.selected ? (
+									<Chip
+										style={[
+											styles.categoryItem,
+											{
+												backgroundColor: item.color,
+												borderWidth: 4,
+												borderColor: "black",
+											},
+										]}
+									></Chip>
+								) : (
+									<Chip
+										style={[
+											styles.categoryItem,
+											{ backgroundColor: item.color },
+										]}
+										onPress={() =>
+											selectedColorHandler(item.key)
+										}
+									></Chip>
+								)
+							}
 						/>
 					</View>
 					<TouchableOpacity>
@@ -115,20 +182,27 @@ const styles = StyleSheet.create({
 		maxHeight: "15%",
 	},
 	categoryItem: {
-		marginLeft: 8,
-		marginRight: 8,
+		marginLeft: 10,
+		marginRight: 10,
+	},
+	colorContainer: {
+		marginTop: 30,
+		maxHeight: "15%",
 	},
 })
 
 const mapStateToProps = (state) => {
 	return {
 		categoryList: state.habitCategoryReducer,
+		colorList: state.habitsColorReducer,
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		create: (action) => dispatch(action),
+		color: (action) => dispatch(action),
+		categoryColor: (action) => dispatch(action),
 	}
 }
 
