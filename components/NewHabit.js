@@ -8,7 +8,7 @@ import {
 	Keyboard,
 	TouchableWithoutFeedback,
 } from "react-native"
-import { Title, Button, Chip } from "react-native-paper"
+import { Title, Button, Chip, Paragraph } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
@@ -64,12 +64,14 @@ const CreatingHabit = ({
 						<TextInput
 							ref={inputRef}
 							onChangeText={inputHandler}
-							placeholder="Habit name...."
+							placeholder="Habit name"
 							style={styles.habitNameInput}
 						/>
 					</View>
 					<View style={styles.catgoryContainer}>
-						<Title style={styles.title}>Category</Title>
+						<Title style={styles.title}>
+							Select habit Category
+						</Title>
 						<FlatList
 							showsHorizontalScrollIndicator={false}
 							horizontal={true}
@@ -77,35 +79,39 @@ const CreatingHabit = ({
 							renderItem={({ item }) =>
 								item.selected ? (
 									<Chip
-										mode="outlined"
+										mode="contained"
 										style={[
 											styles.categoryItem,
 											{
-												borderWidth: 2,
-												borderColor: "black",
+												borderWidth: 1.9,
+												borderColor: "#BDBDBD",
 											},
 										]}
 										textStyle={{ fontSize: 20 }}
 									>
-										{item.name}
+										<Paragraph style={styles.categoryText}>
+											{item.name}
+										</Paragraph>
 									</Chip>
 								) : (
 									<Chip
-										mode="outlined"
+										mode="contained"
 										style={styles.categoryItem}
 										onPress={() =>
 											categoryHandler(item.name, item.key)
 										}
 										textStyle={{ fontSize: 20 }}
 									>
-										{item.name}
+										<Paragraph style={styles.categoryText}>
+											{item.name}
+										</Paragraph>
 									</Chip>
 								)
 							}
 						/>
 					</View>
 					<View style={styles.colorContainer}>
-						<Title style={styles.title}>Colors</Title>
+						<Title style={styles.title}>Select habit color</Title>
 						<FlatList
 							horizontal={true}
 							data={colorList}
@@ -119,7 +125,7 @@ const CreatingHabit = ({
 											styles.colorItem,
 											{
 												backgroundColor: item.color,
-												borderWidth: 4,
+												borderWidth: 1.9,
 												borderColor: "black",
 											},
 										]}
@@ -144,7 +150,7 @@ const CreatingHabit = ({
 							style={styles.btn}
 							onPress={buttonHandler}
 						>
-							create habit
+							create new habit
 						</Button>
 					</TouchableOpacity>
 				</View>
@@ -155,11 +161,12 @@ const CreatingHabit = ({
 
 const styles = StyleSheet.create({
 	inputContainer: {
-		marginTop: 30,
+		marginTop: 40,
 		width: "100%",
 	},
 	title: {
 		paddingBottom: 10,
+		color: "#BDBDBD",
 	},
 	habitNameInput: {
 		borderColor: "#dddddd",
@@ -174,25 +181,25 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	catgoryContainer: {
-		marginTop: 30,
+		marginTop: 40,
 		maxHeight: "50%",
-	},
-
-	btn: {
-		marginTop: 30,
 	},
 
 	categoryItem: {
 		marginLeft: 10,
 		marginRight: 10,
-		width: 40,
+		paddingTop: 5,
 		height: 40,
 		borderRadius: 20,
 	},
+	categoryText: {
+		width: "100%",
+		color: "#9E9E9E",
+	},
 
 	colorContainer: {
-		marginTop: 60,
-		maxHeight: "25%",
+		marginTop: 40,
+		maxHeight: "35%",
 	},
 	colorItem: {
 		marginLeft: 10,
@@ -200,6 +207,14 @@ const styles = StyleSheet.create({
 		width: 40,
 		height: 40,
 		borderRadius: 20,
+	},
+	btn: {
+		marginTop: 30,
+		height: 62,
+		paddingTop: 15,
+		// fontWeight: "bold",
+		backgroundColor: "#9b5af7",
+		borderRadius: 10,
 	},
 })
 

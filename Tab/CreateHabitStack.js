@@ -12,7 +12,7 @@ const CreateHabitStack = () => {
 				<Stack.Screen
 					options={{
 						headerStyle: {
-							backgroundColor: "#6200ee",
+							backgroundColor: "#7b2bed",
 							height: 70,
 						},
 						headerTintColor: "white",

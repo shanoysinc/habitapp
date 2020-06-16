@@ -19,7 +19,7 @@ const TopTab = () => {
 					textTransform: "capitalize",
 				},
 				tabStyle: { height: 70 },
-				style: { backgroundColor: "#6200ee" },
+				style: { backgroundColor: "#7b2bed" },
 				indicatorStyle: { backgroundColor: "#fff", height: 4 },
 			}}
 		>
