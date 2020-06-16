@@ -14,8 +14,15 @@ import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
 import { colorBg } from "../global/global"
 import { selectedColor } from "../actions/selectedColorAction"
+import { selectedCategoryAction } from "../actions/selectedCategoryAction"
 
-const CreatingHabit = ({ create, categoryList, colorList, color }) => {
+const CreatingHabit = ({
+	create,
+	categoryList,
+	colorList,
+	color,
+	categoryColor,
+}) => {
 	const inputRef = useRef()
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
@@ -27,8 +34,9 @@ const CreatingHabit = ({ create, categoryList, colorList, color }) => {
 		///console.log(value)
 	}
 
-	const categoryHandler = (cat) => {
-		return () => setSelectedCategory(cat)
+	const categoryHandler = (catName, key) => {
+		setSelectedCategory(catName)
+		categoryColor(selectedCategoryAction(key))
 	}
 
 	const buttonHandler = () => {
@@ -69,16 +77,34 @@ const CreatingHabit = ({ create, categoryList, colorList, color }) => {
 							showsHorizontalScrollIndicator={false}
 							horizontal={true}
 							data={categoryList}
-							renderItem={({ item }) => (
-								<Chip
-									mode="outlined"
-									style={styles.categoryItem}
-									onPress={categoryHandler(item.name)}
-									textStyle={{ fontSize: 20 }}
-								>
-									{item.name}
-								</Chip>
-							)}
+							renderItem={({ item }) =>
+								item.selected ? (
+									<Chip
+										mode="outlined"
+										style={[
+											styles.categoryItem,
+											{
+												borderWidth: 2,
+												borderColor: "black",
+											},
+										]}
+										textStyle={{ fontSize: 20 }}
+									>
+										{item.name}
+									</Chip>
+								) : (
+									<Chip
+										mode="outlined"
+										style={styles.categoryItem}
+										onPress={() =>
+											categoryHandler(item.name, item.key)
+										}
+										textStyle={{ fontSize: 20 }}
+									>
+										{item.name}
+									</Chip>
+								)
+							}
 						/>
 					</View>
 					<View style={styles.colorContainer}>
@@ -101,16 +127,16 @@ const CreatingHabit = ({ create, categoryList, colorList, color }) => {
 										]}
 									></Chip>
 								) : (
-										<Chip
-											style={[
-												styles.categoryItem,
-												{ backgroundColor: item.color },
-											]}
-											onPress={() =>
-												selectedColorHandler(item.key)
-											}
-										></Chip>
-									)
+									<Chip
+										style={[
+											styles.categoryItem,
+											{ backgroundColor: item.color },
+										]}
+										onPress={() =>
+											selectedColorHandler(item.key)
+										}
+									></Chip>
+								)
 							}
 						/>
 					</View>
@@ -156,8 +182,8 @@ const styles = StyleSheet.create({
 		maxHeight: "15%",
 	},
 	categoryItem: {
-		marginLeft: 8,
-		marginRight: 8,
+		marginLeft: 10,
+		marginRight: 10,
 	},
 	colorContainer: {
 		marginTop: 30,
@@ -176,6 +202,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		create: (action) => dispatch(action),
 		color: (action) => dispatch(action),
+		categoryColor: (action) => dispatch(action),
 	}
 }
 

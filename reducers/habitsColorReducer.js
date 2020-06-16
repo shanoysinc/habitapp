@@ -11,7 +11,7 @@ export const habitColor = [
 const habitsColorReducer = (state = habitColor, action) => {
 	switch (action.type) {
 		case "SELECTED_COLOR":
-			state.find(col => {
+			state.find((col) => {
 				if (col.key == action.key) {
 					col.selected = true
 				} else {
