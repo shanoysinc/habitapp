@@ -41,16 +41,18 @@ const CreatingHabit = ({
 	}
 
 	const buttonHandler = () => {
-		setuuid(uuid + 1)
-		create(
-			createHabit({
-				name: input,
-				category: selectedCategory,
-				color: selectedColor,
-				key: uuid,
-			})
-		)
-		inputRef.current.clear()
+		if (input != "" && selectedColor != "" && selectedColor != "") {
+			setuuid(uuid + 1)
+			create(
+				createHabit({
+					name: input,
+					category: selectedCategory,
+					color: selectedColor,
+					key: uuid,
+				})
+			)
+			inputRef.current.clear()
+		}
 	}
 
 	const selectedColorHandler = (colorName, key) => {
