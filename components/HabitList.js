@@ -27,26 +27,46 @@ const Home = ({ habitList }) => {
 				<View style={styles.habitsSeciton}>
 					<Card style={styles.habitCard}>
 						<Card.Content>
-							<Title>Learn to code</Title>
-							<Paragraph>Hobbies</Paragraph>
+							<Title style={styles.textCenter}>
+								Learn to code
+							</Title>
+							<Paragraph style={styles.textCenter}>
+								Hobbies
+							</Paragraph>
+							<Title style={styles.cardPercentage}>67%</Title>
 						</Card.Content>
 					</Card>
 					<Card style={styles.habitCard}>
 						<Card.Content>
-							<Title>Learn to code</Title>
-							<Paragraph>Hobbies</Paragraph>
+							<Title style={styles.textCenter}>
+								Learn to code
+							</Title>
+							<Paragraph style={styles.textCenter}>
+								Hobbies
+							</Paragraph>
+							<Title style={styles.cardPercentage}>100%</Title>
 						</Card.Content>
 					</Card>
 					<Card style={styles.habitCard}>
 						<Card.Content>
-							<Title>Learn to code</Title>
-							<Paragraph>Hobbies</Paragraph>
+							<Title style={styles.textCenter}>
+								Learn to code
+							</Title>
+							<Paragraph style={styles.textCenter}>
+								Hobbies
+							</Paragraph>
+							<Title style={styles.cardPercentage}>17%</Title>
 						</Card.Content>
 					</Card>
 					<Card style={styles.habitCard}>
 						<Card.Content>
-							<Title>Learn to code</Title>
-							<Paragraph>Hobbies</Paragraph>
+							<Title style={styles.textCenter}>
+								Learn to code
+							</Title>
+							<Paragraph style={styles.textCenter}>
+								Hobbies
+							</Paragraph>
+							<Title style={styles.cardPercentage}>2%</Title>
 						</Card.Content>
 					</Card>
 				</View>
@@ -108,6 +128,8 @@ const styles = StyleSheet.create({
 	},
 	todaysCard: {
 		marginTop: 10,
+		marginLeft: 5,
+		marginRight: 5,
 		height: "52%",
 	},
 
@@ -120,6 +142,17 @@ const styles = StyleSheet.create({
 	habitCard: {
 		margin: 5,
 		height: 165,
+		width: 157,
+	},
+	textCenter: {
+		textAlign: "center",
+		fontSize: 15,
+		lineHeight: 0,
+	},
+	cardPercentage: {
+		textAlign: "center",
+		fontSize: 30,
+		marginTop: 20,
 	},
 	// card: {
 	// 	width: "45%",
