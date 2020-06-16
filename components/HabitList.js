@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
 	},
 	habitCard: {
 		margin: 5,
-		height: 165,
+		height: 140,
 		width: 157,
 		elevation: 3,
 	},
@@ -211,10 +211,10 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 	},
 	iconImage: {
-		height: 23,
-		width: 23,
-		top: 120,
-		right: 15,
+		height: 20,
+		width: 20,
+		top: 105,
+		right: 10,
 		position: "absolute",
 	},
 	// card: {
