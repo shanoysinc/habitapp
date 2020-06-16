@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
 	cardPercentage: {
 		textAlign: "center",
 		fontSize: 32,
-		marginTop: 20,
+		marginTop: 10,
 	},
 	iconImage: {
 		height: 20,
