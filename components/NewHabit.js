@@ -13,12 +13,14 @@ import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
 import { colorBg } from "../global/global"
+import { selectedColor } from "../actions/selectedColorAction"
 
-const CreatingHabit = ({ create, categoryList }) => {
+const CreatingHabit = ({ create, categoryList, colorList, color }) => {
 	const inputRef = useRef()
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [uuid, setuuid] = useState("2")
+	const [refresh, setRefresh] = useState(false)
 
 	const inputHandler = (value) => {
 		setInput(value)
@@ -40,6 +42,12 @@ const CreatingHabit = ({ create, categoryList }) => {
 		)
 		inputRef.current.clear()
 	}
+
+	const selectedColorHandler = (key) => {
+		color(selectedColor(key))
+		setRefresh(!refresh)
+	}
+
 	return (
 		<View style={[styles.container, colorBg]}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -71,6 +79,39 @@ const CreatingHabit = ({ create, categoryList }) => {
 									{item.name}
 								</Chip>
 							)}
+						/>
+					</View>
+					<View style={styles.colorContainer}>
+						<Title style={styles.title}>Colors</Title>
+						<FlatList
+							horizontal={true}
+							data={colorList}
+							keyExtractor={(item) => item.key}
+							extraData={refresh}
+							renderItem={({ item }) =>
+								item.selected ? (
+									<Chip
+										style={[
+											styles.categoryItem,
+											{
+												backgroundColor: item.color,
+												borderWidth: 4,
+												borderColor: "black",
+											},
+										]}
+									></Chip>
+								) : (
+										<Chip
+											style={[
+												styles.categoryItem,
+												{ backgroundColor: item.color },
+											]}
+											onPress={() =>
+												selectedColorHandler(item.key)
+											}
+										></Chip>
+									)
+							}
 						/>
 					</View>
 					<TouchableOpacity>
@@ -118,17 +159,23 @@ const styles = StyleSheet.create({
 		marginLeft: 8,
 		marginRight: 8,
 	},
+	colorContainer: {
+		marginTop: 30,
+		maxHeight: "15%",
+	},
 })
 
 const mapStateToProps = (state) => {
 	return {
 		categoryList: state.habitCategoryReducer,
+		colorList: state.habitsColorReducer,
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		create: (action) => dispatch(action),
+		color: (action) => dispatch(action),
 	}
 }
 
