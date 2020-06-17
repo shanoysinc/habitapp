@@ -94,7 +94,7 @@ const CreatingHabit = ({
 											styles.categoryItem,
 											{
 												borderWidth: 1.9,
-												backgroundColor: "#9b5af7",
+												backgroundColor: "#212121",
 											},
 										]}
 										textStyle={{ fontSize: 20 }}
@@ -141,7 +141,7 @@ const CreatingHabit = ({
 											{
 												backgroundColor: item.color,
 												borderWidth: 4,
-												borderColor: "#9b5af7",
+												borderColor: "#212121",
 											},
 										]}
 									></Chip>
@@ -232,7 +232,8 @@ const styles = StyleSheet.create({
 		height: 62,
 		paddingTop: 15,
 		// fontWeight: "bold",
-		backgroundColor: "#9b5af7",
+		backgroundColor: "#212121",
+		color: "white",
 		borderRadius: 10,
 	},
 })
