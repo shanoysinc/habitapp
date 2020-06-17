@@ -16,7 +16,7 @@ const Home = ({ habitList }) => {
 			<View style={styles.body}>
 				<Title style={styles.title}>Today</Title>
 				<Card
-					style={[styles.todaysCard, { backgroundColor: "#9b5af7" }]}
+					style={[styles.todaysCard, { backgroundColor: "#212121" }]}
 				>
 					<Card.Content>
 						<Title style={styles.todaysTitle}>Exercise</Title>
@@ -94,9 +94,11 @@ const styles = StyleSheet.create({
 	},
 	todaysTitle: {
 		fontSize: 28,
+		color: "white",
 	},
 	todaysParagraph: {
 		fontSize: 15,
+		color: "white",
 	},
 
 	habitCard: {
