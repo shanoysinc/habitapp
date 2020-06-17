@@ -16,7 +16,7 @@ const Home = ({ habitList }) => {
 			<View style={styles.body}>
 				<Title style={styles.title}>Today</Title>
 				<Card
-					style={[styles.todaysCard, { backgroundColor: "#FFE66D" }]}
+					style={[styles.todaysCard, { backgroundColor: "#9b5af7" }]}
 				>
 					<Card.Content>
 						<Title style={styles.todaysTitle}>Exercise</Title>
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#FAFAFA",
 		elevation: 3,
 		marginBottom: 12,
+		borderRadius: 10,
 	},
 	todaysTitle: {
 		fontSize: 28,
@@ -99,9 +100,10 @@ const styles = StyleSheet.create({
 	},
 
 	habitCard: {
-		margin: 5,
+		borderRadius: 10,
+		margin: 10,
 		height: 130,
-		width: 157,
+		width: 150,
 		elevation: 3,
 	},
 	textCenter: {
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
 	cardPercentage: {
 		textAlign: "center",
 		fontSize: 32,
-		marginTop: 10,
+		marginTop: 20,
 	},
 	iconImage: {
 		height: 20,

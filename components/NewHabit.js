@@ -54,6 +54,7 @@ const CreatingHabit = ({
 				})
 			)
 			inputRef.current.clear()
+			setInput("")
 			navigation.navigate("Home")
 		}
 	}
@@ -139,7 +140,7 @@ const CreatingHabit = ({
 											styles.colorItem,
 											{
 												backgroundColor: item.color,
-												borderWidth: 1.9,
+												borderWidth: 4,
 												borderColor: "#9b5af7",
 											},
 										]}

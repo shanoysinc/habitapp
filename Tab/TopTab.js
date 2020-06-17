@@ -15,11 +15,11 @@ const TopTab = () => {
 					fontSize: 15,
 					marginTop: 30,
 					fontWeight: "bold",
-					color: "#fff",
+					// color: "#fff",
 					textTransform: "capitalize",
 				},
 				tabStyle: { height: 70 },
-				style: { backgroundColor: "#7b2bed" },
+				// style: { backgroundColor: "#7b2bed" },
 				indicatorStyle: { backgroundColor: "#fff", height: 4 },
 			}}
 		>
