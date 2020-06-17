@@ -38,9 +38,12 @@ const Home = ({ habitList }) => {
 							<Modal visible={visible} onDismiss={dismissModal}>
 								<View style={styles.modalContainer}>
 									<View style={styles.modalContent}>
-										<Title style={styles.modalTitle}>
-											Did you complete this habit today?
-										</Title>
+										<View style={styles.modalHeader}>
+											<Title style={styles.modalTitle}>
+												Did you complete this habit
+												today?
+											</Title>
+										</View>
 										<View
 											style={styles.modalButtonContainer}
 										>
@@ -197,14 +200,21 @@ const styles = StyleSheet.create({
 	modalContent: {
 		margin: 10,
 	},
+	modalHeader: {
+		borderBottomColor: "#F5F5F5",
+		borderBottomWidth: 2,
+	},
 	modalTitle: {
 		textAlign: "center",
 		marginBottom: 20,
-		color: "#9E9E9E",
+		color: "#616161",
+		lineHeight: 0,
+		fontSize: 18,
 	},
 	modalButtonContainer: {
 		flexDirection: "row",
 		justifyContent: "center",
+		marginTop: 10,
 	},
 	modalBtn: {
 		height: 50,
