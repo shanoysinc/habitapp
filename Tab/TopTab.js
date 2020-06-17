@@ -15,7 +15,7 @@ const TopTab = () => {
 					fontSize: 15,
 					marginTop: 30,
 					fontWeight: "bold",
-					// color: "#fff",
+
 					textTransform: "capitalize",
 				},
 				tabStyle: { height: 70 },

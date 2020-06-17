@@ -4,7 +4,7 @@ export const habitColor = [
 	{ color: "#20FC8F", key: "3", selected: false },
 	{ color: "#4ECDC4", key: "4", selected: false },
 	{ color: "#FFE66D", key: "5", selected: false },
-	{ color: "#FF6542", key: "6", selected: false },
+	{ color: "#FF7043", key: "6", selected: false },
 	{ color: "#01BAEF", key: "7", selected: false },
 	{ color: "#FF4081", key: "8", selected: false },
 	{ color: "#BA68C8", key: "9", selected: false },

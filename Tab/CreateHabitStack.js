@@ -8,6 +8,7 @@ const Stack = createStackNavigator()
 const CreateHabitStack = () => {
 	return (
 		// <NavigationContainer independent={true}>
+
 		<Stack.Navigator headerMode="none">
 			<Stack.Screen
 				// options={{
@@ -21,6 +22,7 @@ const CreateHabitStack = () => {
 				component={NewHabit}
 			/>
 		</Stack.Navigator>
+
 		// </NavigationContainer>
 	)
 }
