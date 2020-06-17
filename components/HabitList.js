@@ -1,26 +1,14 @@
 import React, { useState } from "react"
-import {
-	StyleSheet,
-	View,
-	Image,
-	FlatList,
-	TouchableOpacity,
-} from "react-native"
-import {
-	Card,
-	Title,
-	Paragraph,
-	Button,
-	Modal,
-	Portal,
-	Provider,
-} from "react-native-paper"
+import { StyleSheet, View, Image, FlatList } from "react-native"
+import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
+import ShowSnackBar from "./SnackBar"
 
 const Home = ({ habitList }) => {
 	const [visible, setVisible] = useState(false)
+	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 	const habitcompleteHandler = () => {
 		console.log("habit complete")
 		setVisible(true)
@@ -28,43 +16,20 @@ const Home = ({ habitList }) => {
 
 	const dismissModal = () => {
 		setVisible(false)
+		setSnackBarVisible(true)
+	}
+
+	const dismissSnackBar = () => {
+		setSnackBarVisible(false)
 	}
 	return (
 		<Provider>
 			<View style={styles.container}>
 				<View style={styles.body}>
-					<>
-						<Portal>
-							<Modal visible={visible} onDismiss={dismissModal}>
-								<View style={styles.modalContainer}>
-									<View style={styles.modalContent}>
-										<View style={styles.modalHeader}>
-											<Title style={styles.modalTitle}>
-												Did you complete this habit
-												today?
-											</Title>
-										</View>
-										<View
-											style={styles.modalButtonContainer}
-										>
-											<Button
-												mode="outlined"
-												style={styles.modalBtn}
-											>
-												break
-											</Button>
-											<Button
-												mode="contained"
-												style={styles.modalBtn}
-											>
-												complete
-											</Button>
-										</View>
-									</View>
-								</View>
-							</Modal>
-						</Portal>
-					</>
+					<IsCompleteModal
+						showModal={visible}
+						removeModal={dismissModal}
+					/>
 					<Title style={styles.title}>Today</Title>
 					<Card
 						style={[
@@ -116,6 +81,11 @@ const Home = ({ habitList }) => {
 						)}
 					/>
 				</View>
+
+				<ShowSnackBar
+					show={isSnackBarVisible}
+					dismissSnackBar={dismissSnackBar}
+				/>
 			</View>
 		</Provider>
 	)
