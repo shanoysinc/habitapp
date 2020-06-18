@@ -8,9 +8,9 @@ import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 const IsCompleteModal = ({
 	showModal,
 	removeModal,
-	bezierChartDispatch,
 	increaseHabitPercentage,
 	currentHabitKey,
+	bezierChartDispatch,
 }) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -27,6 +27,7 @@ const IsCompleteModal = ({
 	const completeHabitHandler = () => {
 		removeModal()
 		increaseHabitPercentage(currentHabitKey)
+		bezierChartDispatch(currentHabitKey)
 	}
 	return (
 		<>

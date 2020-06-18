@@ -60,6 +60,12 @@ const habitListReducer = (state = habitList, action) => {
 		case "DELETE_FROM_HABIT_LIST":
 			return state
 		case "ADD_DATA_TO_BEZIER":
+			state.find((habit) => {
+				if (habit.key == action.key) {
+					habit.bezierChart[0].data.push(habit.disciplinePercentage)
+				}
+			})
+			console.log(state)
 			return state
 		case "INCREASE_HABIT_PERCENTAGE":
 			state.find((habit) => {

@@ -197,8 +197,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		bezierChartDispatch: (key, data) =>
-			dispatch(addToBezierChart(key, data)),
+		bezierChartDispatch: (key, data) => {
+			dispatch(addToBezierChart(key, data))
+		},
 		increaseHabitPercentage: (key) => dispatch(increasePercentage(key)),
 	}
 }
