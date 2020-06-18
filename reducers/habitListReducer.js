@@ -6,7 +6,7 @@ const habitList = [
 		daysCompleted: {},
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
-		color: "#01BAEF",
+		color: "#20FC8F",
 	},
 	{
 		name: "exercise",
@@ -15,7 +15,7 @@ const habitList = [
 		daysCompleted: {},
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
-		color: "#FF7043",
+		color: "#FF4081",
 	},
 	{
 		name: "learn to code",
@@ -24,7 +24,7 @@ const habitList = [
 		daysCompleted: {},
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
-		color: "#FF4081",
+		color: "#4ECDC4",
 	},
 	{
 		name: "Go out side",
