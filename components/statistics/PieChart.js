@@ -14,7 +14,7 @@ const PieChartComponent = () => {
 			[17, 21, 26],
 			[21, 10, 34],
 		],
-		barColors: ["#EC407A", "#F06292", "#F48FB1"],
+		barColors: ["#D1C4E9", "#B39DDB", "#9575CD"],
 	}
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",
