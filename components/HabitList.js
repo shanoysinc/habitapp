@@ -4,32 +4,23 @@ import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
-import ShowSnackBar from "./SnackBar"
 
 const Home = ({ habitList }) => {
 	const [visible, setVisible] = useState(false)
-	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
+
 	const habitcompleteHandler = () => {
-		console.log("habit complete")
+		//	console.log("habit complete")
 		setVisible(true)
 	}
 
 	const dismissModal = () => {
 		setVisible(false)
-		setSnackBarVisible(true)
 	}
 
-	const dismissSnackBar = () => {
-		setSnackBarVisible(false)
-	}
 	return (
 		<Provider>
 			<View style={styles.container}>
 				<View style={styles.body}>
-					<IsCompleteModal
-						showModal={visible}
-						removeModal={dismissModal}
-					/>
 					<Title style={styles.title}>Today</Title>
 					<Card
 						style={[
@@ -81,10 +72,9 @@ const Home = ({ habitList }) => {
 						)}
 					/>
 				</View>
-
-				<ShowSnackBar
-					show={isSnackBarVisible}
-					dismissSnackBar={dismissSnackBar}
+				<IsCompleteModal
+					showModal={visible}
+					removeModal={dismissModal}
 				/>
 			</View>
 		</Provider>

@@ -1,15 +1,20 @@
 import React, { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
+import ShowSnackBar from "./SnackBar"
 
 const IsCompleteModal = ({ showModal, removeModal }) => {
-	//const [isSnackBarVisible, setSnackBarVisible] = useState(false)
+	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
 	const breakButton = () => {
-		console.log("break")
+		// console.log("break")
 		removeModal()
+		setSnackBarVisible(true)
 	}
 
+	const dismissSnackBar = () => {
+		setSnackBarVisible(false)
+	}
 	return (
 		<>
 			<Portal>
@@ -40,6 +45,10 @@ const IsCompleteModal = ({ showModal, removeModal }) => {
 					</View>
 				</Modal>
 			</Portal>
+			<ShowSnackBar
+				show={isSnackBarVisible}
+				dismissSnackBar={dismissSnackBar}
+			/>
 		</>
 	)
 }
