@@ -5,7 +5,7 @@ const habitList = [
 		category: "hobbies",
 		bezierChart: [
 			{
-				data: [],
+				data: [1, 10, 22],
 			},
 		],
 		disciplinePercentage: 0,
@@ -18,7 +18,7 @@ const habitList = [
 		category: "fitness",
 		bezierChart: [
 			{
-				data: [],
+				data: [42, 82, 12],
 			},
 		],
 		disciplinePercentage: 0,
@@ -31,7 +31,7 @@ const habitList = [
 		category: "relationship",
 		bezierChart: [
 			{
-				data: [],
+				data: [2, 22, 12],
 			},
 		],
 		disciplinePercentage: 0,
@@ -44,7 +44,7 @@ const habitList = [
 		category: "health",
 		bezierChart: [
 			{
-				data: [],
+				data: [12, 32, 32],
 			},
 		],
 		disciplinePercentage: 0,

@@ -3,23 +3,12 @@ import { StyleSheet, View, Text, Dimensions } from "react-native"
 import { LineChart } from "react-native-chart-kit"
 
 const screenWidth = Dimensions.get("window").width
-const BezierChartComponent = () => {
+const BezierChartComponent = (props) => {
+	const bezierData = props.bezierData
 	const data = {
-		// labels: [
-		// 	"Sunday",
-		// 	"Monday",
-		// 	"Tuesday",
-		// 	"Wednesday",
-		// 	"Friday",
-		// 	"Saturday",
-		// ],
-		datasets: [
-			{
-				data: [2, 0, 6, 100, 12, 12, 10, 100, 56, 21],
-			},
-		],
-		// legend: ["Rainy Days", "Sunny Days", "Snowy Days"], // optional
+		datasets: bezierData,
 	}
+
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",
 		backgroundGradientFromOpacity: 0,
