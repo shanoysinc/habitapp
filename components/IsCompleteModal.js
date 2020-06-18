@@ -2,8 +2,16 @@ import React, { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
 import ShowSnackBar from "./SnackBar"
+import { connect } from "react-redux"
+import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 
-const IsCompleteModal = ({ showModal, removeModal }) => {
+const IsCompleteModal = ({
+	showModal,
+	removeModal,
+	bezierChartDispatch,
+	increaseHabitPercentage,
+	currentHabitKey,
+}) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
 	const breakButton = () => {
@@ -14,6 +22,11 @@ const IsCompleteModal = ({ showModal, removeModal }) => {
 
 	const dismissSnackBar = () => {
 		setSnackBarVisible(false)
+	}
+
+	const completeHabitHandler = () => {
+		removeModal()
+		increaseHabitPercentage(currentHabitKey)
 	}
 	return (
 		<>
@@ -37,6 +50,7 @@ const IsCompleteModal = ({ showModal, removeModal }) => {
 								<Button
 									mode="contained"
 									style={styles.modalBtn}
+									onPress={completeHabitHandler}
 								>
 									complete
 								</Button>

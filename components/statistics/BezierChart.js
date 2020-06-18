@@ -5,14 +5,14 @@ import { LineChart } from "react-native-chart-kit"
 const screenWidth = Dimensions.get("window").width
 const BezierChartComponent = () => {
 	const data = {
-		labels: [
-			"Sunday",
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Friday",
-			"Saturday",
-		],
+		// labels: [
+		// 	"Sunday",
+		// 	"Monday",
+		// 	"Tuesday",
+		// 	"Wednesday",
+		// 	"Friday",
+		// 	"Saturday",
+		// ],
 		datasets: [
 			{
 				data: [2, 0, 6, 100, 12, 12, 10, 100, 56, 21],

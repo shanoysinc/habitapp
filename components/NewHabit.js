@@ -9,7 +9,6 @@ import {
 	TouchableWithoutFeedback,
 } from "react-native"
 import { Title, Button, Chip, Paragraph } from "react-native-paper"
-import { icons } from "../global/global"
 import { connect } from "react-redux"
 import { createHabit } from "../actions/createHabitActions"
 import { colorBg } from "../global/global"

@@ -4,7 +4,7 @@ import { StackedBarChart } from "react-native-chart-kit"
 
 const screenWidth = Dimensions.get("window").width
 //if the data is greater than 2 take off the first number
-const PieChartComponent = () => {
+const StackChartComponent = () => {
 	const data = {
 		labels: ["Jan", "feb", "mar", "april"],
 
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
 		color: "white",
 	},
 })
-export default PieChartComponent
+export default StackChartComponent

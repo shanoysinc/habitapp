@@ -3,7 +3,11 @@ const habitList = [
 		name: "learn to code",
 		key: "1",
 		category: "hobbies",
-		daysCompleted: {},
+		bezierChart: [
+			{
+				data: [],
+			},
+		],
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "#20FC8F",
@@ -12,7 +16,11 @@ const habitList = [
 		name: "exercise",
 		key: "2",
 		category: "fitness",
-		daysCompleted: {},
+		bezierChart: [
+			{
+				data: [],
+			},
+		],
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "#FF4081",
@@ -21,7 +29,11 @@ const habitList = [
 		name: "learn to code",
 		key: "3",
 		category: "relationship",
-		daysCompleted: {},
+		bezierChart: [
+			{
+				data: [],
+			},
+		],
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "#4ECDC4",
@@ -30,7 +42,11 @@ const habitList = [
 		name: "Go out side",
 		key: "4",
 		category: "health",
-		daysCompleted: {},
+		bezierChart: [
+			{
+				data: [],
+			},
+		],
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "#BA68C8",
@@ -42,6 +58,15 @@ const habitListReducer = (state = habitList, action) => {
 		case "ADD_TO_HABIT_LIST":
 			return [action.payload, ...state]
 		case "DELETE_FROM_HABIT_LIST":
+			return state
+		case "ADD_DATA_TO_BEZIER":
+			return state
+		case "INCREASE_HABIT_PERCENTAGE":
+			state.find((habit) => {
+				if (habit.key == action.key) {
+					habit.disciplinePercentage += 4
+				}
+			})
 			return state
 		default:
 			return state

@@ -5,13 +5,17 @@ import { icons } from "../global/global"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
+import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
+import { increasePercentage } from "../actions/habitListActions"
 
-const Home = ({ habitList }) => {
+const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 	const [visible, setVisible] = useState(false)
+	const [currentHabitKey, setCurrentHabitKey] = useState("")
 
-	const habitcompleteHandler = () => {
+	const habitcompleteHandler = (key) => {
 		//	console.log("habit complete")
 		setVisible(true)
+		setCurrentHabitKey(key)
 	}
 
 	const dismissModal = () => {
@@ -48,7 +52,7 @@ const Home = ({ habitList }) => {
 									styles.habitCard,
 									{ backgroundColor: item.color },
 								]}
-								onPress={habitcompleteHandler}
+								onPress={() => habitcompleteHandler(item.key)}
 							>
 								<Card.Content>
 									<Title
@@ -73,6 +77,9 @@ const Home = ({ habitList }) => {
 				<IsCompleteModal
 					showModal={visible}
 					removeModal={dismissModal}
+					bezierChartDispatch={bezierChartDispatch}
+					increaseHabitPercentage={increaseHabitPercentage}
+					currentHabitKey={currentHabitKey}
 				/>
 			</View>
 		</Provider>
@@ -187,4 +194,12 @@ const mapStateToProps = (state) => {
 		habitList: state.habitListReducer,
 	}
 }
-export default connect(mapStateToProps)(Home)
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		bezierChartDispatch: (key, data) =>
+			dispatch(addToBezierChart(key, data)),
+		increaseHabitPercentage: (key) => dispatch(increasePercentage(key)),
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
