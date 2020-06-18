@@ -9,6 +9,7 @@ const Progress = () => {
 		<View style={colorBg}>
 			<Title style={styles.textTitle}>Overall Progress</Title>
 			<PieChartComponent />
+			<Title style={styles.textTitle}>Learn to code</Title>
 			<BezierChartComponent />
 		</View>
 	)
@@ -16,9 +17,10 @@ const Progress = () => {
 
 const styles = StyleSheet.create({
 	textTitle: {
-		fontSize: 20,
+		fontSize: 18,
 		fontWeight: "bold",
-		marginLeft: 20,
+		marginLeft: 10,
+		color: "#424242",
 	},
 })
 export default Progress
