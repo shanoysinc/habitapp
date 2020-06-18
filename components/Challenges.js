@@ -1,7 +1,6 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
-//import { Snackbar } from "react-native-paper"
-
+import { ProgressChart } from "react-native-chart-kit"
 const Challenges = ({ show, dismissSnackBar }) => {
 	return <View></View>
 }

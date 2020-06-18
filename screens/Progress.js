@@ -1,12 +1,13 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { colorBg } from "../global/global"
+import BezierChartComponent from "../components/statistics/BezierChart"
 
 const Progress = () => {
 	return (
-		<View style={colorBg}>
-			<Text>Progress</Text>
-		</View>
+		<>
+			<BezierChartComponent />
+		</>
 	)
 }
 

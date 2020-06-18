@@ -4,6 +4,7 @@ import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { icons } from "../global/global"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
+import ProgressChartComponent from "../components/statistics/ProgressChart"
 
 const Home = ({ habitList }) => {
 	const [visible, setVisible] = useState(false)
@@ -33,6 +34,7 @@ const Home = ({ habitList }) => {
 							<Paragraph style={styles.todaysParagraph}>
 								Fitness
 							</Paragraph>
+							<ProgressChartComponent />
 						</Card.Content>
 					</Card>
 
