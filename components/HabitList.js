@@ -37,7 +37,7 @@ const Home = ({ habitList }) => {
 							<ProgressChartComponent />
 						</Card.Content>
 					</Card>
-
+					<Title style={styles.title}>Habits</Title>
 					<FlatList
 						numColumns={2}
 						data={habitList}
@@ -81,7 +81,6 @@ const Home = ({ habitList }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#fff",
 		flex: 1,
 	},
 

@@ -13,6 +13,6 @@
 // }
 
 export const colorBg = {
-	backgroundColor: "#fff",
+	backgroundColor: "#FAFAFA",
 	flex: 1,
 }

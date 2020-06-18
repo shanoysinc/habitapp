@@ -15,7 +15,7 @@ const BezierChartComponent = () => {
 		],
 		datasets: [
 			{
-				data: [2, 0, 6, 9, 12, 12],
+				data: [2, 0, 6, 100, 12, 12, 10, 100, 56, 21],
 			},
 		],
 		// legend: ["Rainy Days", "Sunny Days", "Snowy Days"], // optional
@@ -25,8 +25,8 @@ const BezierChartComponent = () => {
 		backgroundGradientFromOpacity: 0,
 		backgroundGradientTo: "#08130D",
 		backgroundGradientToOpacity: 0.5,
-		color: (opacity = 1) => `rgb(63, 81, 181, ${opacity})`,
-		labelColor: (opacity = 1) => `rgb(33, 33, 33, ${opacity})`,
+		color: (opacity = 1) => `rgb(255, 64, 129, ${opacity})`,
+		labelColor: (opacity = 1) => `rgb(66, 66, 66, ${opacity})`,
 		strokeWidth: 3, // optional, default 3
 		barPercentage: 0.5,
 		useShadowColorFromDataset: false, // optional
@@ -34,7 +34,8 @@ const BezierChartComponent = () => {
 	return (
 		<>
 			<LineChart
-				segments={3}
+				// segments={3}
+				withVerticalLabels={false}
 				withInnerLines={false}
 				data={data}
 				width={screenWidth}
@@ -42,15 +43,14 @@ const BezierChartComponent = () => {
 				verticalLabelRotation={16}
 				chartConfig={chartConfig}
 				bezier
+				style={styles.bezieChart}
 			/>
 		</>
 	)
 }
 const styles = StyleSheet.create({
-	prograssBar: {
-		marginTop: "-6%",
-		marginLeft: "40%",
-		position: "absolute",
+	bezieChart: {
+		marginTop: "8%",
 	},
 })
 export default BezierChartComponent
