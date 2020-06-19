@@ -23,6 +23,7 @@ const Progress = ({ habitList, refreshChart }) => {
 							<Title style={styles.textTitle}>{item.name}</Title>
 							<BezierChartComponent
 								bezierData={item.bezierChart}
+								color={item.color}
 							/>
 						</>
 					) : null

@@ -9,12 +9,15 @@ const BezierChartComponent = (props) => {
 		datasets: bezierData,
 	}
 
+	let strColor = props.color
+	strColor = strColor.slice(0, -1)
+
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",
 		backgroundGradientFromOpacity: 0,
 		backgroundGradientTo: "#08130D",
 		backgroundGradientToOpacity: 0.5,
-		color: (opacity = 1) => `rgb(255, 64, 129, ${opacity})`,
+		color: (opacity = 1) => `${strColor}, ${opacity})`,
 		labelColor: (opacity = 1) => `rgb(66, 66, 66, ${opacity})`,
 		strokeWidth: 3, // optional, default 3
 		barPercentage: 0.5,
