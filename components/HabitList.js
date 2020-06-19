@@ -43,38 +43,49 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 							<ProgressChartComponent />
 						</Card.Content>
 					</Card>
+
 					<Title style={styles.title}>Habits</Title>
-					<FlatList
-						numColumns={2}
-						data={habitList}
-						showsVerticalScrollIndicator={false}
-						renderItem={({ item }) => (
-							<Card
-								style={[
-									styles.habitCard,
-									{ backgroundColor: item.color },
-								]}
-								onPress={() => habitcompleteHandler(item.key)}
-							>
-								<Card.Content>
-									<Title
-										style={[
-											styles.textCenter,
-											styles.cardTitle,
-										]}
-									>
-										{item.name}
-									</Title>
-									<Paragraph style={styles.textCenter}>
-										{item.category}
-									</Paragraph>
-									<Title style={styles.cardPercentage}>
-										{item.disciplinePercentage}%
-									</Title>
-								</Card.Content>
-							</Card>
-						)}
-					/>
+
+					{habitList.length < 1 ? (
+						<Image
+							source={require("../assets/icons/bghabit-min.png")}
+							style={styles.imageIcon}
+						/>
+					) : (
+						<FlatList
+							numColumns={2}
+							data={habitList}
+							showsVerticalScrollIndicator={false}
+							renderItem={({ item }) => (
+								<Card
+									style={[
+										styles.habitCard,
+										{ backgroundColor: item.color },
+									]}
+									onPress={() =>
+										habitcompleteHandler(item.key)
+									}
+								>
+									<Card.Content>
+										<Title
+											style={[
+												styles.textCenter,
+												styles.cardTitle,
+											]}
+										>
+											{item.name}
+										</Title>
+										<Paragraph style={styles.textCenter}>
+											{item.category}
+										</Paragraph>
+										<Title style={styles.cardPercentage}>
+											{item.disciplinePercentage}%
+										</Title>
+									</Card.Content>
+								</Card>
+							)}
+						/>
+					)}
 				</View>
 				<IsCompleteModal
 					showModal={visible}
@@ -189,6 +200,13 @@ const styles = StyleSheet.create({
 		paddingTop: 5,
 		width: 120,
 		marginLeft: 10,
+	},
+	imageIcon: {
+		marginLeft: 10,
+		position: "absolute",
+		height: 300,
+		width: 300,
+		marginTop: "60%",
 	},
 })
 
