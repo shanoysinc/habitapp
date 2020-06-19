@@ -7,7 +7,7 @@ import StackChartComponent from "../components/statistics/StackChart"
 import { connect } from "react-redux"
 
 const Progress = ({ habitList, refreshChart }) => {
-	console.log("refreshing", refreshChart)
+	// console.log("refreshing", refreshChart)
 	return (
 		<View style={colorBg}>
 			<Title style={styles.textTitle}>Overall Progress</Title>

@@ -47,14 +47,18 @@ const IsCompleteModal = ({
 							<View style={styles.modalButtonContainer}>
 								<Button
 									mode="outlined"
-									style={styles.modalBtn}
+									style={[styles.modalBtn, styles.breakBtn]}
 									onPress={breakButton}
+									color="#212121"
 								>
 									break
 								</Button>
 								<Button
 									mode="contained"
-									style={styles.modalBtn}
+									style={[
+										styles.modalBtn,
+										styles.completeBtn,
+									]}
 									onPress={completeHabitHandler}
 								>
 									complete
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
 	modalContainer: {
 		marginLeft: 50,
 		marginRight: 50,
-		backgroundColor: "white",
+		backgroundColor: "#FAFAFA",
 		height: 160,
 		width: "75%",
 		borderRadius: 10,
@@ -107,6 +111,10 @@ const styles = StyleSheet.create({
 		width: 120,
 		marginLeft: 10,
 	},
+	completeBtn: {
+		backgroundColor: "#212121",
+	},
+	breakBtn: {},
 })
 
 // const mapStateToProps = (state) => {
