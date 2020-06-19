@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 	habitCard: {
 		borderRadius: 10,
 		margin: 10,
-		height: 130,
+		height: 135,
 		width: 150,
 		elevation: 3,
 	},
@@ -142,7 +142,8 @@ const styles = StyleSheet.create({
 	cardPercentage: {
 		textAlign: "center",
 		fontSize: 32,
-		marginTop: 20,
+		marginTop: 22,
+		marginLeft: 8,
 	},
 	iconImage: {
 		height: 20,
