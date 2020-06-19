@@ -60,7 +60,7 @@ const CreatingHabit = ({
 			)
 			inputRef.current.clear()
 			setInput("")
-			navigation.navigate("Home")
+			navigation.jumpTo("Home")
 		} else {
 			Alert.alert(
 				"Message",
