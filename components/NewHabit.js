@@ -7,6 +7,7 @@ import {
 	TextInput,
 	Keyboard,
 	TouchableWithoutFeedback,
+	Alert,
 } from "react-native"
 import { Title, Button, Chip, Paragraph } from "react-native-paper"
 import { connect } from "react-redux"
@@ -60,6 +61,11 @@ const CreatingHabit = ({
 			inputRef.current.clear()
 			setInput("")
 			navigation.navigate("Home")
+		} else {
+			Alert.alert(
+				"Message",
+				"Habit name, category and colors must not be empty good luck on your journey"
+			)
 		}
 	}
 
