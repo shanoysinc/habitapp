@@ -25,7 +25,7 @@ const TopTab = () => {
 		>
 			<Tab.Screen name="Home" component={Home} />
 			<Tab.Screen name="Statistics" component={Progress} />
-			<Tab.Screen name="Calender" component={Calender} />
+			{/* <Tab.Screen name="Calender" component={Calender} /> */}
 		</Tab.Navigator>
 	)
 }

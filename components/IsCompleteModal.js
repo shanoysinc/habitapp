@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
 import ShowSnackBar from "./SnackBar"
+// import { connect } from "react-redux"
+// import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
+import { refreshProgressGraph } from "../actions/chartsAction/refreshChartAction"
 import { connect } from "react-redux"
-import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 
 const IsCompleteModal = ({
 	showModal,
@@ -11,6 +13,7 @@ const IsCompleteModal = ({
 	increaseHabitPercentage,
 	currentHabitKey,
 	bezierChartDispatch,
+	refreshChartData,
 }) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -28,6 +31,7 @@ const IsCompleteModal = ({
 		removeModal()
 		increaseHabitPercentage(currentHabitKey)
 		bezierChartDispatch(currentHabitKey)
+		refreshChartData()
 	}
 	return (
 		<>
@@ -70,7 +74,7 @@ const IsCompleteModal = ({
 
 const styles = StyleSheet.create({
 	modalContainer: {
-		marginLeft: 35,
+		marginLeft: 50,
 		marginRight: 50,
 		backgroundColor: "white",
 		height: 160,
@@ -105,4 +109,16 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default IsCompleteModal
+// const mapStateToProps = (state) => {
+// 	return {
+// 		refreshData: state.progressRefreshReducer,
+// 	}
+// }
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		refreshChartData: () => dispatch(refreshProgressGraph()),
+	}
+}
+
+export default connect(null, mapDispatchToProps)(IsCompleteModal)

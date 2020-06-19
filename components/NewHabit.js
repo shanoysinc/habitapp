@@ -27,7 +27,7 @@ const CreatingHabit = ({
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [selectedColor, setSelectedColor] = useState("")
-	const [uuid, setuuid] = useState("2")
+	const [uuid, setuuid] = useState("0")
 	const [refresh, setRefresh] = useState(false)
 
 	const inputHandler = (value) => {
@@ -41,7 +41,7 @@ const CreatingHabit = ({
 	}
 
 	const buttonHandler = () => {
-		if (input != "" && selectedColor != "" && selectedColor != "") {
+		if (input != "" && selectedColor != "" && selectedCategory != "") {
 			setuuid(uuid + 1)
 			create(
 				createHabit({
@@ -50,6 +50,11 @@ const CreatingHabit = ({
 					color: selectedColor,
 					key: uuid,
 					disciplinePercentage: 0,
+					bezierChart: [
+						{
+							data: [],
+						},
+					],
 				})
 			)
 			inputRef.current.clear()

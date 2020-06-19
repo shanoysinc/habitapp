@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { StyleSheet, View, Image, FlatList } from "react-native"
 import { Card, Title, Paragraph, Provider } from "react-native-paper"
-import { icons } from "../global/global"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
@@ -11,15 +10,18 @@ import { increasePercentage } from "../actions/habitListActions"
 const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 	const [visible, setVisible] = useState(false)
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
+	const [refreshProgress, setRefreshProgress] = useState(false)
 
 	const habitcompleteHandler = (key) => {
 		//	console.log("habit complete")
 		setVisible(true)
 		setCurrentHabitKey(key)
+		setRefreshProgress(true)
 	}
 
 	const dismissModal = () => {
 		setVisible(false)
+		setRefreshProgress(false)
 	}
 
 	return (
