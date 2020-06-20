@@ -15,6 +15,7 @@ import { createHabit } from "../actions/createHabitActions"
 import { colorBg } from "../global/global"
 import { selectedColor } from "../actions/selectedColorAction"
 import { selectedCategoryAction } from "../actions/selectedCategoryAction"
+import moment from "moment"
 
 const CreatingHabit = ({
 	create,
@@ -42,6 +43,9 @@ const CreatingHabit = ({
 	}
 
 	const buttonHandler = () => {
+		const date = moment().format("MMM Do YY")
+		console.log(date)
+
 		if (input != "" && selectedColor != "" && selectedCategory != "") {
 			setuuid(uuid + 1)
 			create(
@@ -56,6 +60,7 @@ const CreatingHabit = ({
 							data: [],
 						},
 					],
+					log: [],
 				})
 			)
 			inputRef.current.clear()
