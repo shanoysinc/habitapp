@@ -13,7 +13,7 @@ const habitList = [
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "rgb(1, 186, 239)",
-		log: [{ date: "Jun 19th 20", complete: true, percentageLog: 0 }],
+		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
 	},
 	{
 		name: "exercise",
@@ -27,8 +27,9 @@ const habitList = [
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "rgb(46, 204, 114)",
-		log: [{ date: "Jun 20th 20", complete: true, percentageLog: 0 }],
+		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
 	},
+
 	// {
 	// 	name: "learn to code",
 	// 	key: "3",
@@ -84,29 +85,45 @@ const habitListReducer = (state = habitList, action) => {
 
 			state.find((habit) => {
 				if (habit.key == action.key) {
-					if (habit.log.length > 0) {
-						habit.log.find((currentDate) => {
-							if (currentDate.date == date) {
-								currentDate.complete = !currentDate.complete
-								foundDate = true
-							}
-						})
-					}
+					// if (habit.log.length > 0) {
+					habit.log.find((currentDate) => {
+						if (currentDate.date == date) {
+							currentDate.complete = true
+							return currentDate.complete
+							//	foundDate = true
+						}
+					})
+					//}
 
-					if (foundDate == false) {
-						habit.log = [
-							{
-								date: date,
-								complete: true,
-								percentageLog: 0,
-							},
-							...habit.log,
-						]
-					}
+					// if (foundDate == false) {
+					// 	habit.log = [
+					// 		{
+					// 			date: date,
+					// 			complete: true,
+					// 			percentageLog: 0,
+					// 		},
+					// 		...habit.log,
+					// 	]
+					// }
 				}
 			})
-			console.log(state)
+			//console.log(state)
 			return state
+		// case "CHECK_IF_USER_LOG_FOR_THE_DAY":
+		// 	// let isComplete = false
+
+		// 	// state.find((habit) => {
+		// 	// 	if (habit.key == action.key) {
+		// 	// 		if (habit.log.length > 0) {
+		// 	// 			habit.log.find((currentDate) => {
+		// 	// 				if (currentDate.date == date) {
+		// 	// 					isComplete = currentDate.complete
+		// 	// 				}
+		// 	// 			})
+		// 	// 		}
+		// 	// 	}
+		// 	// })
+		// 	return state
 		default:
 			return state
 	}

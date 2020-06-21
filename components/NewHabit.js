@@ -60,7 +60,13 @@ const CreatingHabit = ({
 							data: [],
 						},
 					],
-					log: [],
+					log: [
+						{
+							date: date,
+							complete: false,
+							percentageLog: 0,
+						},
+					],
 				})
 			)
 			inputRef.current.clear()

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { StyleSheet, View, Image, FlatList } from "react-native"
 import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { connect } from "react-redux"
@@ -6,22 +6,45 @@ import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { increasePercentage } from "../actions/habitListActions"
+import moment from "moment"
+import UndoLog from "../components/modals/UndoLog"
 
 const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 	const [visible, setVisible] = useState(false)
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
-	const [refreshProgress, setRefreshProgress] = useState(false)
+	const [isHabitComplete, setIsHabitComplete] = useState(false)
+	const [undoVisible, setUndoVisible] = useState(false)
 
 	const habitcompleteHandler = (key) => {
-		//	console.log("habit complete")
-		setVisible(true)
 		setCurrentHabitKey(key)
-		setRefreshProgress(true)
+		habitList.find((habit) => {
+			const date = moment().format("MMM Do YY")
+			if (habit.key == key) {
+				//if (habit.log.length > 0) {
+				habit.log.find((currentDate) => {
+					if (currentDate.date == date) {
+						console.log("currentDate", currentDate.complete)
+						if (currentDate.complete) {
+							setUndoVisible(true)
+							//	setVisible(false)
+						} else {
+							setVisible(true)
+							//setUndoVisible(false)
+						}
+					}
+				})
+				//	}
+			}
+		})
+		console.log("current key", currentHabitKey)
+		console.log("is habit complete", isHabitComplete)
 	}
 
 	const dismissModal = () => {
 		setVisible(false)
-		setRefreshProgress(false)
+	}
+	const dismissUndo = () => {
+		setUndoVisible(false)
 	}
 
 	return (
@@ -55,6 +78,7 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 						<FlatList
 							numColumns={2}
 							data={habitList}
+							keyExtractor={(item) => item.key}
 							showsVerticalScrollIndicator={false}
 							renderItem={({ item }) => (
 								<Card
@@ -86,14 +110,20 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 							)}
 						/>
 					)}
+
+					<UndoLog
+						showModal={undoVisible}
+						removeModal={dismissUndo}
+					/>
+
+					<IsCompleteModal
+						showModal={visible}
+						removeModal={dismissModal}
+						bezierChartDispatch={bezierChartDispatch}
+						increaseHabitPercentage={increaseHabitPercentage}
+						currentHabitKey={currentHabitKey}
+					/>
 				</View>
-				<IsCompleteModal
-					showModal={visible}
-					removeModal={dismissModal}
-					bezierChartDispatch={bezierChartDispatch}
-					increaseHabitPercentage={increaseHabitPercentage}
-					currentHabitKey={currentHabitKey}
-				/>
 			</View>
 		</Provider>
 	)
@@ -222,6 +252,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(addToBezierChart(key, data))
 		},
 		increaseHabitPercentage: (key) => dispatch(increasePercentage(key)),
+		//	checkUserLog: (key) => dispatch(checkUserLog(key)),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
