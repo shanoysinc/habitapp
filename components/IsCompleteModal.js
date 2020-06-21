@@ -4,7 +4,6 @@ import { Title, Button, Modal, Portal } from "react-native-paper"
 import ShowSnackBar from "./SnackBar"
 // import { connect } from "react-redux"
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
-import { refreshProgressGraph } from "../actions/chartsAction/refreshChartAction"
 import { connect } from "react-redux"
 import { isHabitComplete } from "../actions/isHabitCompleteAction"
 
@@ -13,7 +12,7 @@ const IsCompleteModal = ({
 	removeModal,
 	increaseHabitPercentage,
 	currentHabitKey,
-	bezierChartDispatch,
+	addDataToDatabezierChart,
 	refreshChartData,
 	isHabitComplete,
 }) => {
@@ -33,7 +32,7 @@ const IsCompleteModal = ({
 		removeModal()
 		increaseHabitPercentage(currentHabitKey)
 		isHabitComplete(currentHabitKey)
-		bezierChartDispatch(currentHabitKey)
+		addDataToDatabezierChart(currentHabitKey)
 		refreshChartData()
 	}
 	return (
@@ -120,15 +119,8 @@ const styles = StyleSheet.create({
 	breakBtn: {},
 })
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		refreshData: state.progressRefreshReducer,
-// 	}
-// }
-
 const mapDispatchToProps = (dispatch) => {
 	return {
-		refreshChartData: () => dispatch(refreshProgressGraph()),
 		isHabitComplete: (key) => dispatch(isHabitComplete(key)),
 	}
 }

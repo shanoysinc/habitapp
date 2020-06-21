@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
+import { removeCurrentDayLogFromBezierChart } from "../actions/chartsAction/bezierChartAction"
+import { refreshProgressGraph } from "../actions/chartsAction/refreshChartAction"
 import { increasePercentage } from "../actions/habitListActions"
 import { undoHabitLog } from "../actions/habitListActions"
 import moment from "moment"
@@ -12,9 +14,11 @@ import UndoLog from "../components/modals/UndoLog"
 
 const Home = ({
 	habitList,
-	bezierChartDispatch,
+	addDataToDatabezierChart,
 	increaseHabitPercentage,
 	undoLogforDay,
+	removeDataFromBeizerData,
+	refreshChartData,
 }) => {
 	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
@@ -123,14 +127,17 @@ const Home = ({
 						removeUndoModal={dismissUndo}
 						undoLogforDay={undoLogforDay}
 						currentHabitKey={currentHabitKey}
+						removeDataFromBeizerData={removeDataFromBeizerData}
+						refreshChartData={refreshChartData}
 					/>
 
 					<IsCompleteModal
 						showModal={visible}
 						removeModal={dismissModal}
-						bezierChartDispatch={bezierChartDispatch}
+						addDataToDatabezierChart={addDataToDatabezierChart}
 						increaseHabitPercentage={increaseHabitPercentage}
 						currentHabitKey={currentHabitKey}
+						refreshChartData={refreshChartData}
 					/>
 				</View>
 			</View>
@@ -257,11 +264,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		bezierChartDispatch: (key, data) => {
-			dispatch(addToBezierChart(key, data))
+		refreshChartData: () => dispatch(refreshProgressGraph()),
+		addDataToDatabezierChart: (key) => {
+			dispatch(addToBezierChart(key))
 		},
 		increaseHabitPercentage: (key) => dispatch(increasePercentage(key)),
 		undoLogforDay: (key) => dispatch(undoHabitLog(key)),
+		removeDataFromBeizerData: (key) => {
+			dispatch(removeCurrentDayLogFromBezierChart(key))
+		},
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

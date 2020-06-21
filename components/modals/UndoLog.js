@@ -13,23 +13,25 @@ const UndoLog = ({
 	removeUndoModal,
 	undoLogforDay,
 	currentHabitKey,
+	removeDataFromBeizerData,
+	refreshChartData,
 }) => {
-	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
+	// const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
-	const breakButton = () => {
-		removeUndoModal()
-		setSnackBarVisible(true)
-	}
+	// const breakButton = () => {
+	// 	removeUndoModal()
+	// 	setSnackBarVisible(true)
+	// }
 
-	const dismissSnackBar = () => {
-		setSnackBarVisible(false)
-	}
+	// const dismissSnackBar = () => {
+	// 	setSnackBarVisible(false)
+	// }
 
 	const undoHabitHandler = () => {
 		undoLogforDay(currentHabitKey)
 		removeUndoModal()
-		// bezierChartDispatch(currentHabitKey)
-		//refreshChartData()
+		removeDataFromBeizerData(currentHabitKey)
+		refreshChartData()
 	}
 	return (
 		<>

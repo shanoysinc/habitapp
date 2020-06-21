@@ -4,3 +4,10 @@ export const addToBezierChart = (key) => {
 		key,
 	}
 }
+
+export const removeCurrentDayLogFromBezierChart = (key) => {
+	return {
+		type: "REMOVE_DATA_TO_BEZIER",
+		key,
+	}
+}
