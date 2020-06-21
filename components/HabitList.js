@@ -4,11 +4,15 @@ import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
+
 import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { removeCurrentDayLogFromBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { refreshProgressGraph } from "../actions/chartsAction/refreshChartAction"
 import { increasePercentage } from "../actions/habitListActions"
 import { undoHabitLog } from "../actions/habitListActions"
+import { currentDateToHabitsAction } from "../actions/habitsAction/CurrentDateToHabitsAction"
+import { updateCurrentDateAction } from "../actions/habitsAction/updateCurrentDateAction"
+
 import moment from "moment"
 import UndoLog from "../components/modals/UndoLog"
 
@@ -19,12 +23,20 @@ const Home = ({
 	undoLogforDay,
 	removeDataFromBeizerData,
 	refreshChartData,
+	currentDateReducer,
+	currentDateToHabitsAction,
+	updateCurrentDateAction,
 }) => {
 	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
-	const [isHabitComplete, setIsHabitComplete] = useState(false)
+	//	const [isHabitComplete, setIsHabitComplete] = useState(false)
 	const [undoVisible, setUndoVisible] = useState(false)
+
+	if (currentDateReducer != date) {
+		updateCurrentDateAction()
+		currentDateToHabitsAction()
+	}
 
 	const habitcompleteHandler = (key) => {
 		setCurrentHabitKey(key)
@@ -33,7 +45,6 @@ const Home = ({
 				//if (habit.log.length > 0) {
 				habit.log.find((currentDate) => {
 					if (currentDate.date == date) {
-						console.log("currentDate", currentDate.complete)
 						if (currentDate.complete) {
 							setUndoVisible(true)
 							//setVisible(false)
@@ -46,9 +57,6 @@ const Home = ({
 				//	}
 			}
 		})
-		console.log("current key", key)
-
-		console.log("is habit complete", isHabitComplete)
 	}
 
 	const dismissModal = () => {
@@ -259,6 +267,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		habitList: state.habitListReducer,
+		currentDateReducer: state.currentDateReducer,
 	}
 }
 
@@ -273,6 +282,8 @@ const mapDispatchToProps = (dispatch) => {
 		removeDataFromBeizerData: (key) => {
 			dispatch(removeCurrentDayLogFromBezierChart(key))
 		},
+		currentDateToHabitsAction: () => dispatch(currentDateToHabitsAction()),
+		updateCurrentDateAction: () => dispatch(updateCurrentDateAction()),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
