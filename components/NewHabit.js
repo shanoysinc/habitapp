@@ -44,7 +44,6 @@ const CreatingHabit = ({
 
 	const buttonHandler = () => {
 		const date = moment().format("MMM Do YY")
-		console.log(date)
 
 		if (input != "" && selectedColor != "" && selectedCategory != "") {
 			setuuid(uuid + 1)

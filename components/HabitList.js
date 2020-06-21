@@ -6,10 +6,17 @@ import IsCompleteModal from "./IsCompleteModal"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { increasePercentage } from "../actions/habitListActions"
+import { undoHabitLog } from "../actions/habitListActions"
 import moment from "moment"
 import UndoLog from "../components/modals/UndoLog"
 
-const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
+const Home = ({
+	habitList,
+	bezierChartDispatch,
+	increaseHabitPercentage,
+	undoLogforDay,
+}) => {
+	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
 	const [isHabitComplete, setIsHabitComplete] = useState(false)
@@ -18,7 +25,6 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 	const habitcompleteHandler = (key) => {
 		setCurrentHabitKey(key)
 		habitList.find((habit) => {
-			const date = moment().format("MMM Do YY")
 			if (habit.key == key) {
 				//if (habit.log.length > 0) {
 				habit.log.find((currentDate) => {
@@ -26,7 +32,7 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 						console.log("currentDate", currentDate.complete)
 						if (currentDate.complete) {
 							setUndoVisible(true)
-							//	setVisible(false)
+							//setVisible(false)
 						} else {
 							setVisible(true)
 							//setUndoVisible(false)
@@ -36,7 +42,8 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 				//	}
 			}
 		})
-		console.log("current key", currentHabitKey)
+		console.log("current key", key)
+
 		console.log("is habit complete", isHabitComplete)
 	}
 
@@ -113,7 +120,9 @@ const Home = ({ habitList, bezierChartDispatch, increaseHabitPercentage }) => {
 
 					<UndoLog
 						showModal={undoVisible}
-						removeModal={dismissUndo}
+						removeUndoModal={dismissUndo}
+						undoLogforDay={undoLogforDay}
+						currentHabitKey={currentHabitKey}
 					/>
 
 					<IsCompleteModal
@@ -252,7 +261,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(addToBezierChart(key, data))
 		},
 		increaseHabitPercentage: (key) => dispatch(increasePercentage(key)),
-		//	checkUserLog: (key) => dispatch(checkUserLog(key)),
+		undoLogforDay: (key) => dispatch(undoHabitLog(key)),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

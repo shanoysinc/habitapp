@@ -1,5 +1,5 @@
 import moment from "moment"
-
+const date = moment().format("MMM Do YY")
 const habitList = [
 	{
 		name: "learn to code",
@@ -13,7 +13,7 @@ const habitList = [
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "rgb(1, 186, 239)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		log: [{ date: "Jun 21st 20", complete: false, percentageLog: 0 }],
 	},
 	{
 		name: "exercise",
@@ -27,35 +27,8 @@ const habitList = [
 		disciplinePercentage: 0,
 		typeOfHabit: "habit",
 		color: "rgb(46, 204, 114)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		log: [{ date: "Jun 21st 20", complete: false, percentageLog: 0 }],
 	},
-
-	// {
-	// 	name: "learn to code",
-	// 	key: "3",
-	// 	category: "relationship",
-	// 	bezierChart: [
-	// 		{
-	// 			data: [2, 22, 12],
-	// 		},
-	// 	],
-	// 	disciplinePercentage: 0,
-	// 	typeOfHabit: "habit",
-	// 	color: "#4ECDC4",
-	// },
-	// {
-	// 	name: "Go out side",
-	// 	key: "4",
-	// 	category: "health",
-	// 	bezierChart: [
-	// 		{
-	// 			data: [12, 32, 32],
-	// 		},
-	// 	],
-	// 	disciplinePercentage: 0,
-	// 	typeOfHabit: "habit",
-	// 	color: "#BA68C8",
-	// },
 ]
 
 const habitListReducer = (state = habitList, action) => {
@@ -80,50 +53,31 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
-			const date = moment().format("MMM Do YY")
-			let foundDate = false
-
 			state.find((habit) => {
 				if (habit.key == action.key) {
-					// if (habit.log.length > 0) {
 					habit.log.find((currentDate) => {
 						if (currentDate.date == date) {
 							currentDate.complete = true
 							return currentDate.complete
-							//	foundDate = true
 						}
 					})
-					//}
-
-					// if (foundDate == false) {
-					// 	habit.log = [
-					// 		{
-					// 			date: date,
-					// 			complete: true,
-					// 			percentageLog: 0,
-					// 		},
-					// 		...habit.log,
-					// 	]
-					// }
 				}
 			})
-			//console.log(state)
-			return state
-		// case "CHECK_IF_USER_LOG_FOR_THE_DAY":
-		// 	// let isComplete = false
 
-		// 	// state.find((habit) => {
-		// 	// 	if (habit.key == action.key) {
-		// 	// 		if (habit.log.length > 0) {
-		// 	// 			habit.log.find((currentDate) => {
-		// 	// 				if (currentDate.date == date) {
-		// 	// 					isComplete = currentDate.complete
-		// 	// 				}
-		// 	// 			})
-		// 	// 		}
-		// 	// 	}
-		// 	// })
-		// 	return state
+			return state
+		case "UNDO_HABIT_LOG":
+			state.find((habit) => {
+				if (habit.key == action.key) {
+					habit.disciplinePercentage -= 4
+					habit.log.find((currentDate) => {
+						if (currentDate.date == date) {
+							currentDate.complete = false
+							return currentDate.complete
+						}
+					})
+				}
+			})
+			return state
 		default:
 			return state
 	}

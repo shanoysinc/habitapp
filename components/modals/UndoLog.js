@@ -8,12 +8,16 @@ import { Title, Button, Modal, Portal } from "react-native-paper"
 // import { connect } from "react-redux"
 // import { isHabitComplete } from "../actions/isHabitCompleteAction"
 
-const UndoLog = ({ showModal, removeModal }) => {
+const UndoLog = ({
+	showModal,
+	removeUndoModal,
+	undoLogforDay,
+	currentHabitKey,
+}) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
 	const breakButton = () => {
-		// console.log("break")
-		removeModal()
+		removeUndoModal()
 		setSnackBarVisible(true)
 	}
 
@@ -21,19 +25,16 @@ const UndoLog = ({ showModal, removeModal }) => {
 		setSnackBarVisible(false)
 	}
 
-	const completeHabitHandler = () => {
-		//	logCheck()
-		removeModal()
-
-		// increaseHabitPercentage(currentHabitKey)
-		// isHabitComplete(currentHabitKey)
+	const undoHabitHandler = () => {
+		undoLogforDay(currentHabitKey)
+		removeUndoModal()
 		// bezierChartDispatch(currentHabitKey)
 		//refreshChartData()
 	}
 	return (
 		<>
 			<Portal>
-				<Modal visible={showModal} onDismiss={removeModal}>
+				<Modal visible={showModal} onDismiss={removeUndoModal}>
 					<View style={styles.modalContainer}>
 						<View style={styles.modalContent}>
 							<View style={styles.modalHeader}>
@@ -48,7 +49,7 @@ const UndoLog = ({ showModal, removeModal }) => {
 										styles.modalBtn,
 										styles.completeBtn,
 									]}
-									onPress={completeHabitHandler}
+									onPress={undoHabitHandler}
 								>
 									Undo
 								</Button>
