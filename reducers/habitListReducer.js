@@ -117,7 +117,7 @@ const habitListReducer = (state = habitList, action) => {
 					percentageLog: 0,
 				})
 			})
-			console.log(state)
+			// console.log(state)
 			return state
 		default:
 			return state
