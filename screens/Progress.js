@@ -4,6 +4,7 @@ import { colorBg } from "../global/global"
 import BezierChartComponent from "../components/statistics/BezierChart"
 import { Title } from "react-native-paper"
 import StackChartComponent from "../components/statistics/StackChart"
+import VerticalBarGraphComponent from "../components/statistics/VerticalBarGraphComponent"
 import { connect } from "react-redux"
 
 const Progress = ({ habitList, refreshChart }) => {
@@ -11,8 +12,7 @@ const Progress = ({ habitList, refreshChart }) => {
 	return (
 		<View style={colorBg}>
 			<Title style={styles.textTitle}>Overall Progress</Title>
-			<StackChartComponent />
-
+			<VerticalBarGraphComponent />
 			<FlatList
 				showsVerticalScrollIndicator={false}
 				data={habitList}
