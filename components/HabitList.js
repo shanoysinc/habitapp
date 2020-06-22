@@ -70,7 +70,7 @@ const Home = ({
 		<Provider>
 			<View style={styles.container}>
 				<View style={styles.body}>
-					<Title style={styles.title}>Today</Title>
+					{/* <Title style={styles.title}>Today</Title>
 					<Card
 						style={[
 							styles.todaysCard,
@@ -82,9 +82,8 @@ const Home = ({
 							<Paragraph style={styles.todaysParagraph}>
 								Fitness
 							</Paragraph>
-							<ProgressChartComponent />
 						</Card.Content>
-					</Card>
+					</Card> */}
 
 					<Title style={styles.title}>Habits</Title>
 
@@ -121,6 +120,8 @@ const Home = ({
 										<Paragraph style={styles.textCenter}>
 											{item.category}
 										</Paragraph>
+
+										<ProgressChartComponent />
 										<Title style={styles.cardPercentage}>
 											{item.disciplinePercentage}%
 										</Title>
@@ -194,6 +195,7 @@ const styles = StyleSheet.create({
 		height: 135,
 		width: 150,
 		elevation: 3,
+		position: "relative",
 	},
 	textCenter: {
 		textAlign: "center",
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
 	},
 	cardPercentage: {
 		textAlign: "center",
-		fontSize: 32,
+		fontSize: 13,
 		marginTop: 22,
 		marginLeft: 8,
 	},

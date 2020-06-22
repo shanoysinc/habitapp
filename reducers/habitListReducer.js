@@ -3,20 +3,20 @@ const date = moment().format("MMM Do YY")
 // const tomorrowDate = moment().add(1, "day").format("MMM Do YY")
 
 const habitList = [
-	// {
-	// 	name: "learn to code",
-	// 	key: "1",
-	// 	category: "hobbies",
-	// 	bezierChart: [
-	// 		{
-	// 			data: [1, 10, 22],
-	// 		},
-	// 	],
-	// 	disciplinePercentage: 0,
-	// 	typeOfHabit: "habit",
-	// 	color: "rgb(245, 188, 186)",
-	// 	log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
-	//},
+	{
+		name: "reading",
+		key: "1",
+		category: "education",
+		bezierChart: [
+			{
+				data: [1, 10, 22],
+			},
+		],
+		disciplinePercentage: 100,
+		typeOfHabit: "habit",
+		color: "rgb(245, 188, 186)",
+		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+	},
 	{
 		name: "exercise",
 		key: "2",
