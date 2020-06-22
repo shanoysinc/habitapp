@@ -77,8 +77,6 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
-			let foundDate = false
-
 			const updateLog = (currentDate) => {
 				if (currentDate.date == date) {
 					currentDate.complete = true

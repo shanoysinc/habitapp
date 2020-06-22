@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
 	modalContainer: {
 		marginLeft: 50,
 		marginRight: 50,
-		backgroundColor: "#FAFAFA",
-		height: 160,
+		backgroundColor: "#ECEFF1",
+		height: 130,
 		width: "75%",
 		borderRadius: 10,
 	},
@@ -81,15 +81,16 @@ const styles = StyleSheet.create({
 		margin: 10,
 	},
 	modalHeader: {
-		borderBottomColor: "#F5F5F5",
-		borderBottomWidth: 2,
+		// borderBottomColor: "#ECEFF1",
+		// borderBottomWidth: 2,
 	},
 	modalTitle: {
 		textAlign: "center",
-		marginBottom: 20,
+		marginTop: 10,
 		color: "#616161",
 		lineHeight: 0,
 		fontSize: 18,
+		// paddingTop: 20,
 	},
 	modalButtonContainer: {
 		flexDirection: "row",
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
 		height: 50,
 		borderRadius: 10,
 		paddingTop: 5,
-		width: 120,
+		width: "80%",
 		marginLeft: 10,
 	},
 	completeBtn: {
