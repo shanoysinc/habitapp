@@ -148,7 +148,7 @@ const CreatingHabit = ({
 					<View style={styles.colorContainer}>
 						<Title style={styles.title}>Select habit color</Title>
 						<FlatList
-							horizontal={true}
+							numColumns={4}
 							data={colorList}
 							showsHorizontalScrollIndicator={false}
 							keyExtractor={(item) => item.key}
@@ -241,8 +241,9 @@ const styles = StyleSheet.create({
 		maxHeight: "35%",
 	},
 	colorItem: {
-		marginLeft: 10,
+		marginLeft: 25,
 		marginRight: 10,
+		marginTop: 5,
 		width: 40,
 		height: 40,
 		borderRadius: 20,

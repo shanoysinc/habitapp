@@ -9,12 +9,12 @@ const StackChartComponent = () => {
 		labels: ["Jan", "feb", "mar", "april"],
 
 		data: [
-			[6, 9],
+			[6, 9, 12],
 			[10, 14],
-			[17, 21, 26],
+			[21, 26],
 			[21, 10, 34],
 		],
-		barColors: ["#D1C4E9", "#B39DDB", "#9575CD"],
+		barColors: ["#F8BBD0", "#F06292", "#EC407A"],
 	}
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",
@@ -32,7 +32,7 @@ const StackChartComponent = () => {
 			<StackedBarChart
 				data={data}
 				width={screenWidth}
-				height={220}
+				height={167}
 				chartConfig={chartConfig}
 				style={styles.chart}
 			/>
@@ -41,10 +41,10 @@ const StackChartComponent = () => {
 }
 const styles = StyleSheet.create({
 	stackChart: {
-		marginTop: "2%",
+		marginTop: "4%",
 	},
-	chart: {
-		color: "white",
-	},
+	// chart: {
+	// 	color: "white",
+	// },
 })
 export default StackChartComponent

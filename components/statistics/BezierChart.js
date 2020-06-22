@@ -17,8 +17,8 @@ const BezierChartComponent = (props) => {
 		backgroundGradientFromOpacity: 0,
 		backgroundGradientTo: "#08130D",
 		backgroundGradientToOpacity: 0.5,
-		color: (opacity = 1) => `${strColor}, ${opacity})`,
-		labelColor: (opacity = 1) => `rgb(66, 66, 66, ${opacity})`,
+		color: () => `${strColor})`,
+		labelColor: () => `rgb(66, 66, 66)`,
 		strokeWidth: 3, // optional, default 3
 		barPercentage: 0.5,
 		useShadowColorFromDataset: false, // optional

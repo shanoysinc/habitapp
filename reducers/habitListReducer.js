@@ -3,46 +3,46 @@ const date = moment().format("MMM Do YY")
 // const tomorrowDate = moment().add(1, "day").format("MMM Do YY")
 
 const habitList = [
-	{
-		name: "learn to code",
-		key: "1",
-		category: "hobbies",
-		bezierChart: [
-			{
-				data: [1, 10, 22],
-			},
-		],
-		disciplinePercentage: 0,
-		typeOfHabit: "habit",
-		color: "rgb(1, 186, 239)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
-	},
+	// {
+	// 	name: "learn to code",
+	// 	key: "1",
+	// 	category: "hobbies",
+	// 	bezierChart: [
+	// 		{
+	// 			data: [1, 10, 22],
+	// 		},
+	// 	],
+	// 	disciplinePercentage: 0,
+	// 	typeOfHabit: "habit",
+	// 	color: "rgb(245, 188, 186)",
+	// 	log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+	//},
 	{
 		name: "exercise",
 		key: "2",
 		category: "fitness",
 		bezierChart: [
 			{
-				data: [42, 82, 12],
+				data: [42, 54, 76],
 			},
 		],
-		disciplinePercentage: 0,
+		disciplinePercentage: 76,
 		typeOfHabit: "habit",
-		color: "rgb(46, 204, 114)",
+		color: "rgb(129, 212, 250)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
 	},
 	{
-		name: "sleep",
+		name: "Learn to code",
 		key: "22",
-		category: "fitness",
+		category: "hobbies",
 		bezierChart: [
 			{
-				data: [42, 82, 12],
+				data: [42, 82, 91],
 			},
 		],
-		disciplinePercentage: 0,
+		disciplinePercentage: 91,
 		typeOfHabit: "habit",
-		color: "rgb(46, 204, 114)",
+		color: "rgb(103, 230, 220)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
 	},
 ]
@@ -77,8 +77,6 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
-			let foundDate = false
-
 			const updateLog = (currentDate) => {
 				if (currentDate.date == date) {
 					currentDate.complete = true
