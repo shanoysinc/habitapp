@@ -133,6 +133,7 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			// console.log(state)
 			return state
+
 		default:
 			return state
 	}

@@ -6,6 +6,7 @@ import ShowSnackBar from "./SnackBar"
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { connect } from "react-redux"
 import { isHabitComplete } from "../actions/isHabitCompleteAction"
+import { increaseDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
 
 const IsCompleteModal = ({
 	showModal,
@@ -15,6 +16,7 @@ const IsCompleteModal = ({
 	addDataToDatabezierChart,
 	refreshChartData,
 	isHabitComplete,
+	increaseDisciplinePercentage,
 }) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -33,7 +35,8 @@ const IsCompleteModal = ({
 		increaseHabitPercentage(currentHabitKey)
 		isHabitComplete(currentHabitKey)
 		addDataToDatabezierChart(currentHabitKey)
-		refreshChartData()
+		increaseDisciplinePercentage()
+		// refreshChartData()
 	}
 	return (
 		<>
@@ -122,6 +125,8 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = (dispatch) => {
 	return {
 		isHabitComplete: (key) => dispatch(isHabitComplete(key)),
+		increaseDisciplinePercentage: () =>
+			dispatch(increaseDisciplinePercentage()),
 	}
 }
 

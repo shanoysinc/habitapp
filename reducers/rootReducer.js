@@ -4,6 +4,7 @@ import habitCategoryReducer from "./habitCategoryReducer"
 import habitsColorReducer from "./habitsColorReducer"
 import progressRefreshReducer from "./progressRefreshReducer"
 import currentDateReducer from "./currentDateReducer"
+import statisticsReducer from "./statisticsReducer"
 
 export const rootReducer = combineReducers({
 	habitListReducer,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
 	habitsColorReducer,
 	progressRefreshReducer,
 	currentDateReducer,
+	statisticsReducer,
 })

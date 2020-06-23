@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
+import { undoDisciplinePercentage } from "../../actions/chartsAction/overallDisciplineActiions"
+import { connect } from "react-redux"
 //import ShowSnackBar from "./SnackBar"
-// import { connect } from "react-redux"
+
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 // import { refreshProgressGraph } from "../actions/chartsAction/refreshChartAction"
 // import { connect } from "react-redux"
@@ -15,6 +17,7 @@ const UndoLog = ({
 	currentHabitKey,
 	removeDataFromBeizerData,
 	refreshChartData,
+	undoDisciplinePercentage,
 }) => {
 	// const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -31,7 +34,8 @@ const UndoLog = ({
 		undoLogforDay(currentHabitKey)
 		removeUndoModal()
 		removeDataFromBeizerData(currentHabitKey)
-		refreshChartData()
+		undoDisciplinePercentage()
+		// refreshChartData()
 	}
 	return (
 		<>
@@ -109,4 +113,12 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default UndoLog
+const mapDispatchToProps = (dispatch) => {
+	return {
+		undoDisciplinePercentage: () => {
+			dispatch(undoDisciplinePercentage())
+		},
+	}
+}
+
+export default connect(null, mapDispatchToProps)(UndoLog)

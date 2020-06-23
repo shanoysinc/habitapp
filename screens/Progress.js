@@ -1,17 +1,18 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native"
 import { colorBg } from "../global/global"
-import BezierChartComponent from "../components/statistics/BezierChart"
-import StackChartComponent from "../components/statistics/StackChart"
-import VerticalBarGraphComponent from "../components/statistics/VerticalBarGraphComponent"
+// import BezierChartComponent from "../components/statistics/BezierChart"
+// import StackChartComponent from "../components/statistics/StackChart"
+// import VerticalBarGraphComponent from "../components/statistics/VerticalBarGraphComponent"
 import { connect } from "react-redux"
-import LineGraphComponent from "../components/statistics/LineGraphComponent"
+// import LineGraphComponent from "../components/statistics/LineGraphComponent"
 import HorizontalBarGraphComponent from "../components/statistics/HorizontalBarGraphComponent"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph } from "react-native-paper"
 
-const Progress = ({ habitList, refreshChart }) => {
-	// console.log("refreshing", refreshChart)
+const Progress = ({ habitList, disciplinePercentage }) => {
+	const [percentage, setPercentage] = useState(50)
+
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
@@ -19,11 +20,13 @@ const Progress = ({ habitList, refreshChart }) => {
 				{/* <VerticalBarGraphComponent /> */}
 				<View style={styles.disciplineMainContainer}>
 					<View style={styles.disciplineContainer}>
-						<Text style={styles.disciplinePercentage}>50%</Text>
+						<Text style={styles.disciplinePercentage}>
+							{disciplinePercentage}%
+						</Text>
 						<Text style={styles.disciplineText}>discipline</Text>
 					</View>
 					<ProgressChartComponent
-						progressData={50}
+						progressData={disciplinePercentage}
 						height={200}
 						style={{
 							marginTop: "5%",
@@ -35,12 +38,7 @@ const Progress = ({ habitList, refreshChart }) => {
 				</View>
 				<View style={styles.todaysCardContainer}>
 					<Title style={styles.textTitle}>Your best habit</Title>
-					<Card
-						style={[
-							styles.todaysCard,
-							{ backgroundColor: "#212121" },
-						]}
-					>
+					<Card style={styles.todaysCard}>
 						<Card.Content>
 							<Title style={styles.todaysTitle}>Exercise</Title>
 							<Paragraph style={styles.todaysParagraph}>
@@ -108,6 +106,7 @@ const styles = StyleSheet.create({
 		elevation: 3,
 		borderRadius: 10,
 		marginBottom: 20,
+		backgroundColor: "#424242",
 	},
 	todaysTitle: {
 		fontSize: 28,
@@ -139,11 +138,13 @@ const styles = StyleSheet.create({
 	},
 	currentStatsTitle: {
 		textAlign: "center",
-		fontSize: 20,
+		fontSize: 17,
+		color: "#424242",
 	},
 	currentStatsNum: {
 		textAlign: "center",
 		fontSize: 30,
+		color: "#424242",
 	},
 })
 
@@ -151,6 +152,7 @@ const mapStateToProps = (state) => {
 	return {
 		habitList: state.habitListReducer,
 		refreshChart: state.progressRefreshReducer,
+		disciplinePercentage: state.statisticsReducer,
 	}
 }
 export default connect(mapStateToProps, null)(Progress)

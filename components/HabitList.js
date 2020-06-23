@@ -30,7 +30,6 @@ const Home = ({
 	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
-	//	const [isHabitComplete, setIsHabitComplete] = useState(false)
 	const [undoVisible, setUndoVisible] = useState(false)
 
 	if (currentDateReducer != date) {
@@ -42,7 +41,6 @@ const Home = ({
 		setCurrentHabitKey(key)
 		habitList.find((habit) => {
 			if (habit.key == key) {
-				//if (habit.log.length > 0) {
 				habit.log.find((currentDate) => {
 					if (currentDate.date == date) {
 						if (currentDate.complete) {
@@ -112,7 +110,7 @@ const Home = ({
 											}
 											height={140}
 											style={{
-												marginTop: "24%",
+												marginTop: "20%",
 												marginLeft: "-62%",
 												position: "absolute",
 												zIndex: 10,
@@ -161,30 +159,12 @@ const styles = StyleSheet.create({
 		fontSize: 22,
 		fontWeight: "bold",
 		// textAlign: "center",
+		color: "#424242",
 	},
 	body: {
 		margin: 20,
 		flex: 1,
 		marginBottom: 1, //show the bottom of the last item on habitlist
-	},
-
-	todaysCard: {
-		marginTop: 10,
-		marginLeft: 5,
-		marginRight: 5,
-		height: "20%",
-		backgroundColor: "#FAFAFA",
-		elevation: 3,
-		marginBottom: 12,
-		borderRadius: 10,
-	},
-	todaysTitle: {
-		fontSize: 28,
-		color: "white",
-	},
-	todaysParagraph: {
-		fontSize: 15,
-		color: "white",
 	},
 
 	habitCard: {
@@ -197,12 +177,15 @@ const styles = StyleSheet.create({
 	},
 	textCenter: {
 		textAlign: "center",
-		fontSize: 15,
+		fontSize: 11,
 		lineHeight: 0,
+		color: "#424242",
 	},
 	cardTitle: {
 		fontWeight: "bold",
-		fontSize: 16,
+		fontSize: 15,
+		color: "#424242",
+		textTransform: "capitalize",
 	},
 	cardPercentage: {
 		textAlign: "center",
@@ -210,13 +193,7 @@ const styles = StyleSheet.create({
 		marginTop: 22,
 		marginLeft: 8,
 	},
-	iconImage: {
-		height: 20,
-		width: 20,
-		top: 105,
-		right: 10,
-		position: "absolute",
-	},
+
 	modalContainer: {
 		justifyContent: "center",
 		alignItems: "center",
@@ -254,13 +231,6 @@ const styles = StyleSheet.create({
 		paddingTop: 5,
 		width: 120,
 		marginLeft: 10,
-	},
-	imageIcon: {
-		marginLeft: 10,
-		position: "absolute",
-		height: 300,
-		width: 300,
-		marginTop: "60%",
 	},
 })
 
