@@ -121,7 +121,17 @@ const Home = ({
 											{item.category}
 										</Paragraph>
 
-										<ProgressChartComponent />
+										<ProgressChartComponent
+											height={140}
+											style={{
+												marginTop: "24%",
+												marginLeft: "-62%",
+												position: "absolute",
+												zIndex: 10,
+											}}
+											strokeWidth={4}
+											radius={26}
+										/>
 										<Title style={styles.cardPercentage}>
 											{item.disciplinePercentage}%
 										</Title>

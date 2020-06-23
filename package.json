@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@chartiful/react-native-chart-builder": "^0.1.8",
+    "@chartiful/react-native-horizontal-bar-graph": "^0.1.2",
+    "@chartiful/react-native-line-graph": "^0.1.2",
     "@chartiful/react-native-vertical-bar-graph": "^0.1.2",
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/material-bottom-tabs": "^5.2.10",

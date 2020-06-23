@@ -5,7 +5,7 @@ import VerticalBarGraph from "@chartiful/react-native-vertical-bar-graph"
 const VerticalBarGraphComponent = () => {
 	return (
 		<VerticalBarGraph
-			data={[20, 45, 28, 80, 99, 43, 50, 28, 80, 99, 43, 50]}
+			data={[0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0]}
 			labels={[
 				"Jan",
 				"Feb",
@@ -23,8 +23,8 @@ const VerticalBarGraphComponent = () => {
 			width={Dimensions.get("window").width - 30}
 			height={200}
 			barRadius={4}
-			barWidthPercentage={0.5}
-			barColor="#9575CD"
+			barWidthPercentage={0.3}
+			barColor="#7C4DFF"
 			baseConfig={{
 				hasXAxisBackgroundLines: false,
 				xAxisLabelStyle: {
@@ -41,7 +41,7 @@ const VerticalBarGraphComponent = () => {
 				padding: 10,
 				paddingTop: 20,
 				borderRadius: 20,
-				backgroundColor: `#EDE7F6`,
+				backgroundColor: `#EEEEEE`,
 				width: Dimensions.get("window").width - 40,
 			}}
 		/>
