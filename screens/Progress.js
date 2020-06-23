@@ -95,7 +95,7 @@ const Progress = ({ habitList, refreshChart }) => {
 const styles = StyleSheet.create({
 	textTitle: {
 		fontSize: 18,
-		fontWeight: "400",
+		fontWeight: "600",
 		textAlign: "center",
 		marginTop: 20,
 		color: "#424242",
@@ -119,10 +119,10 @@ const styles = StyleSheet.create({
 	// },
 	todaysCard: {
 		marginTop: 10,
-		marginLeft: 50,
+		marginLeft: 40,
 		marginRight: 5,
 		height: "28%",
-		width: "75%",
+		width: "80%",
 		elevation: 3,
 		borderRadius: 10,
 		marginBottom: 20,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
 	},
 	todaysPercentage: {
 		fontSize: 30,
-		left: 190,
+		left: 210,
 		bottom: 24,
 		color: "white",
 		position: "absolute",

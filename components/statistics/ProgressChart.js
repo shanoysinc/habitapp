@@ -13,7 +13,7 @@ const ProgressChartComponent = ({ style, strokeWidth, radius, height }) => {
 		backgroundGradientFromOpacity: 0,
 		backgroundGradientTo: "#08130D",
 		backgroundGradientToOpacity: 0.5,
-		color: (opacity = 2) => `rgb(33, 33, 33, ${opacity})`,
+		color: (opacity = 2) => `rgb(179, 157, 219, ${opacity})`,
 		strokeWidth: 3, // optional, default 3
 		barPercentage: 0.5,
 		useShadowColorFromDataset: false, // optional
