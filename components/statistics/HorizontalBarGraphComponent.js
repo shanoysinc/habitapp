@@ -11,7 +11,7 @@ const HorizontalBarGraphComponent = () => {
 			height={225}
 			barRadius={4}
 			barWidthPercentage={0.3}
-			barColor="#7C4DFF"
+			barColor="#212121"
 			baseConfig={{
 				hasYAxisBackgroundLines: false,
 				xAxisLabelStyle: {

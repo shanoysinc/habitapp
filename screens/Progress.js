@@ -49,8 +49,23 @@ const Progress = ({ habitList, refreshChart }) => {
 						</Card.Content>
 					</Card>
 				</View>
+				<View style={styles.currentStatsContainer}>
+					<View style={styles.currentStats}>
+						<Title style={styles.currentStatsTitle}>
+							Best Streak
+						</Title>
+						<Title style={styles.currentStatsNum}>5</Title>
+					</View>
+					<View style={styles.currentStats}>
+						<Title style={styles.currentStatsTitle}>
+							Logs Done
+						</Title>
+						<Title style={styles.currentStatsNum}>51</Title>
+					</View>
+				</View>
 				<View style={styles.horizontalBarContainer}>
 					<Title style={styles.textTitle}>Most productive day</Title>
+
 					<HorizontalBarGraphComponent />
 				</View>
 				{/* <LineGraphComponent /> */}
@@ -106,11 +121,11 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 		marginLeft: 50,
 		marginRight: 5,
-		height: "31%",
+		height: "28%",
 		width: "75%",
-		backgroundColor: "#FAFAFA",
 		elevation: 3,
 		borderRadius: 10,
+		marginBottom: 20,
 	},
 	todaysTitle: {
 		fontSize: 28,
@@ -128,8 +143,25 @@ const styles = StyleSheet.create({
 		position: "absolute",
 	},
 	horizontalBarContainer: {
-		marginTop: -100,
+		marginTop: -140,
 		marginBottom: 100,
+	},
+	currentStatsContainer: {
+		flexDirection: "row",
+	},
+
+	currentStats: {
+		bottom: 150,
+		width: "30%",
+		marginLeft: 55,
+	},
+	currentStatsTitle: {
+		textAlign: "center",
+		fontSize: 20,
+	},
+	currentStatsNum: {
+		textAlign: "center",
+		fontSize: 30,
 	},
 })
 
