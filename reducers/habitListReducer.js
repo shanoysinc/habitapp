@@ -28,7 +28,7 @@ const habitList = [
 				],
 			},
 		],
-		disciplinePercentage: 100,
+		disciplinePercentage: 63,
 		typeOfHabit: "habit",
 		color: "rgb(245, 188, 186)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],

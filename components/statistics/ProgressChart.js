@@ -3,10 +3,16 @@ import { StyleSheet, View, Text, Dimensions } from "react-native"
 import { ProgressChart } from "react-native-chart-kit"
 
 const screenWidth = Dimensions.get("window").width
-const ProgressChartComponent = ({ style, strokeWidth, radius, height }) => {
+const ProgressChartComponent = ({
+	style,
+	strokeWidth,
+	radius,
+	height,
+	progressData,
+}) => {
+	let convertData = progressData / 100
 	const data = {
-		// labels: ["Swim", "Bike", "Run"], // optional
-		data: [0.76],
+		data: [convertData],
 	}
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",

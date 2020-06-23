@@ -70,21 +70,6 @@ const Home = ({
 		<Provider>
 			<View style={styles.container}>
 				<View style={styles.body}>
-					{/* <Title style={styles.title}>Today</Title>
-					<Card
-						style={[
-							styles.todaysCard,
-							{ backgroundColor: "#212121" },
-						]}
-					>
-						<Card.Content>
-							<Title style={styles.todaysTitle}>Exercise</Title>
-							<Paragraph style={styles.todaysParagraph}>
-								Fitness
-							</Paragraph>
-						</Card.Content>
-					</Card> */}
-
 					<Title style={styles.title}>Habits</Title>
 
 					{habitList.length < 1 ? (
@@ -122,6 +107,9 @@ const Home = ({
 										</Paragraph>
 
 										<ProgressChartComponent
+											progressData={
+												item.disciplinePercentage
+											}
 											height={140}
 											style={{
 												marginTop: "24%",

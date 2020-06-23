@@ -13,16 +13,17 @@ import { Card, Title, Paragraph } from "react-native-paper"
 const Progress = ({ habitList, refreshChart }) => {
 	// console.log("refreshing", refreshChart)
 	return (
-		<ScrollView>
+		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
 				<Title style={styles.textTitle}>Overall discipline level</Title>
 				{/* <VerticalBarGraphComponent /> */}
 				<View style={styles.disciplineMainContainer}>
 					<View style={styles.disciplineContainer}>
-						<Text style={styles.disciplinePercentage}>78%</Text>
+						<Text style={styles.disciplinePercentage}>50%</Text>
 						<Text style={styles.disciplineText}>discipline</Text>
 					</View>
 					<ProgressChartComponent
+						progressData={50}
 						height={200}
 						style={{
 							marginTop: "5%",
@@ -58,7 +59,7 @@ const Progress = ({ habitList, refreshChart }) => {
 					</View>
 					<View style={styles.currentStats}>
 						<Title style={styles.currentStatsTitle}>
-							Logs Done
+							Perfect Days
 						</Title>
 						<Title style={styles.currentStatsNum}>51</Title>
 					</View>
@@ -68,25 +69,6 @@ const Progress = ({ habitList, refreshChart }) => {
 
 					<HorizontalBarGraphComponent />
 				</View>
-				{/* <LineGraphComponent /> */}
-				{/* <FlatList
-					showsVerticalScrollIndicator={false}
-					data={habitList}
-					extraData={refreshChart}
-					renderItem={({ item }) =>
-						item.bezierChart[0].data.length > 1 ? (
-							<>
-								<Title style={styles.textTitle}>
-									{item.name}
-								</Title>
-								<BezierChartComponent
-									bezierData={item.bezierChart}
-									color={item.color}
-								/>
-							</>
-						) : null
-					}
-				/> */}
 			</View>
 		</ScrollView>
 	)
