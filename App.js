@@ -8,7 +8,6 @@ import { NavigationContainer } from "@react-navigation/native"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import { rootReducer } from "./reducers/rootReducer"
-
 enableScreens() // optimize memory usage and performance
 StatusBar.setBarStyle("dark-content", true)
 const store = createStore(rootReducer)

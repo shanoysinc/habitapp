@@ -11,8 +11,6 @@ import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph } from "react-native-paper"
 
 const Progress = ({ habitList, disciplinePercentage }) => {
-	const [percentage, setPercentage] = useState(50)
-
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
@@ -36,15 +34,19 @@ const Progress = ({ habitList, disciplinePercentage }) => {
 						radius={80}
 					/>
 				</View>
-				<View style={styles.todaysCardContainer}>
+				<View style={styles.besthabitCardContainer}>
 					<Title style={styles.textTitle}>Your best habit</Title>
-					<Card style={styles.todaysCard}>
+					<Card style={styles.besthabitCard}>
 						<Card.Content>
-							<Title style={styles.todaysTitle}>Exercise</Title>
-							<Paragraph style={styles.todaysParagraph}>
+							<Title style={styles.besthabitTitle}>
+								Exercise
+							</Title>
+							<Paragraph style={styles.besthabitParagraph}>
 								Fitness
 							</Paragraph>
-							<Title style={styles.todaysPercentage}>91%</Title>
+							<Title style={styles.besthabitPercentage}>
+								91%
+							</Title>
 						</Card.Content>
 					</Card>
 				</View>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
 	// todaysCardContainer: {
 	// 	marginBottom: -20,
 	// },
-	todaysCard: {
+	besthabitCard: {
 		marginTop: 10,
 		marginLeft: 40,
 		marginRight: 5,
@@ -108,15 +110,15 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 		backgroundColor: "#424242",
 	},
-	todaysTitle: {
+	besthabitTitle: {
 		fontSize: 28,
 		color: "white",
 	},
-	todaysParagraph: {
+	besthabitParagraph: {
 		fontSize: 15,
 		color: "white",
 	},
-	todaysPercentage: {
+	besthabitPercentage: {
 		fontSize: 30,
 		left: 210,
 		bottom: 24,

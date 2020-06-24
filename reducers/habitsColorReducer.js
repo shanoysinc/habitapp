@@ -9,7 +9,7 @@ export const habitColor = [
 	{ color: "rgb(103, 230, 220)", key: "10", selected: false },
 	{ color: "rgb(255, 224, 130)", key: "11", selected: false },
 	{ color: "rgb(0, 204, 205)", key: "12", selected: false },
-	// { color: "rgb(188, 170, 164)", key: "13", selected: false },
+	// { color: "rgb(0, 172, 193)", key: "13", selected: false },
 	{ color: "rgb(245, 188, 186)", key: "14", selected: false },
 	{ color: "rgb(176, 190, 197)", key: "15", selected: false },
 ]

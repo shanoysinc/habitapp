@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { StyleSheet, View, Image, FlatList } from "react-native"
+import { StyleSheet, View, Image, FlatList, Text } from "react-native"
 import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { connect } from "react-redux"
 import IsCompleteModal from "./IsCompleteModal"
@@ -68,63 +68,74 @@ const Home = ({
 		<Provider>
 			<View style={styles.container}>
 				<View style={styles.body}>
-					<Title style={styles.title}>Habits</Title>
-
 					{habitList.length < 1 ? (
-						<Image
-							source={require("../assets/icons/bghabit-min.png")}
-							style={styles.imageIcon}
-						/>
+						<>
+							<Image
+								source={require("../assets/icons/bghabit-min.png")}
+								style={styles.imageIcon}
+							/>
+							<Text style={styles.getStartedText}>
+								You haven't add any habits as yet. Hurry up and
+								get started
+							</Text>
+						</>
 					) : (
-						<FlatList
-							numColumns={2}
-							data={habitList}
-							keyExtractor={(item) => item.key}
-							showsVerticalScrollIndicator={false}
-							renderItem={({ item }) => (
-								<Card
-									style={[
-										styles.habitCard,
-										{ backgroundColor: item.color },
-									]}
-									onPress={() =>
-										habitcompleteHandler(item.key)
-									}
-								>
-									<Card.Content>
-										<Title
-											style={[
-												styles.textCenter,
-												styles.cardTitle,
-											]}
-										>
-											{item.name}
-										</Title>
-										<Paragraph style={styles.textCenter}>
-											{item.category}
-										</Paragraph>
+						<>
+							<Title style={styles.title}>Habits</Title>
+							<FlatList
+								numColumns={2}
+								data={habitList}
+								keyExtractor={(item) => item.key}
+								showsVerticalScrollIndicator={false}
+								renderItem={({ item }) => (
+									<Card
+										style={[
+											styles.habitCard,
+											{ backgroundColor: item.color },
+										]}
+										onPress={() =>
+											habitcompleteHandler(item.key)
+										}
+									>
+										<Card.Content>
+											<Title
+												style={[
+													styles.textCenter,
+													styles.cardTitle,
+												]}
+											>
+												{item.name}
+											</Title>
+											<Paragraph
+												style={styles.textCenter}
+											>
+												{item.category}
+											</Paragraph>
 
-										<ProgressChartComponent
-											progressData={
-												item.disciplinePercentage
-											}
-											height={140}
-											style={{
-												marginTop: "20%",
-												marginLeft: "-62%",
-												position: "absolute",
-												zIndex: 10,
-											}}
-											strokeWidth={4}
-											radius={26}
-										/>
-										<Title style={styles.cardPercentage}>
-											{item.disciplinePercentage}%
-										</Title>
-									</Card.Content>
-								</Card>
-							)}
-						/>
+											<ProgressChartComponent
+												progressData={
+													item.disciplinePercentage
+												}
+												height={140}
+												style={{
+													marginTop: "20%",
+													marginLeft: "-62%",
+													position: "absolute",
+													zIndex: 10,
+												}}
+												strokeWidth={4}
+												radius={26}
+											/>
+											<Title
+												style={styles.cardPercentage}
+											>
+												{item.disciplinePercentage}%
+											</Title>
+										</Card.Content>
+									</Card>
+								)}
+							/>
+						</>
 					)}
 
 					<UndoLog
@@ -231,6 +242,17 @@ const styles = StyleSheet.create({
 		paddingTop: 5,
 		width: 120,
 		marginLeft: 10,
+	},
+	imageIcon: {
+		height: 300,
+		width: 300,
+		marginTop: "20%",
+	},
+	getStartedText: {
+		textAlign: "center",
+		marginLeft: 20,
+		marginRight: 20,
+		color: "#424242",
 	},
 })
 

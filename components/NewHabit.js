@@ -66,6 +66,7 @@ const CreatingHabit = ({
 							percentageLog: 0,
 						},
 					],
+					streak: 0,
 				})
 			)
 			inputRef.current.clear()
