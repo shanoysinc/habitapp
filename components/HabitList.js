@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { StyleSheet, View, Image, FlatList, Text } from "react-native"
 import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { connect } from "react-redux"
@@ -52,7 +52,6 @@ const Home = ({
 						}
 					}
 				})
-				//	}
 			}
 		})
 	}

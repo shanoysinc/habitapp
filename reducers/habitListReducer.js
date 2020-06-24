@@ -16,6 +16,7 @@ const habitList = [
 		typeOfHabit: "habit",
 		color: "rgb(245, 188, 186)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		streak: 0,
 	},
 	{
 		name: "exercise",
@@ -30,6 +31,7 @@ const habitList = [
 		typeOfHabit: "habit",
 		color: "rgb(129, 212, 250)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		streak: 0,
 	},
 	{
 		name: "Learn to code",
@@ -44,6 +46,7 @@ const habitList = [
 		typeOfHabit: "habit",
 		color: "rgb(103, 230, 220)",
 		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		streak: 0,
 	},
 ]
 
@@ -117,7 +120,6 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			// console.log(state)
 			return state
-
 		default:
 			return state
 	}

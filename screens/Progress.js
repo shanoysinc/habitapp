@@ -11,6 +11,19 @@ import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph } from "react-native-paper"
 
 const Progress = ({ habitList, disciplinePercentage }) => {
+	const [bestHabitName, setBestHabitName] = useState("Living")
+	const [bestHabitCat, setBestHabitCat] = useState("well being")
+	const [bestHabitPercen, setBestHabitPercen] = useState(0)
+
+	useEffect(() => {
+		habitList.forEach((habit) => {
+			if (habit.disciplinePercentage + habit.streak >= bestHabitPercen) {
+				setBestHabitName(habit.name)
+				setBestHabitCat(habit.category)
+				setBestHabitPercen(habit.disciplinePercentage)
+			}
+		})
+	}, [])
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
@@ -39,13 +52,13 @@ const Progress = ({ habitList, disciplinePercentage }) => {
 					<Card style={styles.besthabitCard}>
 						<Card.Content>
 							<Title style={styles.besthabitTitle}>
-								Exercise
+								{bestHabitName}
 							</Title>
 							<Paragraph style={styles.besthabitParagraph}>
-								Fitness
+								{bestHabitCat}
 							</Paragraph>
 							<Title style={styles.besthabitPercentage}>
-								91%
+								{bestHabitPercen}%
 							</Title>
 						</Card.Content>
 					</Card>
@@ -92,9 +105,11 @@ const styles = StyleSheet.create({
 	},
 	disciplinePercentage: {
 		fontSize: 32,
+		color: "#9575CD",
 	},
 	disciplineText: {
 		fontSize: 12,
+		color: "#9575CD",
 	},
 	// todaysCardContainer: {
 	// 	marginBottom: -20,
