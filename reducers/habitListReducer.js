@@ -15,7 +15,7 @@ const habitList = [
 		disciplinePercentage: 63,
 		typeOfHabit: "habit",
 		color: "rgb(245, 188, 186)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
 	},
 	{
@@ -30,7 +30,7 @@ const habitList = [
 		disciplinePercentage: 76,
 		typeOfHabit: "habit",
 		color: "rgb(129, 212, 250)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
 	},
 	{
@@ -45,7 +45,7 @@ const habitList = [
 		disciplinePercentage: 91,
 		typeOfHabit: "habit",
 		color: "rgb(103, 230, 220)",
-		log: [{ date: "Jun 20th 20", complete: false, percentageLog: 0 }],
+		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
 	},
 ]
@@ -80,44 +80,64 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
-			const updateLog = (currentDate) => {
-				if (currentDate.date == date) {
-					currentDate.complete = true
+			// const updateLog = (currentDate) => {
+			// 	if (currentDate.date == date) {
+			// 		currentDate.complete = true
 
-					return currentDate.complete
-				}
-			}
+			// 		return currentDate.complete
+			// 	}
+			// }
+
+			// state.find((habit) => {
+			// 	if (habit.key == action.key) {
+			// 		habit.log.find((currentDate) => {
+			// 			updateLog(currentDate)
+			// 		})
+			// 	}
+			// })
 
 			state.find((habit) => {
 				if (habit.key == action.key) {
-					habit.log.find((currentDate) => {
-						updateLog(currentDate)
-					})
+					habit.log[date].complete = true
 				}
 			})
 
 			return state
 		case "UNDO_HABIT_LOG":
+			// state.find((habit) => {
+			// 	if (habit.key == action.key) {
+			// 		habit.disciplinePercentage -= 4
+			// 		habit.log.find((currentDate) => {
+			// 			if (currentDate.date == date) {
+			// 				currentDate.complete = false
+			// 				return currentDate.complete
+			// 			}
+			// 		})
+			// 	}
+			// })
+
 			state.find((habit) => {
 				if (habit.key == action.key) {
 					habit.disciplinePercentage -= 4
-					habit.log.find((currentDate) => {
-						if (currentDate.date == date) {
-							currentDate.complete = false
-							return currentDate.complete
-						}
-					})
+					habit.log[date].complete = false
 				}
 			})
 			return state
 		case "ADD_CURRENT_DATE_TO_HABITS":
+			// state.map((habits) => {
+			// 	habits.log.push({
+			// 		date: date,
+			// 		complete: false,
+			// 		percentageLog: 0,
+			// 	})
+			// })
+
 			state.map((habits) => {
-				habits.log.push({
-					date: date,
-					complete: false,
-					percentageLog: 0,
-				})
+				habits.log[date] = {}
+				habits.log[date].complete = false
+				habits.log[date].percentageLog = 0
 			})
+
 			// console.log(state)
 			return state
 		default:

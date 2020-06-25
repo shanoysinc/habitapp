@@ -47,6 +47,11 @@ const CreatingHabit = ({
 
 		if (input != "" && selectedColor != "" && selectedCategory != "") {
 			setuuid(uuid + 1)
+			let log = {}
+			log[date] = {}
+			log[date].complete = false
+			log[date].percentageLog = 0
+
 			create(
 				createHabit({
 					name: input,
@@ -59,13 +64,8 @@ const CreatingHabit = ({
 							data: [],
 						},
 					],
-					log: [
-						{
-							date: date,
-							complete: false,
-							percentageLog: 0,
-						},
-					],
+					log,
+
 					streak: 0,
 				})
 			)

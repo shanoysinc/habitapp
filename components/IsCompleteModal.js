@@ -7,6 +7,7 @@ import ShowSnackBar from "./SnackBar"
 import { connect } from "react-redux"
 import { isHabitComplete } from "../actions/isHabitCompleteAction"
 import { increaseDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
+import moment from "moment"
 
 const IsCompleteModal = ({
 	showModal,
@@ -37,6 +38,11 @@ const IsCompleteModal = ({
 		addDataToDatabezierChart(currentHabitKey)
 		increaseDisciplinePercentage()
 		// refreshChartData()
+		console.log(
+			moment("June 20th 20", "MMM Do YY")
+				.add(1, "days")
+				.format("MMM Do YY")
+		)
 	}
 	return (
 		<>

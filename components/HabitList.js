@@ -41,17 +41,11 @@ const Home = ({
 		setCurrentHabitKey(key)
 		habitList.find((habit) => {
 			if (habit.key == key) {
-				habit.log.find((currentDate) => {
-					if (currentDate.date == date) {
-						if (currentDate.complete) {
-							setUndoVisible(true)
-							//setVisible(false)
-						} else {
-							setVisible(true)
-							//setUndoVisible(false)
-						}
-					}
-				})
+				if (habit.log[date].complete) {
+					setUndoVisible(true)
+				} else {
+					setVisible(true)
+				}
 			}
 		})
 	}
