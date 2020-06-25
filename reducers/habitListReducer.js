@@ -17,6 +17,7 @@ const habitList = [
 		color: "rgb(245, 188, 186)",
 		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
+		lastDateOfLOG: "Jun 20th 20",
 	},
 	{
 		name: "exercise",
@@ -32,6 +33,7 @@ const habitList = [
 		color: "rgb(129, 212, 250)",
 		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
+		lastDateOfLOG: "Jun 20th 20",
 	},
 	{
 		name: "Learn to code",
@@ -47,6 +49,7 @@ const habitList = [
 		color: "rgb(103, 230, 220)",
 		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
 		streak: 0,
+		lastDateOfLOG: "Jun 20th 20",
 	},
 ]
 
@@ -80,22 +83,6 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
-			// const updateLog = (currentDate) => {
-			// 	if (currentDate.date == date) {
-			// 		currentDate.complete = true
-
-			// 		return currentDate.complete
-			// 	}
-			// }
-
-			// state.find((habit) => {
-			// 	if (habit.key == action.key) {
-			// 		habit.log.find((currentDate) => {
-			// 			updateLog(currentDate)
-			// 		})
-			// 	}
-			// })
-
 			state.find((habit) => {
 				if (habit.key == action.key) {
 					habit.log[date].complete = true
@@ -104,18 +91,6 @@ const habitListReducer = (state = habitList, action) => {
 
 			return state
 		case "UNDO_HABIT_LOG":
-			// state.find((habit) => {
-			// 	if (habit.key == action.key) {
-			// 		habit.disciplinePercentage -= 4
-			// 		habit.log.find((currentDate) => {
-			// 			if (currentDate.date == date) {
-			// 				currentDate.complete = false
-			// 				return currentDate.complete
-			// 			}
-			// 		})
-			// 	}
-			// })
-
 			state.find((habit) => {
 				if (habit.key == action.key) {
 					habit.disciplinePercentage -= 4
@@ -124,18 +99,12 @@ const habitListReducer = (state = habitList, action) => {
 			})
 			return state
 		case "ADD_CURRENT_DATE_TO_HABITS":
-			// state.map((habits) => {
-			// 	habits.log.push({
-			// 		date: date,
-			// 		complete: false,
-			// 		percentageLog: 0,
-			// 	})
-			// })
-
 			state.map((habits) => {
-				habits.log[date] = {}
-				habits.log[date].complete = false
-				habits.log[date].percentageLog = 0
+				if (!habits.log[date]) {
+					habits.log[date] = {}
+					habits.log[date].complete = false
+					habits.log[date].percentageLog = 0
+				}
 			})
 
 			// console.log(state)

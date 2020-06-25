@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
 import ShowSnackBar from "./SnackBar"
-// import { connect } from "react-redux"
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
 import { connect } from "react-redux"
 import { isHabitComplete } from "../actions/isHabitCompleteAction"
 import { increaseDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
+import { increaseProductivity } from "../actions/chartsAction/productiveDayActions"
+
 import moment from "moment"
 
 const IsCompleteModal = ({
@@ -18,6 +19,7 @@ const IsCompleteModal = ({
 	refreshChartData,
 	isHabitComplete,
 	increaseDisciplinePercentage,
+	increaseProductivity,
 }) => {
 	const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -37,12 +39,11 @@ const IsCompleteModal = ({
 		isHabitComplete(currentHabitKey)
 		addDataToDatabezierChart(currentHabitKey)
 		increaseDisciplinePercentage()
+		increaseProductivity()
 		// refreshChartData()
-		console.log(
-			moment("June 20th 20", "MMM Do YY")
-				.add(1, "days")
-				.format("MMM Do YY")
-		)
+		// console.log(
+
+		// )
 	}
 	return (
 		<>
@@ -131,8 +132,12 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = (dispatch) => {
 	return {
 		isHabitComplete: (key) => dispatch(isHabitComplete(key)),
-		increaseDisciplinePercentage: () =>
-			dispatch(increaseDisciplinePercentage()),
+		increaseDisciplinePercentage: () => {
+			dispatch(increaseDisciplinePercentage())
+		},
+		increaseProductivity: () => {
+			dispatch(increaseProductivity())
+		},
 	}
 }
 

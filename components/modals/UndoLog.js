@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native"
 import { Title, Button, Modal, Portal } from "react-native-paper"
 import { undoDisciplinePercentage } from "../../actions/chartsAction/overallDisciplineActiions"
 import { connect } from "react-redux"
+import { decreaseProductivity } from "../../actions/chartsAction/productiveDayActions"
 //import ShowSnackBar from "./SnackBar"
 
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
@@ -18,6 +19,7 @@ const UndoLog = ({
 	removeDataFromBeizerData,
 	refreshChartData,
 	undoDisciplinePercentage,
+	decreaseProductivity,
 }) => {
 	// const [isSnackBarVisible, setSnackBarVisible] = useState(false)
 
@@ -35,6 +37,7 @@ const UndoLog = ({
 		removeUndoModal()
 		removeDataFromBeizerData(currentHabitKey)
 		undoDisciplinePercentage()
+		decreaseProductivity()
 		// refreshChartData()
 	}
 	return (
@@ -45,7 +48,7 @@ const UndoLog = ({
 						<View style={styles.modalContent}>
 							<View style={styles.modalHeader}>
 								<Title style={styles.modalTitle}>
-									Remove todays log
+									Remove todays log for this habit
 								</Title>
 							</View>
 							<View style={styles.modalButtonContainer}>
@@ -117,6 +120,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		undoDisciplinePercentage: () => {
 			dispatch(undoDisciplinePercentage())
+		},
+		decreaseProductivity: () => {
+			dispatch(decreaseProductivity())
 		},
 	}
 }

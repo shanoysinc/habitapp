@@ -10,12 +10,18 @@ import HorizontalBarGraphComponent from "../components/statistics/HorizontalBarG
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph } from "react-native-paper"
 
-const Progress = ({ habitList, disciplinePercentage }) => {
+const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 	const [bestHabitName, setBestHabitName] = useState("Living")
 	const [bestHabitCat, setBestHabitCat] = useState("well being")
 	const [bestHabitPercen, setBestHabitPercen] = useState(0)
 
 	useEffect(() => {
+		// let date = "June 20th 20"
+		// currentDate = moment().format("MMM Do YY")
+		// let fetchDate = moment(date, "MMM Do YY")
+		// 	.add(1, "days")
+		// 	.format("MMM Do YY")
+
 		habitList.forEach((habit) => {
 			if (habit.disciplinePercentage + habit.streak >= bestHabitPercen) {
 				setBestHabitName(habit.name)
@@ -24,6 +30,9 @@ const Progress = ({ habitList, disciplinePercentage }) => {
 			}
 		})
 	}, [])
+
+	useEffect(() => {}, [productiveDay])
+
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
@@ -63,7 +72,7 @@ const Progress = ({ habitList, disciplinePercentage }) => {
 						</Card.Content>
 					</Card>
 				</View>
-				<View style={styles.currentStatsContainer}>
+				{/* <View style={styles.currentStatsContainer}>
 					<View style={styles.currentStats}>
 						<Title style={styles.currentStatsTitle}>
 							Best Streak
@@ -72,15 +81,17 @@ const Progress = ({ habitList, disciplinePercentage }) => {
 					</View>
 					<View style={styles.currentStats}>
 						<Title style={styles.currentStatsTitle}>
-							Perfect Days
+							Total Habits Complete
 						</Title>
-						<Title style={styles.currentStatsNum}>51</Title>
+						<Title style={styles.currentStatsNum}>
+							{perfectDays}
+						</Title>
 					</View>
-				</View>
+				</View> */}
 				<View style={styles.horizontalBarContainer}>
 					<Title style={styles.textTitle}>Most productive day</Title>
 
-					<HorizontalBarGraphComponent />
+					<HorizontalBarGraphComponent data={productiveDay} />
 				</View>
 			</View>
 		</ScrollView>
@@ -170,6 +181,7 @@ const mapStateToProps = (state) => {
 		habitList: state.habitListReducer,
 		refreshChart: state.progressRefreshReducer,
 		disciplinePercentage: state.statisticsReducer,
+		productiveDay: state.productiveDayReducer,
 	}
 }
 export default connect(mapStateToProps, null)(Progress)

@@ -1,11 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StyleSheet, View, Text, Dimensions } from "react-native"
 import HorizontalBarGraph from "@chartiful/react-native-horizontal-bar-graph"
 
-const HorizontalBarGraphComponent = () => {
+const HorizontalBarGraphComponent = ({ data }) => {
 	return (
 		<HorizontalBarGraph
-			data={[125, 100, 50, 75, 100, 125, 70]}
+			data={[
+				data.Saturday,
+				data.Friday,
+				data.Thursday,
+				data.Wednesday,
+				data.Tuesday,
+				data.Monday,
+				data.Sunday,
+			]}
 			labels={["Sat", "Fri", "Thurs", "Wed", "Tues", "Mon", "Sun"]}
 			width={Dimensions.get("window").width - 50}
 			height={225}

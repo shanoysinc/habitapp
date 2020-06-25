@@ -65,8 +65,8 @@ const CreatingHabit = ({
 						},
 					],
 					log,
-
 					streak: 0,
+					lastDateOfLOG: date,
 				})
 			)
 			inputRef.current.clear()
