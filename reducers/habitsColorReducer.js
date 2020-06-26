@@ -1,5 +1,4 @@
 export const habitColor = [
-	{ color: "rgb(105, 240, 174)", key: "3", selected: false },
 	{ color: "rgb(78, 205, 196)", key: "4", selected: false },
 	{ color: "rgb(255, 171, 145)", key: "5", selected: false },
 	{ color: "rgb(244, 143, 177)", key: "6", selected: false },
@@ -9,9 +8,12 @@ export const habitColor = [
 	{ color: "rgb(103, 230, 220)", key: "10", selected: false },
 	{ color: "rgb(255, 224, 130)", key: "11", selected: false },
 	{ color: "rgb(0, 204, 205)", key: "12", selected: false },
-	// { color: "rgb(0, 172, 193)", key: "13", selected: false },
+	{ color: "rgb(38, 198, 218)", key: "13", selected: false },
 	{ color: "rgb(245, 188, 186)", key: "14", selected: false },
 	{ color: "rgb(176, 190, 197)", key: "15", selected: false },
+	{ color: "rgb(0, 188, 212)", key: "16", selected: false },
+
+	{ color: "rgb(255, 202, 40)", key: "19", selected: false },
 ]
 
 const habitsColorReducer = (state = habitColor, action) => {

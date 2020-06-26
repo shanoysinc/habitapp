@@ -36,9 +36,11 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
-				<Title style={styles.textTitle}>Overall discipline level</Title>
 				{/* <VerticalBarGraphComponent /> */}
 				<View style={styles.disciplineMainContainer}>
+					<Title style={styles.textTitle}>
+						Overall discipline level
+					</Title>
 					<View style={styles.disciplineContainer}>
 						<Text style={styles.disciplinePercentage}>
 							{disciplinePercentage}%
@@ -49,29 +51,13 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 						progressData={disciplinePercentage}
 						height={200}
 						style={{
-							marginTop: "5%",
-							marginLeft: "10%",
+							marginLeft: "5%",
 						}}
 						strokeWidth={15}
 						radius={80}
 					/>
 				</View>
-				<View style={styles.besthabitCardContainer}>
-					<Title style={styles.textTitle}>Your best habit</Title>
-					<Card style={styles.besthabitCard}>
-						<Card.Content>
-							<Title style={styles.besthabitTitle}>
-								{bestHabitName}
-							</Title>
-							<Paragraph style={styles.besthabitParagraph}>
-								{bestHabitCat}
-							</Paragraph>
-							<Title style={styles.besthabitPercentage}>
-								{bestHabitPercen}%
-							</Title>
-						</Card.Content>
-					</Card>
-				</View>
+
 				{/* <View style={styles.currentStatsContainer}>
 					<View style={styles.currentStats}>
 						<Title style={styles.currentStatsTitle}>
@@ -93,6 +79,22 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 
 					<HorizontalBarGraphComponent data={productiveDay} />
 				</View>
+				<View style={styles.besthabitCardContainer}>
+					<Title style={styles.textTitle}>Your best habit</Title>
+					<Card style={styles.besthabitCard}>
+						<Card.Content>
+							<Title style={styles.besthabitTitle}>
+								{bestHabitName}
+							</Title>
+							<Paragraph style={styles.besthabitParagraph}>
+								{bestHabitCat}
+							</Paragraph>
+							<Title style={styles.besthabitPercentage}>
+								{bestHabitPercen}%
+							</Title>
+						</Card.Content>
+					</Card>
+				</View>
 			</View>
 		</ScrollView>
 	)
@@ -100,7 +102,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 
 const styles = StyleSheet.create({
 	textTitle: {
-		fontSize: 18,
+		fontSize: 16,
 		fontWeight: "600",
 		textAlign: "center",
 		marginTop: 20,
@@ -108,6 +110,13 @@ const styles = StyleSheet.create({
 	},
 	disciplineMainContainer: {
 		marginBottom: 10,
+		// backgroundColor: "#FAFAFA",
+		marginTop: 15,
+		marginLeft: 20,
+		marginRight: 20,
+		borderRadius: 5,
+		borderWidth: 1,
+		borderColor: "#EEEEEE",
 	},
 	disciplineContainer: {
 		position: "absolute",
@@ -116,44 +125,53 @@ const styles = StyleSheet.create({
 	},
 	disciplinePercentage: {
 		fontSize: 32,
-		color: "#9575CD",
+		color: "rgb(88, 113, 252)",
+		marginTop: "35%",
 	},
 	disciplineText: {
 		fontSize: 12,
-		color: "#9575CD",
+		color: "rgb(88, 113, 252)",
 	},
-	// todaysCardContainer: {
-	// 	marginBottom: -20,
-	// },
+	besthabitCardContainer: {
+		// borderWidth: 1,
+		// borderColor: "#EEEEEE",
+		height: "22%",
+		marginLeft: 20,
+		marginRight: 20,
+		bottom: 40,
+		borderRadius: 5,
+	},
 	besthabitCard: {
 		marginTop: 10,
-		marginLeft: 40,
+		marginLeft: 25,
 		marginRight: 5,
-		height: "28%",
-		width: "80%",
-		elevation: 3,
-		borderRadius: 10,
+		// height: "28%",
+		width: "85%",
+		// elevation: 3,
+		borderRadius: 5,
 		marginBottom: 20,
-		backgroundColor: "#424242",
+		//  backgroundColor: "#00796B",
 	},
 	besthabitTitle: {
-		fontSize: 28,
-		color: "white",
+		fontSize: 20,
+		color: "#424242",
 	},
 	besthabitParagraph: {
-		fontSize: 15,
-		color: "white",
+		fontSize: 13,
+		color: "#424242",
 	},
 	besthabitPercentage: {
-		fontSize: 30,
+		fontSize: 20,
 		left: 210,
-		bottom: 24,
-		color: "white",
+		bottom: 33,
+		color: "#424242",
 		position: "absolute",
 	},
 	horizontalBarContainer: {
-		marginTop: -140,
-		marginBottom: 100,
+		// marginTop: -140,
+		// marginBottom: 100,
+
+		marginLeft: 10,
 	},
 	currentStatsContainer: {
 		flexDirection: "row",

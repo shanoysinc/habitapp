@@ -17,10 +17,10 @@ const ProgressChartComponent = ({
 
 	const chartConfig = {
 		backgroundGradientFrom: "#1E2923",
-		backgroundGradientFromOpacity: 0,
+		backgroundGradientFromOpacity: 5,
 		backgroundGradientTo: "#08130D",
-		backgroundGradientToOpacity: 0.5,
-		color: (opacity = 2) => `rgb(179, 157, 219, ${opacity})`,
+		backgroundGradientToOpacity: 8,
+		color: (opacity = 2) => `rgb(48, 79, 254, ${opacity})`,
 		strokeWidth: 3,
 		barPercentage: 0.5,
 	}

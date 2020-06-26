@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
 		fontSize: 11,
 		lineHeight: 0,
 		color: "#424242",
+		// color: "white",
 	},
 	cardTitle: {
 		fontWeight: "bold",
@@ -196,6 +197,8 @@ const styles = StyleSheet.create({
 		fontSize: 13,
 		marginTop: 22,
 		marginLeft: 8,
+		// color: "rgb(88, 113, 252)",
+		color: "white",
 	},
 
 	modalContainer: {

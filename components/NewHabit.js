@@ -115,7 +115,8 @@ const CreatingHabit = ({
 											styles.categoryItem,
 											{
 												borderWidth: 1.9,
-												backgroundColor: "#212121",
+												backgroundColor:
+													"rgb(88, 113, 252)",
 											},
 										]}
 										textStyle={{ fontSize: 20 }}
@@ -149,7 +150,7 @@ const CreatingHabit = ({
 					<View style={styles.colorContainer}>
 						<Title style={styles.title}>Select habit color</Title>
 						<FlatList
-							numColumns={4}
+							numColumns={5}
 							data={colorList}
 							showsHorizontalScrollIndicator={false}
 							keyExtractor={(item) => item.key}
@@ -162,7 +163,8 @@ const CreatingHabit = ({
 											{
 												backgroundColor: item.color,
 												borderWidth: 4,
-												borderColor: "#212121",
+												borderColor:
+													"rgb(88, 113, 252)",
 											},
 										]}
 									></Chip>
@@ -238,15 +240,15 @@ const styles = StyleSheet.create({
 	},
 
 	colorContainer: {
-		marginTop: 40,
+		marginTop: 30,
 		maxHeight: "35%",
 	},
 	colorItem: {
 		marginLeft: 25,
 		marginRight: 10,
 		marginTop: 5,
-		width: 40,
-		height: 40,
+		width: 30,
+		height: 30,
 		borderRadius: 20,
 	},
 	btn: {
@@ -254,7 +256,7 @@ const styles = StyleSheet.create({
 		height: 62,
 		paddingTop: 15,
 		// fontWeight: "bold",
-		backgroundColor: "#212121",
+		backgroundColor: "rgb(88, 113, 252)",
 		color: "white",
 		borderRadius: 10,
 	},
