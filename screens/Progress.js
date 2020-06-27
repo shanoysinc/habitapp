@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 // import LineGraphComponent from "../components/statistics/LineGraphComponent"
 import HorizontalBarGraphComponent from "../components/statistics/HorizontalBarGraphComponent"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
-import { Card, Title, Paragraph } from "react-native-paper"
+import { Card, Title, Paragraph, Surface } from "react-native-paper"
 
 const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 	const [bestHabitName, setBestHabitName] = useState("Living")
@@ -37,7 +37,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={colorBg}>
 				{/* <VerticalBarGraphComponent /> */}
-				<View style={styles.disciplineMainContainer}>
+				<Surface style={styles.disciplineMainContainer}>
 					<Title style={styles.textTitle}>
 						Overall discipline level
 					</Title>
@@ -56,13 +56,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 						strokeWidth={15}
 						radius={80}
 					/>
-				</View>
-
-				<View style={styles.horizontalBarContainer}>
-					<Title style={styles.textTitle}>Most productive day</Title>
-
-					<HorizontalBarGraphComponent data={productiveDay} />
-				</View>
+				</Surface>
 				<View style={styles.besthabitCardContainer}>
 					<Title style={styles.textTitle}>Your best habit</Title>
 					<Card style={styles.besthabitCard}>
@@ -79,6 +73,11 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 						</Card.Content>
 					</Card>
 				</View>
+				<Surface style={styles.horizontalBarContainer}>
+					<Title style={styles.textTitle}>Most productive day</Title>
+					<HorizontalBarGraphComponent data={productiveDay} />
+				</Surface>
+
 				{/* <View style={styles.currentStatsContainer}>
 					<View style={styles.currentStats}>
 						<Title style={styles.currentStatsTitle}>
@@ -114,9 +113,9 @@ const styles = StyleSheet.create({
 		marginTop: 15,
 		marginLeft: 20,
 		marginRight: 20,
-		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: "#EEEEEE",
+		borderRadius: 10,
+		marginBottom: 30,
+		elevation: 2,
 	},
 	disciplineContainer: {
 		position: "absolute",
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
 		width: "85%",
 		elevation: 2,
 		borderRadius: 5,
-		marginBottom: 20,
+		// marginBottom: 20,
 		//  backgroundColor: "#00796B",
 	},
 	besthabitTitle: {
@@ -158,7 +157,8 @@ const styles = StyleSheet.create({
 	},
 	besthabitParagraph: {
 		fontSize: 13,
-		color: "#424242",
+		lineHeight: 0,
+		color: "#757575",
 	},
 	besthabitPercentage: {
 		fontSize: 20,
@@ -168,10 +168,14 @@ const styles = StyleSheet.create({
 		position: "absolute",
 	},
 	horizontalBarContainer: {
-		// marginTop: -140,
-		// marginBottom: 100,
-
-		marginLeft: 10,
+		// margin: 20,
+		marginTop: -30,
+		marginLeft: 20,
+		marginRight: 20,
+		elevation: 2,
+		borderRadius: 5,
+		height: "37%",
+		// marginBottom: 20,
 	},
 	currentStatsContainer: {
 		flexDirection: "row",

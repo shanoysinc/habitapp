@@ -183,8 +183,7 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 		fontSize: 11,
 		lineHeight: 0,
-		color: "#424242",
-		// color: "white",
+		color: "#757575",
 	},
 	cardTitle: {
 		fontWeight: "bold",

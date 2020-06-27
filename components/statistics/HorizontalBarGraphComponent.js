@@ -15,10 +15,10 @@ const HorizontalBarGraphComponent = ({ data }) => {
 				data.Sunday,
 			]}
 			labels={["Sat", "Fri", "Thurs", "Wed", "Tues", "Mon", "Sun"]}
-			width={Dimensions.get("window").width - 50}
-			height={225}
+			width={Dimensions.get("window").width - 70}
+			height={220}
 			barRadius={2}
-			barWidthPercentage={0.5}
+			barWidthPercentage={0.4}
 			barColor="rgb(105, 126, 240)"
 			baseConfig={{
 				hasYAxisBackgroundLines: false,
@@ -26,7 +26,6 @@ const HorizontalBarGraphComponent = ({ data }) => {
 					rotation: 0,
 					fontSize: 13,
 					width: 60,
-
 					yOffset: 4,
 					xOffset: -12,
 				},
@@ -35,12 +34,12 @@ const HorizontalBarGraphComponent = ({ data }) => {
 			style={{
 				// marginLeft: 20,
 				marginRight: 60,
-				// marginBottom: 30,
+				marginTop: -60,
 				padding: 10,
-				borderWidth: 1,
-				borderColor: "#EEEEEE",
-				borderRadius: 5,
-				width: Dimensions.get("window").width - 120,
+				// borderWidth: 1,
+				// borderColor: "#EEEEEE",
+				borderRadius: 10,
+				width: Dimensions.get("window").width - 150,
 				// backgroundColor: `#FAFAFA`,
 			}}
 		/>
