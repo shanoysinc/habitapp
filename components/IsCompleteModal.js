@@ -8,8 +8,7 @@ import { isHabitComplete } from "../actions/isHabitCompleteAction"
 import { increaseDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
 import { increaseProductivity } from "../actions/chartsAction/productiveDayActions"
 
-import moment from "moment"
-
+import { Feather } from "@expo/vector-icons"
 const IsCompleteModal = ({
 	showModal,
 	removeModal,
@@ -58,12 +57,16 @@ const IsCompleteModal = ({
 							</View>
 							<View style={styles.modalButtonContainer}>
 								<Button
-									mode="outlined"
+									mode="contained"
 									style={[styles.modalBtn, styles.breakBtn]}
 									onPress={breakButton}
-									color="#212121"
 								>
-									break
+									<Text style={styles.modalText}>Break</Text>
+									<Feather
+										name="x-square"
+										size={15}
+										color="white"
+									/>
 								</Button>
 								<Button
 									mode="contained"
@@ -73,7 +76,12 @@ const IsCompleteModal = ({
 									]}
 									onPress={completeHabitHandler}
 								>
-									complete
+									<Text style={styles.modalText}>Done</Text>
+									<Feather
+										name="check-square"
+										size={15}
+										color="white"
+									/>
 								</Button>
 							</View>
 						</View>
@@ -90,43 +98,52 @@ const IsCompleteModal = ({
 
 const styles = StyleSheet.create({
 	modalContainer: {
-		marginLeft: 50,
+		marginLeft: 60,
 		marginRight: 50,
-		backgroundColor: "#ECEFF1",
-		height: 160,
-		width: "75%",
+		backgroundColor: "white",
+		height: 120,
+		width: "70%",
 		borderRadius: 10,
 	},
 	modalContent: {
 		margin: 10,
 	},
-	modalHeader: {
-		borderBottomColor: "#F5F5F5",
-		borderBottomWidth: 2,
-	},
+	// modalHeader: {
+	// 	borderBottomColor: "#F5F5F5",
+	// 	borderBottomWidth: 2,
+	// },
 	modalTitle: {
 		textAlign: "center",
 		marginBottom: 20,
 		color: "#616161",
 		lineHeight: 0,
-		fontSize: 18,
+		fontSize: 16,
+		fontWeight: "bold",
+		textTransform: "capitalize",
 	},
 	modalButtonContainer: {
 		flexDirection: "row",
 		justifyContent: "center",
-		marginTop: 10,
+		marginTop: -10,
 	},
 	modalBtn: {
-		height: 50,
-		borderRadius: 10,
-		paddingTop: 5,
-		width: 120,
+		height: 40,
+		borderRadius: 5,
+		width: 95,
 		marginLeft: 10,
 	},
 	completeBtn: {
-		backgroundColor: "#212121",
+		backgroundColor: "rgb(88, 113, 252)",
 	},
-	breakBtn: {},
+	breakBtn: {
+		backgroundColor: "#B0BEC5",
+		color: "white",
+		// paddingRight: 13,
+	},
+	modalText: {
+		fontWeight: "bold",
+		fontSize: 12,
+	},
 })
 
 const mapDispatchToProps = (dispatch) => {

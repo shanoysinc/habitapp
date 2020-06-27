@@ -8,6 +8,7 @@ import {
 	Keyboard,
 	TouchableWithoutFeedback,
 	Alert,
+	Text,
 } from "react-native"
 import { Title, Button, Chip, Paragraph } from "react-native-paper"
 import { connect } from "react-redux"
@@ -16,6 +17,7 @@ import { colorBg } from "../global/global"
 import { selectedColor } from "../actions/selectedColorAction"
 import { selectedCategoryAction } from "../actions/selectedCategoryAction"
 import moment from "moment"
+import { Ionicons } from "@expo/vector-icons"
 
 const CreatingHabit = ({
 	create,
@@ -191,7 +193,12 @@ const CreatingHabit = ({
 							style={styles.btn}
 							onPress={buttonHandler}
 						>
-							create new habit
+							<Text style={styles.btnText}>create</Text>
+							<Ionicons
+								name="ios-create"
+								size={17}
+								color="white"
+							/>
 						</Button>
 					</TouchableOpacity>
 				</View>
@@ -253,12 +260,15 @@ const styles = StyleSheet.create({
 	},
 	btn: {
 		marginTop: 30,
-		height: 62,
-		paddingTop: 15,
-		// fontWeight: "bold",
+		height: 40,
+		marginLeft: "30%",
+		width: "35%",
 		backgroundColor: "rgb(88, 113, 252)",
 		color: "white",
-		borderRadius: 10,
+		borderRadius: 5,
+	},
+	btnText: {
+		fontWeight: "bold",
 	},
 })
 

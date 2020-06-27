@@ -4,6 +4,7 @@ import { Title, Button, Modal, Portal } from "react-native-paper"
 import { undoDisciplinePercentage } from "../../actions/chartsAction/overallDisciplineActiions"
 import { connect } from "react-redux"
 import { decreaseProductivity } from "../../actions/chartsAction/productiveDayActions"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 //import ShowSnackBar from "./SnackBar"
 
 // import { addToBezierChart } from "../actions/chartsAction/bezierChartAction"
@@ -48,19 +49,21 @@ const UndoLog = ({
 						<View style={styles.modalContent}>
 							<View style={styles.modalHeader}>
 								<Title style={styles.modalTitle}>
-									Remove todays log for this habit
+									Remove today's log
 								</Title>
 							</View>
 							<View style={styles.modalButtonContainer}>
 								<Button
 									mode="contained"
-									style={[
-										styles.modalBtn,
-										styles.completeBtn,
-									]}
+									style={[styles.modalBtn, styles.undoBtn]}
 									onPress={undoHabitHandler}
 								>
-									Undo
+									<Text style={styles.modalText}>Undo</Text>
+									<MaterialCommunityIcons
+										name="undo-variant"
+										size={15}
+										color="white"
+									/>
 								</Button>
 							</View>
 						</View>
@@ -77,11 +80,11 @@ const UndoLog = ({
 
 const styles = StyleSheet.create({
 	modalContainer: {
-		marginLeft: 50,
+		marginLeft: 75,
 		marginRight: 50,
-		backgroundColor: "#ECEFF1",
-		height: 130,
-		width: "75%",
+		backgroundColor: "white",
+		height: 100,
+		width: "60%",
 		borderRadius: 10,
 	},
 	modalContent: {
@@ -93,26 +96,34 @@ const styles = StyleSheet.create({
 	},
 	modalTitle: {
 		textAlign: "center",
-		marginTop: 10,
+		marginTop: 5,
 		color: "#616161",
 		lineHeight: 0,
-		fontSize: 18,
-		// paddingTop: 20,
+		fontSize: 16,
+		paddingBottom: 5,
+		fontWeight: "bold",
+		textTransform: "capitalize",
 	},
 	modalButtonContainer: {
 		flexDirection: "row",
 		justifyContent: "center",
-		marginTop: 10,
+		// marginTop: -10,
 	},
 	modalBtn: {
-		height: 50,
-		borderRadius: 10,
+		height: 40,
+		borderRadius: 5,
+		width: 95,
 		paddingTop: 5,
-		width: "80%",
 		marginLeft: 10,
 	},
-	completeBtn: {
-		backgroundColor: "#212121",
+	undoBtn: {
+		backgroundColor: "#B0BEC5",
+		color: "white",
+		paddingTop: 1,
+	},
+	modalText: {
+		paddingTop: 10,
+		fontWeight: "bold",
 	},
 })
 

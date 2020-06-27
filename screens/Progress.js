@@ -58,22 +58,6 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 					/>
 				</View>
 
-				{/* <View style={styles.currentStatsContainer}>
-					<View style={styles.currentStats}>
-						<Title style={styles.currentStatsTitle}>
-							Best Streak
-						</Title>
-						<Title style={styles.currentStatsNum}>5</Title>
-					</View>
-					<View style={styles.currentStats}>
-						<Title style={styles.currentStatsTitle}>
-							Total Habits Complete
-						</Title>
-						<Title style={styles.currentStatsNum}>
-							{perfectDays}
-						</Title>
-					</View>
-				</View> */}
 				<View style={styles.horizontalBarContainer}>
 					<Title style={styles.textTitle}>Most productive day</Title>
 
@@ -95,6 +79,22 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 						</Card.Content>
 					</Card>
 				</View>
+				{/* <View style={styles.currentStatsContainer}>
+					<View style={styles.currentStats}>
+						<Title style={styles.currentStatsTitle}>
+							Best Streak
+						</Title>
+						<Title style={styles.currentStatsNum}>5</Title>
+					</View>
+					<View style={styles.currentStats}>
+						<Title style={styles.currentStatsTitle}>
+							Total Habits Complete
+						</Title>
+						<Title style={styles.currentStatsNum}>
+							{perfectDays}
+						</Title>
+					</View>
+				</View> */}
 			</View>
 		</ScrollView>
 	)
