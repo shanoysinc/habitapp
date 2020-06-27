@@ -1,61 +1,87 @@
 import moment from "moment"
 const date = moment().format("MMM Do YY")
 // const tomorrowDate = moment().add(1, "day").format("MMM Do YY")
+import AsyncStorage from "@react-native-community/async-storage"
 
 const habitList = [
-	{
-		name: "reading",
-		key: "1",
-		category: "Education",
-		bezierChart: [
-			{
-				data: [1, 10, 22, 14, 12, 10],
-			},
-		],
-		disciplinePercentage: 63,
-		typeOfHabit: "habit",
-		color: "rgb(129, 212, 250)",
-		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
-		streak: 0,
-		lastDateOfLOG: "Jun 20th 20",
-	},
-	{
-		name: "exercise",
-		key: "2",
-		category: "Fitness",
-		bezierChart: [
-			{
-				data: [42, 54, 76],
-			},
-		],
-		disciplinePercentage: 76,
-		typeOfHabit: "habit",
-		color: "rgb(0, 204, 205)",
-		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
-		streak: 0,
-		lastDateOfLOG: "Jun 20th 20",
-	},
-	{
-		name: "Learn to code",
-		key: "22",
-		category: "Hobbies",
-		bezierChart: [
-			{
-				data: [42, 82, 91],
-			},
-		],
-		disciplinePercentage: 91,
-		typeOfHabit: "habit",
-		color: "rgb(255, 171, 145)",
-		log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
-		streak: 0,
-		lastDateOfLOG: "Jun 20th 20",
-	},
+	// {
+	// 	name: "reading",
+	// 	key: "1",
+	// 	category: "Education",
+	// 	bezierChart: [
+	// 		{
+	// 			data: [1, 10, 22, 14, 12, 10],
+	// 		},
+	// 	],
+	// 	disciplinePercentage: 63,
+	// 	typeOfHabit: "habit",
+	// 	color: "rgb(129, 212, 250)",
+	// 	log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
+	// 	streak: 0,
+	// 	lastDateOfLOG: "Jun 20th 20",
+	// },
+	// {
+	// 	name: "exercise",
+	// 	key: "2",
+	// 	category: "Fitness",
+	// 	bezierChart: [
+	// 		{
+	// 			data: [42, 54, 76],
+	// 		},
+	// 	],
+	// 	disciplinePercentage: 90,
+	// 	typeOfHabit: "habit",
+	// 	color: "rgb(0, 204, 205)",
+	// 	log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
+	// 	streak: 0,
+	// 	lastDateOfLOG: "Jun 20th 20",
+	// },
+	// {
+	// 	name: "Learn to code",
+	// 	key: "22",
+	// 	category: "Hobbies",
+	// 	bezierChart: [
+	// 		{
+	// 			data: [42, 82, 91],
+	// 		},
+	// 	],
+	// 	disciplinePercentage: 91,
+	// 	typeOfHabit: "habit",
+	// 	color: "rgb(255, 171, 145)",
+	// 	log: { "Jun 20th 20": { complete: false, percentageLog: 0 } },
+	// 	streak: 0,
+	// 	lastDateOfLOG: "Jun 20th 20",
+	// },
 ]
+const storeData = async (state) => {
+	try {
+		const json = JSON.stringify(state)
+		await AsyncStorage.setItem("habitList", json)
+	} catch (err) {
+		console.log(err)
+	}
+}
+// storeData()
 
+// const getData = async () => {
+// 	const list = await AsyncStorage.getItem("habitList")
+// 	console.log("fuck", JSON.parse(list))
+// 	return list != null ? JSON.parse(list) : null
+// }
+// getData()
 const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
+		case "FETCHING_ASYNC_DATA":
+			if (action.data === null) {
+				// console.log("this run")
+				return state
+			} else {
+				console.log("who", action.data)
+				return action.data
+			}
 		case "ADD_TO_HABIT_LIST":
+			// console.log(state)
+			storeData([action.payload, ...state])
 			return [action.payload, ...state]
 		case "DELETE_FROM_HABIT_LIST":
 			return state
@@ -66,6 +92,7 @@ const habitListReducer = (state = habitList, action) => {
 				}
 			})
 			//console.log(state)
+			// storeData(state)
 			return state
 		case "REMOVE_DATA_TO_BEZIER":
 			state.find((habit) => {
@@ -74,6 +101,7 @@ const habitListReducer = (state = habitList, action) => {
 				}
 			})
 			//console.log(state)
+			// storeData(state)
 			return state
 		case "INCREASE_HABIT_PERCENTAGE":
 			state.find((habit) => {
@@ -81,6 +109,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.disciplinePercentage += 4
 				}
 			})
+			storeData(state)
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
 			state.find((habit) => {
@@ -88,7 +117,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.log[date].complete = true
 				}
 			})
-
+			storeData(state)
 			return state
 		case "UNDO_HABIT_LOG":
 			state.find((habit) => {
@@ -97,6 +126,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.log[date].complete = false
 				}
 			})
+			storeData(state)
 			return state
 		case "ADD_CURRENT_DATE_TO_HABITS":
 			state.map((habits) => {
@@ -108,6 +138,7 @@ const habitListReducer = (state = habitList, action) => {
 			})
 
 			// console.log(state)
+			// storeData(state)
 			return state
 		default:
 			return state

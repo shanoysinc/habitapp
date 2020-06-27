@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { StyleSheet, View, Image, FlatList, Text } from "react-native"
 import { Card, Title, Paragraph, Provider } from "react-native-paper"
 import { connect } from "react-redux"
@@ -12,6 +12,7 @@ import { increasePercentage } from "../actions/habitListActions"
 import { undoHabitLog } from "../actions/habitListActions"
 import { currentDateToHabitsAction } from "../actions/habitsAction/CurrentDateToHabitsAction"
 import { updateCurrentDateAction } from "../actions/habitsAction/updateCurrentDateAction"
+import { getHabitListData } from "../actions/habitListActions"
 
 import moment from "moment"
 import UndoLog from "../components/modals/UndoLog"
@@ -26,6 +27,7 @@ const Home = ({
 	currentDateReducer,
 	currentDateToHabitsAction,
 	updateCurrentDateAction,
+	getHabitListData,
 }) => {
 	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
@@ -37,7 +39,12 @@ const Home = ({
 		currentDateToHabitsAction()
 	}
 
+	useEffect(() => {
+		getHabitListData()
+	}, [])
+
 	const habitcompleteHandler = (key) => {
+		// getHabitListData()
 		setCurrentHabitKey(key)
 		habitList.find((habit) => {
 			if (habit.key == key) {
@@ -271,6 +278,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		currentDateToHabitsAction: () => dispatch(currentDateToHabitsAction()),
 		updateCurrentDateAction: () => dispatch(updateCurrentDateAction()),
+		getHabitListData: () => dispatch(getHabitListData()),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

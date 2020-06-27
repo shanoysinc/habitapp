@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
 	},
 	disciplineContainer: {
 		position: "absolute",
-		marginLeft: "43%",
-		marginTop: "24%",
+		marginLeft: "40%",
+		marginTop: "20%",
 	},
 	disciplinePercentage: {
 		fontSize: 32,
