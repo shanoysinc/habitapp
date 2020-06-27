@@ -39,7 +39,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 				{/* <VerticalBarGraphComponent /> */}
 				<Surface style={styles.disciplineMainContainer}>
 					<Title style={styles.textTitle}>
-						Overall discipline level
+						Overall Discipline Level
 					</Title>
 					<View style={styles.disciplineContainer}>
 						<Text style={styles.disciplinePercentage}>
@@ -58,7 +58,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 					/>
 				</Surface>
 				<View style={styles.besthabitCardContainer}>
-					<Title style={styles.textTitle}>Your best habit</Title>
+					<Title style={styles.textTitle}>Your Best Habit</Title>
 					<Card style={styles.besthabitCard}>
 						<Card.Content>
 							<Title style={styles.besthabitTitle}>
@@ -74,7 +74,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 					</Card>
 				</View>
 				<Surface style={styles.horizontalBarContainer}>
-					<Title style={styles.textTitle}>Most productive day</Title>
+					<Title style={styles.textTitle}>Most Productive Day</Title>
 					<HorizontalBarGraphComponent data={productiveDay} />
 				</Surface>
 
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
 		// height: "28%",
 		width: "85%",
 		elevation: 2,
-		borderRadius: 5,
+		borderRadius: 10,
 		// marginBottom: 20,
 		//  backgroundColor: "#00796B",
 	},
@@ -173,8 +173,8 @@ const styles = StyleSheet.create({
 		marginLeft: 20,
 		marginRight: 20,
 		elevation: 2,
-		borderRadius: 5,
-		height: "37%",
+		borderRadius: 10,
+		height: "39%",
 		// marginBottom: 20,
 	},
 	currentStatsContainer: {
