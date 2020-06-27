@@ -1,12 +1,12 @@
 export const habitCategory = [
-	{ name: "hobbies", key: "1", selected: false },
-	{ name: "education", key: "2", selected: false },
-	{ name: "health", key: "3", selected: false },
-	{ name: "money", key: "4", selected: false },
-	{ name: "relationship", key: "5", selected: false },
-	{ name: "others", key: "6", selected: false },
-	{ name: "fitness", key: "7", selected: false },
-	{ name: "well Being", key: "8", selected: false },
+	{ name: "Hobbies", key: "1", selected: false },
+	{ name: "Education", key: "2", selected: false },
+	{ name: "Health", key: "3", selected: false },
+	{ name: "Money", key: "4", selected: false },
+	{ name: "Relationship", key: "5", selected: false },
+	{ name: "Others", key: "6", selected: false },
+	{ name: "Fitness", key: "7", selected: false },
+	{ name: "Well Being", key: "8", selected: false },
 ]
 
 const habitsCategoryList = (state = habitCategory, action) => {

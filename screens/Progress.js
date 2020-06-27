@@ -147,14 +147,14 @@ const styles = StyleSheet.create({
 		marginRight: 5,
 		// height: "28%",
 		width: "85%",
-		elevation: 3,
+		elevation: 2,
 		borderRadius: 5,
 		marginBottom: 20,
 		//  backgroundColor: "#00796B",
 	},
 	besthabitTitle: {
 		fontSize: 20,
-		color: "#424242",
+		color: "rgb(88, 113, 252)",
 	},
 	besthabitParagraph: {
 		fontSize: 13,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		left: 210,
 		bottom: 33,
-		color: "#424242",
+		color: "rgb(88, 113, 252)",
 		position: "absolute",
 	},
 	horizontalBarContainer: {

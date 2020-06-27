@@ -6,7 +6,7 @@ const habitList = [
 	{
 		name: "reading",
 		key: "1",
-		category: "education",
+		category: "Education",
 		bezierChart: [
 			{
 				data: [1, 10, 22, 14, 12, 10],
@@ -22,7 +22,7 @@ const habitList = [
 	{
 		name: "exercise",
 		key: "2",
-		category: "fitness",
+		category: "Fitness",
 		bezierChart: [
 			{
 				data: [42, 54, 76],
@@ -38,7 +38,7 @@ const habitList = [
 	{
 		name: "Learn to code",
 		key: "22",
-		category: "hobbies",
+		category: "Hobbies",
 		bezierChart: [
 			{
 				data: [42, 82, 91],

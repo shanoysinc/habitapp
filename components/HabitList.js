@@ -116,8 +116,8 @@ const Home = ({
 													position: "absolute",
 													zIndex: 10,
 												}}
-												strokeWidth={4}
-												radius={26}
+												strokeWidth={6}
+												radius={24}
 											/>
 											<Title
 												style={styles.cardPercentage}
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 		margin: 10,
 		height: 135,
 		width: 150,
-		elevation: 3,
+		elevation: 2,
 		position: "relative",
 	},
 	textCenter: {

@@ -47,37 +47,44 @@ const CreatingHabit = ({
 	const buttonHandler = () => {
 		const date = moment().format("MMM Do YY")
 
-		if (input != "" && selectedColor != "" && selectedCategory != "") {
-			setuuid(uuid + 1)
-			let log = {}
-			log[date] = {}
-			log[date].complete = false
-			log[date].percentageLog = 0
+		if (input.length <= 14) {
+			if (input != "" && selectedColor != "" && selectedCategory != "") {
+				setuuid(uuid + 1)
+				let log = {}
+				log[date] = {}
+				log[date].complete = false
+				log[date].percentageLog = 0
 
-			create(
-				createHabit({
-					name: input,
-					category: selectedCategory,
-					color: selectedColor,
-					key: uuid,
-					disciplinePercentage: 0,
-					bezierChart: [
-						{
-							data: [],
-						},
-					],
-					log,
-					streak: 0,
-					lastDateOfLOG: date,
-				})
-			)
-			inputRef.current.clear()
-			setInput("")
-			navigation.jumpTo("Home")
+				create(
+					createHabit({
+						name: input,
+						category: selectedCategory,
+						color: selectedColor,
+						key: uuid,
+						disciplinePercentage: 0,
+						bezierChart: [
+							{
+								data: [],
+							},
+						],
+						log,
+						streak: 0,
+						lastDateOfLOG: date,
+					})
+				)
+				inputRef.current.clear()
+				setInput("")
+				navigation.jumpTo("Home")
+			} else {
+				Alert.alert(
+					"Message",
+					"Habit name, category and colors must not be empty good luck on your journey"
+				)
+			}
 		} else {
 			Alert.alert(
 				"Message",
-				"Habit name, category and colors must not be empty good luck on your journey"
+				"Habit name must be less than 15 characters long"
 			)
 		}
 	}
