@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
 		marginRight: 5,
 		// height: "28%",
 		width: "85%",
-		// elevation: 3,
+		elevation: 3,
 		borderRadius: 5,
 		marginBottom: 20,
 		//  backgroundColor: "#00796B",
