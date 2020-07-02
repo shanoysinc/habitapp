@@ -34,13 +34,13 @@ const Home = ({
 	const [currentHabitKey, setCurrentHabitKey] = useState("")
 	const [undoVisible, setUndoVisible] = useState(false)
 
-	if (currentDateReducer != date) {
-		updateCurrentDateAction()
-		currentDateToHabitsAction()
-	}
-
 	useEffect(() => {
 		getHabitListData()
+		if (currentDateReducer != date) {
+			updateCurrentDateAction()
+			currentDateToHabitsAction()
+		}
+		//console.log(habitList)
 	}, [])
 
 	const habitcompleteHandler = (key) => {
@@ -50,8 +50,10 @@ const Home = ({
 			if (habit.key == key) {
 				if (habit.log[date].complete) {
 					setUndoVisible(true)
+					setVisible(false)
 				} else {
 					setVisible(true)
+					setUndoVisible(false)
 				}
 			}
 		})
@@ -190,7 +192,7 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 		fontSize: 11,
 		lineHeight: 0,
-		color: "#757575",
+		color: "#37474F",
 	},
 	cardTitle: {
 		fontWeight: "bold",

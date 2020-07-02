@@ -17,7 +17,7 @@ export const undoHabitLog = (key) => {
 export const getHabitListData = () => {
 	return async (dispatch) => {
 		const list = await AsyncStorage.getItem("habitList")
-		console.log("thisdata", JSON.parse(list))
+		// console.log("thisdata", JSON.parse(list))
 		return dispatch({
 			type: "FETCHING_ASYNC_DATA",
 			data: JSON.parse(list),

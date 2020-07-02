@@ -9,8 +9,14 @@ import { connect } from "react-redux"
 import HorizontalBarGraphComponent from "../components/statistics/HorizontalBarGraphComponent"
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph, Surface } from "react-native-paper"
-
-const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
+import { getDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
+// import { getProductiveDay } from "../actions/chartsAction/productiveDayActions"
+const Progress = ({
+	habitList,
+	disciplinePercentage,
+	getDisciplinePercentage,
+	// getProductiveDay,
+}) => {
 	const [bestHabitName, setBestHabitName] = useState("Living")
 	const [bestHabitCat, setBestHabitCat] = useState("well being")
 	const [bestHabitPercen, setBestHabitPercen] = useState(0)
@@ -21,7 +27,8 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 		// let fetchDate = moment(date, "MMM Do YY")
 		// 	.add(1, "days")
 		// 	.format("MMM Do YY")
-
+		getDisciplinePercentage()
+		// getProductiveDay()
 		habitList.forEach((habit) => {
 			if (habit.disciplinePercentage + habit.streak >= bestHabitPercen) {
 				setBestHabitName(habit.name)
@@ -31,7 +38,11 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 		})
 	}, [])
 
-	useEffect(() => {}, [productiveDay])
+	// useEffect(() => {}, [productiveDay])
+
+	// useEffect(() => {
+	// 	getProductiveDay()
+	// }, [])
 
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
@@ -75,7 +86,7 @@ const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 				</View>
 				<Surface style={styles.horizontalBarContainer}>
 					<Title style={styles.textTitle}>Most Productive Day</Title>
-					<HorizontalBarGraphComponent data={productiveDay} />
+					<HorizontalBarGraphComponent />
 				</Surface>
 
 				{/* <View style={styles.currentStatsContainer}>
@@ -203,7 +214,14 @@ const mapStateToProps = (state) => {
 		habitList: state.habitListReducer,
 		refreshChart: state.progressRefreshReducer,
 		disciplinePercentage: state.statisticsReducer,
-		productiveDay: state.productiveDayReducer,
 	}
 }
-export default connect(mapStateToProps, null)(Progress)
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getDisciplinePercentage: () => dispatch(getDisciplinePercentage()),
+		// getProductiveDay: () => dispatch(getProductiveDay()),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Progress)

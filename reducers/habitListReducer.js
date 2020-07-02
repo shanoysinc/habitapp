@@ -55,7 +55,7 @@ const habitList = [
 ]
 const storeData = async (state) => {
 	try {
-		const json = JSON.stringify(state)
+		let json = JSON.stringify(state)
 		await AsyncStorage.setItem("habitList", json)
 	} catch (err) {
 		console.log(err)
@@ -64,7 +64,7 @@ const storeData = async (state) => {
 // storeData()
 
 // const getData = async () => {
-// 	const list = await AsyncStorage.getItem("habitList")
+// 	const list = await AsyncStorage.getItem("productiveDay")
 // 	console.log("fuck", JSON.parse(list))
 // 	return list != null ? JSON.parse(list) : null
 // }
@@ -73,10 +73,9 @@ const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
 		case "FETCHING_ASYNC_DATA":
 			if (action.data === null) {
-				// console.log("this run")
 				return state
 			} else {
-				console.log("who", action.data)
+				///console.log("who", action.data)
 				return action.data
 			}
 		case "ADD_TO_HABIT_LIST":
@@ -129,7 +128,7 @@ const habitListReducer = (state = habitList, action) => {
 			storeData(state)
 			return state
 		case "ADD_CURRENT_DATE_TO_HABITS":
-			state.map((habits) => {
+			state.find((habits) => {
 				if (!habits.log[date]) {
 					habits.log[date] = {}
 					habits.log[date].complete = false
@@ -138,7 +137,7 @@ const habitListReducer = (state = habitList, action) => {
 			})
 
 			// console.log(state)
-			// storeData(state)
+			//storeData(state)
 			return state
 		default:
 			return state
