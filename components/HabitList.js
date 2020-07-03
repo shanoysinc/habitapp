@@ -12,7 +12,6 @@ import { increasePercentage } from "../actions/habitListActions"
 import { undoHabitLog } from "../actions/habitListActions"
 import { currentDateToHabitsAction } from "../actions/habitsAction/CurrentDateToHabitsAction"
 import { updateCurrentDateAction } from "../actions/habitsAction/updateCurrentDateAction"
-import { getHabitListData } from "../actions/habitListActions"
 
 import moment from "moment"
 import UndoLog from "../components/modals/UndoLog"
@@ -27,7 +26,6 @@ const Home = ({
 	currentDateReducer,
 	currentDateToHabitsAction,
 	updateCurrentDateAction,
-	getHabitListData,
 }) => {
 	const date = moment().format("MMM Do YY")
 	const [visible, setVisible] = useState(false)
@@ -35,16 +33,15 @@ const Home = ({
 	const [undoVisible, setUndoVisible] = useState(false)
 
 	useEffect(() => {
-		getHabitListData()
 		if (currentDateReducer != date) {
 			updateCurrentDateAction()
 			currentDateToHabitsAction()
 		}
-		//console.log(habitList)
+
+		console.log(habitList)
 	}, [])
 
 	const habitcompleteHandler = (key) => {
-		// getHabitListData()
 		setCurrentHabitKey(key)
 		habitList.find((habit) => {
 			if (habit.key == key) {
@@ -190,13 +187,14 @@ const styles = StyleSheet.create({
 	},
 	textCenter: {
 		textAlign: "center",
-		fontSize: 11,
+		fontSize: 9,
+		fontWeight: "bold",
 		lineHeight: 0,
-		color: "#37474F",
+		color: "#424242",
 	},
 	cardTitle: {
 		fontWeight: "bold",
-		fontSize: 15,
+		fontSize: 16,
 		color: "#424242",
 		textTransform: "capitalize",
 	},
@@ -280,7 +278,6 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		currentDateToHabitsAction: () => dispatch(currentDateToHabitsAction()),
 		updateCurrentDateAction: () => dispatch(updateCurrentDateAction()),
-		getHabitListData: () => dispatch(getHabitListData()),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

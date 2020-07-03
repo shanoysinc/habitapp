@@ -11,12 +11,15 @@ const BottomTab = () => {
 	return (
 		<Tab.Navigator
 			initialRouteName="Home"
-			activeColor="black"
+			activeColor="rgb(105, 126, 240)"
+			inactiveColor="#BDBDBD"
 			labeled={false}
 			shifting={true}
 			barStyle={{
 				backgroundColor: "#fff",
 				elevation: 0,
+				borderColor: "#F5F5F5",
+				borderTopWidth: 1,
 			}}
 			shifting={true}
 			tabBarAccessibilityLabel={true}

@@ -1,17 +1,30 @@
 import React, { useEffect } from "react"
 import { StyleSheet, View, Text, Dimensions } from "react-native"
 import HorizontalBarGraph from "@chartiful/react-native-horizontal-bar-graph"
-import { connect } from "react-redux"
-import { getProductiveDay } from "../../actions/chartsAction/productiveDayActions"
+// import { connect } from "react-redux"
+// import { getProductiveDay } from "../../actions/chartsAction/productiveDayActions"
 
 const HorizontalBarGraphComponent = (props) => {
-	useEffect(() => {
-		props.getProductiveDay()
-	}, [])
-
+	const {
+		Friday,
+		Sunday,
+		Monday,
+		Tuesday,
+		Wednesday,
+		Thursday,
+		Saturday,
+	} = props
 	return (
 		<HorizontalBarGraph
-			data={[2, 3, 1, 2, 1, 2, 3]}
+			data={[
+				Saturday,
+				Friday,
+				Thursday,
+				Wednesday,
+				Tuesday,
+				Monday,
+				Sunday,
+			]}
 			labels={["Sat", "Fri", "Thurs", "Wed", "Tues", "Mon", "Sun"]}
 			width={Dimensions.get("window").width - 70}
 			height={220}
@@ -44,19 +57,17 @@ const HorizontalBarGraphComponent = (props) => {
 	)
 }
 
-const mapStateToProps = (state) => {
-	return {
-		productiveDay: state.productiveDayReducer,
-	}
-}
+// const mapStateToProps = (state) => {
+// 	return {
+// 		productiveDay: state.productiveDayReducer,
+// 	}
+// }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getProductiveDay: () => dispatch(getProductiveDay()),
-	}
-}
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		getProductiveDay: () => dispatch(getProductiveDay()),
+// 	}
+// }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(HorizontalBarGraphComponent)
+// export default connect(null, mapDispatchToProps)(HorizontalBarGraphComponent)
+export default HorizontalBarGraphComponent

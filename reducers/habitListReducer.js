@@ -53,22 +53,7 @@ const habitList = [
 	// 	lastDateOfLOG: "Jun 20th 20",
 	// },
 ]
-const storeData = async (state) => {
-	try {
-		let json = JSON.stringify(state)
-		await AsyncStorage.setItem("habitList", json)
-	} catch (err) {
-		console.log(err)
-	}
-}
-// storeData()
 
-// const getData = async () => {
-// 	const list = await AsyncStorage.getItem("productiveDay")
-// 	console.log("fuck", JSON.parse(list))
-// 	return list != null ? JSON.parse(list) : null
-// }
-// getData()
 const habitListReducer = (state = habitList, action) => {
 	switch (action.type) {
 		case "FETCHING_ASYNC_DATA":
@@ -79,8 +64,6 @@ const habitListReducer = (state = habitList, action) => {
 				return action.data
 			}
 		case "ADD_TO_HABIT_LIST":
-			// console.log(state)
-			storeData([action.payload, ...state])
 			return [action.payload, ...state]
 		case "DELETE_FROM_HABIT_LIST":
 			return state
@@ -90,8 +73,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.bezierChart[0].data.push(habit.disciplinePercentage)
 				}
 			})
-			//console.log(state)
-			// storeData(state)
+
 			return state
 		case "REMOVE_DATA_TO_BEZIER":
 			state.find((habit) => {
@@ -99,8 +81,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.bezierChart[0].data.pop()
 				}
 			})
-			//console.log(state)
-			// storeData(state)
+
 			return state
 		case "INCREASE_HABIT_PERCENTAGE":
 			state.find((habit) => {
@@ -108,7 +89,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.disciplinePercentage += 4
 				}
 			})
-			storeData(state)
+
 			return state
 		case "LOG_HABIT_FOR_THE_DAY":
 			state.find((habit) => {
@@ -116,7 +97,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.log[date].complete = true
 				}
 			})
-			storeData(state)
+
 			return state
 		case "UNDO_HABIT_LOG":
 			state.find((habit) => {
@@ -125,7 +106,7 @@ const habitListReducer = (state = habitList, action) => {
 					habit.log[date].complete = false
 				}
 			})
-			storeData(state)
+
 			return state
 		case "ADD_CURRENT_DATE_TO_HABITS":
 			state.find((habits) => {
@@ -136,8 +117,6 @@ const habitListReducer = (state = habitList, action) => {
 				}
 			})
 
-			// console.log(state)
-			//storeData(state)
 			return state
 		default:
 			return state

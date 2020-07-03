@@ -12,15 +12,21 @@ const TopTab = () => {
 		<Tab.Navigator
 			tabBarOptions={{
 				labelStyle: {
-					fontSize: 15,
-					marginTop: 30,
+					fontSize: 16,
+					marginTop: 40,
 					fontWeight: "bold",
 
 					textTransform: "capitalize",
 				},
-				tabStyle: { height: 70 },
-				// style: { backgroundColor: "#7b2bed" },
-				indicatorStyle: { backgroundColor: "#fff", height: 4 },
+				tabStyle: { height: 85 },
+				// style: { backgroundColor: "rgb(105, 126, 240)" }, // blue top bar
+
+				indicatorStyle: {
+					backgroundColor: "black",
+					height: 1,
+					width: 40,
+					marginLeft: "15%",
+				},
 			}}
 		>
 			<Tab.Screen name="Home" component={Home} />

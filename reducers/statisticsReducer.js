@@ -21,19 +21,19 @@ const statisticsReducer = (state = 50, action) => {
 			if (state < 100) {
 				state += 2
 			}
-			statsData(state)
+			// statsData(state)
 			return state
 		case "DECREASE_OVERALL_DISCIPLINE_LEVELS":
 			if (state < 100) {
 				state += 1
 			}
-			statsData(state)
+			// statsData(state)
 			return state
 		case "UNDO_OVERALL_DISCIPLINE_LEVELS":
 			if (state > 20) {
 				state -= 2
 			}
-			statsData(state)
+			// statsData(state)
 			return state
 		default:
 			return state

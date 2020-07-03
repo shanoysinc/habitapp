@@ -10,13 +10,8 @@ import HorizontalBarGraphComponent from "../components/statistics/HorizontalBarG
 import ProgressChartComponent from "../components/statistics/ProgressChart"
 import { Card, Title, Paragraph, Surface } from "react-native-paper"
 import { getDisciplinePercentage } from "../actions/chartsAction/overallDisciplineActiions"
-// import { getProductiveDay } from "../actions/chartsAction/productiveDayActions"
-const Progress = ({
-	habitList,
-	disciplinePercentage,
-	getDisciplinePercentage,
-	// getProductiveDay,
-}) => {
+import { getProductiveDay } from "../actions/chartsAction/productiveDayActions"
+const Progress = ({ habitList, disciplinePercentage, productiveDay }) => {
 	const [bestHabitName, setBestHabitName] = useState("Living")
 	const [bestHabitCat, setBestHabitCat] = useState("well being")
 	const [bestHabitPercen, setBestHabitPercen] = useState(0)
@@ -27,7 +22,7 @@ const Progress = ({
 		// let fetchDate = moment(date, "MMM Do YY")
 		// 	.add(1, "days")
 		// 	.format("MMM Do YY")
-		getDisciplinePercentage()
+		// getDisciplinePercentage()
 		// getProductiveDay()
 		habitList.forEach((habit) => {
 			if (habit.disciplinePercentage + habit.streak >= bestHabitPercen) {
@@ -37,12 +32,6 @@ const Progress = ({
 			}
 		})
 	}, [])
-
-	// useEffect(() => {}, [productiveDay])
-
-	// useEffect(() => {
-	// 	getProductiveDay()
-	// }, [])
 
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
@@ -86,7 +75,7 @@ const Progress = ({
 				</View>
 				<Surface style={styles.horizontalBarContainer}>
 					<Title style={styles.textTitle}>Most Productive Day</Title>
-					<HorizontalBarGraphComponent />
+					<HorizontalBarGraphComponent {...productiveDay} />
 				</Surface>
 
 				{/* <View style={styles.currentStatsContainer}>
@@ -214,14 +203,8 @@ const mapStateToProps = (state) => {
 		habitList: state.habitListReducer,
 		refreshChart: state.progressRefreshReducer,
 		disciplinePercentage: state.statisticsReducer,
+		productiveDay: state.productiveDayReducer,
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		getDisciplinePercentage: () => dispatch(getDisciplinePercentage()),
-		// getProductiveDay: () => dispatch(getProductiveDay()),
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Progress)
+export default connect(mapStateToProps, null)(Progress)

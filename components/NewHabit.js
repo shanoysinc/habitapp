@@ -18,6 +18,7 @@ import { selectedColor } from "../actions/selectedColorAction"
 import { selectedCategoryAction } from "../actions/selectedCategoryAction"
 import moment from "moment"
 import { Ionicons } from "@expo/vector-icons"
+// import uuid from "react-native-uuid"
 
 const CreatingHabit = ({
 	create,
@@ -31,7 +32,6 @@ const CreatingHabit = ({
 	const [input, setInput] = useState("")
 	const [selectedCategory, setSelectedCategory] = useState("")
 	const [selectedColor, setSelectedColor] = useState("")
-	const [uuid, setuuid] = useState("0")
 	const [refresh, setRefresh] = useState(false)
 
 	const inputHandler = (value) => {
@@ -49,7 +49,6 @@ const CreatingHabit = ({
 
 		if (input.length <= 14) {
 			if (input != "" && selectedColor != "" && selectedCategory != "") {
-				setuuid(uuid + 1)
 				let log = {}
 				log[date] = {}
 				log[date].complete = false
@@ -60,7 +59,7 @@ const CreatingHabit = ({
 						name: input,
 						category: selectedCategory,
 						color: selectedColor,
-						key: uuid,
+						key: `${Math.random()}`,
 						disciplinePercentage: 0,
 						bezierChart: [
 							{

@@ -16,9 +16,9 @@ export const getProductiveDay = () => {
 	return async (dispatch) => {
 		const data = await AsyncStorage.getItem("productiveDay")
 		const parse = JSON.parse(data)
-		console.log("parse", parse)
+		//console.log("parse", parse)
 		return dispatch({
-			type: "FETCH_OVERALL_DISCIPLINE_LEVELS",
+			type: "FETCH_PRODUCTIVE_DAY",
 			data: parse,
 		})
 	}
